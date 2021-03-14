@@ -1,0 +1,173 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+header {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transition: 1s;
+}
+.header__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+.header__content__logo {
+    position: relative;
+    display: flex;
+    margin-top: 19px;
+    text-decoration: none;
+}
+.header__content__logo img{
+    width: 70px;
+    height: 60px;
+}
+h1 {
+    margin: 0 0 0 15px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #F7F7F7;
+}
+.header__nav  {
+    position: relative;
+    display: block;
+    padding-top: 4px;
+   
+}
+
+.header__nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.header__nav__link {
+    text-decoration: none;
+    margin-right: 63px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 60px;
+    color: #F7F7F7;
+}
+.header__nav__link:hover {
+    text-decoration: underline;
+}
+
+.header__nav__search{
+    position: relative;
+    text-decoration: none;
+    display: block;
+    margin-right: 61px;
+
+}
+.header__nav__search:hover path{
+    fill: #E39128;
+}
+.header__nav__search:active path{
+    fill: #8F5613;
+}
+
+.header__nav__sign:hover {
+    background-color: #CD6326;
+}
+.header__nav__sign:active {
+    background-color: #8F5613;
+    border-color: #8F5613;
+}
+
+.header__nav__sign {
+    padding: 0px 23px 0px ;
+    border: 2px solid #CD6326;
+    box-sizing: border-box;
+    border-radius: 5px; 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #F7F7F7;
+    text-decoration: none;
+}
+
+.survival {
+    position: relative;
+    display: block;
+    height: 780px;
+    background-color: #02160b;
+    background-image: url('/assets/images/survival_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 1000px;
+}
+
+.survival__content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 199px 0 0 0;
+
+}
+
+.survival__content__title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 72px;
+    letter-spacing: 2px;
+    color: #CD6326;
+}
+.survival__content__text {
+    width: 274px;
+    padding-top: 51px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: #F7F7F7;
+}
+.survival__content__button {
+    position: relative;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    margin-top: 49px;
+    background: #CD6326;
+    border-radius: 5px;
+    padding: 16px 42px 17px;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 27px;
+    text-align: center;
+    color: #F7F7F7;
+}
+.survival__content__button:hover {
+    background-color: #E39128;
+   
+}
+.survival__content__button:active {
+    background-color: #8F5613;
+   
+}
+
+.fixed {
+    background-color: rgba(2, 22, 11, 0.2);
+}
