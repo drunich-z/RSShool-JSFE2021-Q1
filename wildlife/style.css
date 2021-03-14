@@ -296,6 +296,60 @@ h1 {
     padding-top: 10px;
 }
 
+.notify {
+    position: relative;
+    display: block;
+    padding: 119px 0;
+    background-color: #CCCCCC;
+}
+
+.notify__content {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
+.notify__content__title {
+    text-align: center;
+}
+
+.notify__content__title p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 27px;
+    line-height: 40px;
+    text-align: center;
+    color: #333333;
+    margin: 0;
+}
+
+.notify__content__input{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 27px;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.notify__content__input__email{
+    width: 510px;
+    height: 60px;
+}
+.notify__content__input__submit{
+    width: 120px;
+    height: 60px;
+    background: #CD6326;
+    border: 1px solid #CD6326;
+    border-radius: 0px 5px 5px 0px;
+}
+
 .fixed {
     background-color: rgba(2, 22, 11, 0.2);
 }
