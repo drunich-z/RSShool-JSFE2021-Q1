@@ -38,6 +38,7 @@ h1 {
     font-size: 32px;
     line-height: 60px;
     text-transform: uppercase;
+    letter-spacing: 0px;
     color: #F7F7F7;
 }
 .header__nav  {
@@ -62,7 +63,8 @@ h1 {
     color: #F7F7F7;
 }
 .header__nav__link:hover {
-    text-decoration: underline;
+    color: #E39128;
+    transition: 0.5s;
 }
 
 .header__nav__search{
@@ -74,9 +76,11 @@ h1 {
 }
 .header__nav__search:hover path{
     fill: #E39128;
+    transition: 0.5s;
 }
 .header__nav__search:active path{
     fill: #8F5613;
+    transition: 0.5s;
 }
 
 .header__nav__sign:hover {
@@ -228,6 +232,7 @@ h1 {
 
 .latest__content__slider__prev:hover path {
     fill: #CD6326;
+    transition: 0.5s;
 }
 
 .latest__content__slider__next {
@@ -243,6 +248,7 @@ h1 {
 
 .latest__content__slider__next:hover path {
     fill: #CD6326;
+    transition: 0.5s;
 }
 
 
@@ -260,7 +266,14 @@ h1 {
     display: block;
     width: 300px;
     height: 360px;
+    
 }
+
+.latest__content__slider__block__item:hover {
+    top: -3px;
+   
+}
+
 .latest__content__slider__block__item img{
     width: 100%;
     max-width: 100%;
@@ -299,7 +312,7 @@ h1 {
 .notify {
     position: relative;
     display: block;
-    padding: 119px 0;
+    padding: 119px 0 240px 0;
     background-color: #CCCCCC;
 }
 
@@ -325,29 +338,127 @@ h1 {
     margin: 0;
 }
 
-.notify__content__input{
+.notify__content__form{
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.notify__content__form__input{
+    width: 509px;
+    height: 58px;
+    padding: 0 15px;
+    border-top: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+    border-left: 1px solid #666666;
+    border-right: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 58px;
+    color: #666666;
+
+}
+.notify__content__form__submit{
+    width: 120px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    background: #CD6326;
+    border: 1px solid #CD6326;
+    border-radius: 0px 5px 5px 0px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 23px;
     line-height: 27px;
-    align-items: center;
-    padding-top: 60px;
+    
+    
+    text-align: center;
+    color: #F7F7F7;
 }
 
-.notify__content__input__email{
-    width: 510px;
+footer {
+    position: relative;
+    display: block;
+    height: 360px;
+    background-color: #02160b;
+    background-image: url('/assets/images/footer_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.footer__content{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer__content__logo {
+    position: relative;
+    display: flex;
+    text-decoration: none;
+}
+.footer__content__logo img{
+    width: 70px;
     height: 60px;
 }
-.notify__content__input__submit{
-    width: 120px;
-    height: 60px;
-    background: #CD6326;
-    border: 1px solid #CD6326;
-    border-radius: 0px 5px 5px 0px;
+
+.footer__content__logo p{
+    margin: 0 0 0 15px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #F7F7F7;
+}
+
+.footer__content__menu  {
+    position: relative;
+    display: block;
+}
+
+.footer__content__menu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.footer__content__menu__link {
+    text-decoration: none;
+    margin-right: 63px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 60px;
+    color: #F7F7F7;
+}
+
+.footer__content__social_menu  {
+    position: relative;
+    display: block;
+}
+
+.footer__content__social_menu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.footer__content__social_menu__link {
+    text-decoration: none;
+    margin-right: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 60px;
+    color: #F7F7F7;
 }
 
 .fixed {
