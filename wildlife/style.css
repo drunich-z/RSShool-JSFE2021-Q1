@@ -8,9 +8,16 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    /*background-color: #02160b;*/
     z-index: 1;
     transition: 1s;
 }
+/*бэкграунд колор чз RGBA и скрпит (прозрачность), чтобы макету соответствовало*/
+/*см. script.js*/
+.fixed {
+    background-color: rgba(2, 22, 11, 0.2);
+}
+
 .header__content {
     position: relative;
     display: flex;
@@ -83,14 +90,6 @@ h1 {
     transition: 0.5s;
 }
 
-.header__nav__sign:hover {
-    background-color: #CD6326;
-}
-.header__nav__sign:active {
-    background-color: #8F5613;
-    border-color: #8F5613;
-}
-
 .header__nav__sign {
     padding: 0px 23px 0px ;
     border: 2px solid #CD6326;
@@ -106,7 +105,17 @@ h1 {
     text-align: center;
     color: #F7F7F7;
     text-decoration: none;
+    transition: 0.5;
 }
+
+.header__nav__sign:hover {
+    background-color: #CD6326;
+}
+.header__nav__sign:active {
+    background-color: #8F5613;
+    border-color: #8F5613;
+}
+
 
 .survival {
     position: relative;
@@ -375,17 +384,28 @@ h1 {
     font-weight: normal;
     font-size: 23px;
     line-height: 27px;
-    
-    
     text-align: center;
     color: #F7F7F7;
+    transition: 0.3s;
+}
+
+.notify__content__form__submit:hover{
+    cursor: pointer;
+    background-color: #E39128;
+    
+}
+
+.notify__content__form__submit:active {
+    cursor: pointer;
+    background-color: #8F5613;
+   
 }
 
 footer {
     position: relative;
     display: block;
     height: 360px;
-    background-color: #02160b;
+    background-color: #181617;
     background-image: url('/assets/images/footer_bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -394,10 +414,12 @@ footer {
 .footer__content{
     position: relative;
     display: flex;
+    align-items: center ;
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding-top: 134px;
 }
 
 .footer__content__logo {
@@ -428,18 +450,26 @@ footer {
 
 .footer__content__menu ul {
     display: flex;
-    align-items: center;
+    align-items:center;
+    margin-right: 50px;
     list-style: none;
 }
 .footer__content__menu__link {
     text-decoration: none;
-    margin-right: 63px;
+    padding-left: 85px;
+    font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
     font-size: 23px;
     line-height: 60px;
     color: #F7F7F7;
+ }
+
+ .footer__content__menu__link:hover {
+    color: #E39128;
+    transition: 0.5s;
 }
+
 
 .footer__content__social_menu  {
     position: relative;
@@ -451,22 +481,57 @@ footer {
     align-items: center;
     list-style: none;
 }
-.footer__content__social_menu__link {
-    text-decoration: none;
-    margin-right: 5px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 23px;
-    line-height: 60px;
-    color: #F7F7F7;
+
+.footer__content__social_menu__link1{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 27px;
+    background-image: url('/assets/images/1_facebook.svg');
+}
+.footer__content__social_menu__link1:hover{
+    background-image: url('/assets/images/12_facebook.svg');
+    transition: 0.5s;
 }
 
-.fixed {
-    background-color: rgba(2, 22, 11, 0.2);
+.footer__content__social_menu__link2{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 27px;
+    background-image: url('/assets/images/2_instagram.svg');
+}
+.footer__content__social_menu__link2:hover{
+    background-image: url('/assets/images/22_instagram.svg');
+    transition: 0.5s;
+}
+
+.footer__content__social_menu__link3{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 27px;
+    background-image: url('/assets/images/3_smth.svg');
+}
+.footer__content__social_menu__link3:hover{
+    background-image: url('/assets/images/32_smth.svg');
+    transition: 0.5s;
+}
+
+.footer__content__social_menu__link4{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 27px;
+    background-image: url('/assets/images/4_telegram.svg');
+}
+.footer__content__social_menu__link4:hover{
+    background-image: url('/assets/images/42_telegram.svg');
+    transition: 0.5s;
 }
 
 
-
+/*для последующей адаптации*/
 @media(max-width: 768px) {
     .header__content {
         padding: 0 15px;
