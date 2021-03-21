@@ -61,3 +61,27 @@ bodyPage.addEventListener("mouseup", stopCorrespondOver);
 
 btnNotes.addEventListener("click", changePianoView, false);
 btnLetters.addEventListener("click", changePianoView, false);
+
+const startPlayKey = (event) => {
+  if (event.repeat) return;
+  if (
+    (pressedKey = piano.querySelector(
+      `.piano-key[data-letter=${event.key.toUpperCase()}]`
+    ))
+  ) {
+    playAudio(`./assets/audio/${pressedKey.dataset.note}.mp3`);
+    pressedKey.classList.add("piano-key-active");
+  }
+};
+const stopPlayKey = (event) => {
+  if (
+    (pressedKey = piano.querySelector(
+      `.piano-key[data-letter=${event.key.toUpperCase()}]`
+    ))
+  ) {
+    pressedKey.classList.remove("piano-key-active");
+  }
+};
+
+window.addEventListener("keydown", startPlayKey);
+window.addEventListener("keyup", stopPlayKey);
