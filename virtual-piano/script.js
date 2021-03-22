@@ -100,16 +100,6 @@ const stopPlayKey = (event) => {
 
 window.addEventListener("keydown", startPlayKey);
 window.addEventListener("keyup", stopPlayKey);
-/*
-const changeFullScreenMode = ()
-
-keyFullScreen.addEventListener("click", changeFullScreenMode);
-/*document
-  .querySelector(".openfullscreen")
-  .addEventListener("click", toggleScreen);*/
-
-// Открытие приложения в fullscreen
-//const fullscreenBtn = document.querySelector(".openfullscreen");
 
 function activateFullscreen(element) {
   if (element.requestFullscreen) {
