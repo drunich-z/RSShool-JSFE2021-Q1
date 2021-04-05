@@ -309,3 +309,149 @@
   top: 162px;
   right: 8.6%;
 }
+
+.pets-in-zoo {
+  /* min-height: 1037px;*/
+  position: relative;
+}
+.pets-in-zoo-wrapper {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+.pets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 72px;
+}
+.pets-title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #0d444d;
+  font-family: "Rubik";
+}
+.pets-favorite {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Mono", monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #19707d;
+  text-decoration: none;
+  box-sizing: border-box;
+  border-radius: 100px;
+  border: 1.5px solid #19707d;
+  padding: 14px 20px 14px 20px;
+}
+.heart-favorite {
+  padding-right: 16px;
+}
+.pets-wrapper {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+.pets-wrapper:after {
+  content: url(../../assets/icons/arrow.svg);
+  display: block;
+  width: 15px;
+  height: 21px;
+  cursor: pointer;
+  position: absolute;
+  right: -82px;
+  top: 333px;
+}
+.pets-wrapper:before {
+  content: url(../../assets/icons/arrow.svg);
+  display: block;
+  transform: rotateY(180deg);
+  width: 15px;
+  height: 21px;
+  cursor: pointer;
+  position: absolute;
+  right: -82px;
+  top: 387px;
+}
+.pets-item {
+  text-decoration: none;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #919191;
+  width: 480px;
+  height: 364px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+}
+.pets-item-img {
+  width: 228px;
+  height: 221px;
+  border-radius: 120% 120% 170% 100%/120% 120% 150% 150%;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 20px;
+  transition: transform 0.5s;
+  position: relative;
+}
+.pets-item-img:hover {
+  transform: rotateZ(360deg);
+}
+.pets-item-wrapper {
+  margin-top: 32px;
+  border-top: 1px solid #e5eaeb;
+  padding: 17px 31px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.pets-item-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  font-family: "Roboto";
+  color: #2d2d2d;
+  margin-bottom: 6px;
+}
+.pets-item-frame {
+  background: url(../../assets/icons/frame.svg) center center/cover no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.pets-img {
+  transition: transform 0.5s;
+  height: 221px;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+}
+.pets-img:hover {
+  transform: translateX(50%) rotateZ(-360deg);
+}
+.penguin {
+  position: relative;
+}
+.penguin:after {
+  content: url(../../assets/icons/penguin.svg);
+  display: block;
+  width: 33px;
+  height: 65px;
+  position: absolute;
+  right: -92px;
+  bottom: 35px;
+}
