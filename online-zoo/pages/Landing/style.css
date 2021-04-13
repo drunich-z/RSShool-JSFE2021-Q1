@@ -507,6 +507,28 @@
   box-shadow: 0px 2px 50px rgb(185 213 217 / 60%);
   margin-bottom: 18px;
 }
+
+.pay-container-item-arrows:before,
+.pay-container-item-arrows:after {
+  content: "";
+  background: url(../../assets/icons/pay-arrow.svg);
+  max-width: 300px;
+  width: calc(100vw / 13 * 2);
+  color: #c5e1e6;
+  height: 52px;
+  position: absolute;
+}
+
+.pay-container-item-arrows:before{
+  left: 29%;
+  
+}
+
+.pay-container-item-arrows:after{
+  right: 29%;
+}
+
+
 .pay-container-text {
   font-style: normal;
   font-weight: normal;
