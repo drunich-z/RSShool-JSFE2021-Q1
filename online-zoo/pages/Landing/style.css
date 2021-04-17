@@ -511,23 +511,21 @@
 .pay-container-item-arrows:before,
 .pay-container-item-arrows:after {
   content: "";
+  top: 50%;
   background: url(../../assets/icons/pay-arrow.svg);
   max-width: 300px;
-  width: calc(100vw / 13 * 2);
-  color: #c5e1e6;
+  width: calc(100vw / 13 * 100);
   height: 52px;
   position: absolute;
 }
 
-.pay-container-item-arrows:before{
+.pay-container-item-arrows:before {
   left: 29%;
-  
 }
 
-.pay-container-item-arrows:after{
+.pay-container-item-arrows:after {
   right: 29%;
 }
-
 
 .pay-container-text {
   font-style: normal;
@@ -543,18 +541,18 @@
   max-width: 1480px;
   margin: 0 auto;
 }
-.testimonials-header {
+.testimonial-header {
   display: flex;
   justify-content: space-between;
   /*align-items:center;*/
   align-items: baseline;
-  margin-top: 56px;
+  margin-top: 100px;
 }
-.testimonials-header a {
+.testimonial-header a {
   text-decoration: none;
   /*************************************/
   display: block;
-  height: 300px;
+  /*height: 300px;*/
   /************************************/
 }
 .testimonial-title {
@@ -586,6 +584,70 @@
   color: #19707d;
   text-decoration: none;
   padding: 16px;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 410px;
+}
+.testimonials-item {
+  max-width: 480px;
+  width: 100%;
+  margin-right: 20px;
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.testimonials-item-last {
+  margin-right: 0;
+}
+.testimonial-box {
+  box-sizing: border-box;
+  position: relative;
+  height: 172px;
+  background: #ffffff;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 28px 45px 0;
+  margin-bottom: 18px;
+}
+.testimonial-box:before {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 70px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 17px 17px 0 17px;
+  border-color: #ffffff transparent transparent transparent;
+}
+.testimonial-box-date {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #b3b3b3;
+  margin-bottom: 9px;
+}
+.testimonial-box-text {
+  color: #2d2d2d;
+}
+.testimonial-person {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.testimonial-person-img {
+  border-radius: 100%;
+}
+.testimonial-person-name {
+  margin-left: 16px;
+  color: #000000;
 }
 
 .footer {
