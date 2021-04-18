@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -106,15 +105,16 @@
   text-decoration: none;
   margin-left: 10px;
 }
+.header-user {
+  display: none;
+}
+
 .watch {
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: cover;
   height: 800px;
   background-image: url(../../assets/images/watch-background.svg);
-  /*background: #2a8086;*/
-  /*background-color: #2a8086;*/
-  /*background-image:url(test12.svg);*/
 }
 .watch-wrapper {
   display: flex;
@@ -122,30 +122,40 @@
   width: auto;
   height: 728px;
   max-width: 1480px;
-  /*background-color: #2a8086;*/
   margin: 0 auto;
 }
 .watch-text-block {
   display: block;
 }
-.watch-text-main {
+.watch-text-block h2 {
   margin-top: 103px;
-  max-width: 640px;
+  margin-bottom: 0;
+}
+
+.watch-text-main {
+  display: block;
+  position: relative;
+  width: 640px;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 300;
   font-size: 72px;
-  line-height: 78px;
+  line-height: 85px;
   color: #f3f7f8;
 }
 .watch-text-main-dop {
+  display: block;
+  position: relative;
   font-style: normal;
-  font-weight: 650;
+  font-weight: 500;
   font-size: 64px;
-  line-height: 62px;
+  line-height: 76px;
   font-family: "Rubik";
   letter-spacing: 1px;
+  color: #f3f7f8;
+  margin-top: -5px;
 }
+
 .watch-text-details {
   display: block;
   margin-top: 27px;
@@ -216,9 +226,8 @@
   position: relative;
 }
 .hiw-title {
-  position: absolute;
-  top: -140px;
   display: block;
+  margin-top: -76px;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
@@ -228,10 +237,10 @@
   font-family: "Rubik";
 }
 .hiw-container {
-  margin-top: 60px;
+  margin-top: 101px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 95px;
+  margin-bottom: 101px;
 }
 .hiw-container-item {
   width: 480px;
@@ -713,10 +722,10 @@
   transition: transform 0.5s;
 }
 
-.animal-img-wrapper:hover{
+.animal-img-wrapper:hover {
   transform: rotate(360deg);
 }
-.animal-img:hover{
+.animal-img:hover {
   transform: rotate(-360deg);
 }
 
@@ -797,4 +806,143 @@
   justify-content: left;
   margin-left: 77px;
   list-style: none;
+}
+
+/*****************************************************************************************************************************/
+
+@media (max-width: 1540px) {
+  .header-wrapper {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 0px 30px;
+  }
+  .header-nav-link {
+    margin-right: 42px;
+  }
+  .header-log-in {
+    display: none;
+  }
+  .header-sign-up {
+    display: none;
+  }
+  .header-user {
+    display: block;
+    position: relative;
+    width: 56px;
+    height: 56px;
+    margin-left: 31px;
+  }
+  .header-search:hover .header-search-input {
+    width: 150px;
+  }
+
+  .watch-wrapper {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 0px 30px;
+  }
+  .watch-text-main {
+    font-size: 64px;
+    line-height: 76px;
+  }
+  .watch-text-main-dop {
+    font-size: 48px;
+    line-height: 57px;
+    letter-spacing: 1px;
+  }
+  .watch-text-details {
+    margin-top: 30px;
+    max-width: 480px;
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .watch-btn {
+    margin-top: 37px;
+  }
+  .watch-picture-block {
+    width: 560px;
+    height: 464px;
+  }
+  .watch-picture-block svg {
+    width: 100%;
+    height: auto;
+  }
+  #clip-path {
+    width: 100%;
+  }
+  #clip-path path {
+    width: 100%;
+  }
+  .watch {
+    background-image: url(../../assets/images/watch-background_1200.svg);
+    height: 660px;
+  }
+
+  .hiw-wrapper {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 0px 30px;
+  }
+  .hiw-title {
+    margin-top: -17px;
+  }
+  .hiw-container {
+    margin-top: 33px;
+    margin-bottom: 20px;
+  }
+  .hiw-container-item-img {
+    margin-bottom: 17px;
+  }
+
+  .under-hiw-bamboo {
+    left: -1.6%;
+  }
+  .under-hiw-tree {
+    top: 64px;
+    left: 21.2%;
+  }
+  .under-hiw-small-tree {
+    top: 89px;
+    left: 48.8%;
+  }
+  .under-hiw-panda {
+    top: 255px;
+    right: 10.1%;
+  }
+  .under-hiw-big-bamboo {
+    top: 142px;
+    right: 4.5%;
+  }
+  .under-hiw-big-tree {
+    display: none;
+  }
+
+  .pets-in-zoo-wrapper {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 0px 30px;
+  }
+  .pets-header {
+    margin-top: 54px;
+  }
+  .pets-favorite {
+    font-size: 16px;
+    padding: 6px 20px 8px 20px;
+  }
+
+  .pets-item {
+    
+    width: 31%;
+    height: 364px;
+    margin-right: 33px;
+  }
+  .pets-item:nth-child(3n){
+    margin-right: 0px;
+  }
+  .pets-wrapper {
+    padding-right: 69px;
+}
+
+
 }
