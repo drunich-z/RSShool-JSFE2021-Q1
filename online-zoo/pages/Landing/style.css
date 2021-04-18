@@ -357,7 +357,7 @@
   position: relative;
 }
 .pets-wrapper:after {
-  content: url(../../assets/icons/arrow.svg);
+  content: url(../../assets/icons/dbl-arrow-next.svg);
   display: block;
   width: 15px;
   height: 21px;
@@ -367,7 +367,7 @@
   top: 333px;
 }
 .pets-wrapper:before {
-  content: url(../../assets/icons/arrow.svg);
+  content: url(../../assets/icons/dbl-arrow-previos.svg);
   display: block;
   width: 15px;
   height: 21px;
@@ -932,17 +932,53 @@
   }
 
   .pets-item {
-    
     width: 31%;
-    height: 364px;
+    height: 273px;
     margin-right: 33px;
+    margin-bottom: 30px;
   }
-  .pets-item:nth-child(3n){
+  .pets-item:nth-child(3n) {
     margin-right: 0px;
   }
   .pets-wrapper {
+    margin-top: 56px;
     padding-right: 69px;
-}
+  }
+  .pets-item-img {
+    width: 156px;
+    height: 146px;
+    margin-top: 25px;
+  }
+  .pets-img {
+    height: 146px;
+  }
 
-
+  .pets-item-wrapper {
+    margin-top: 27px;
+    padding: 16px 18px;
+  }
+  .pets-item-title {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .pets-item-subtitle {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .pets-item-frame {
+    width: 22px;
+    height: 22px;
+  }
+  .penguin:after {
+    right: 11px;
+    bottom: 40px;
+  }
+  .pets-wrapper:after {
+    right: 21px;
+    top: 242px;
+  }
+  .pets-wrapper:before {
+    right: 22px;
+    top: 294px;
+  }
 }
