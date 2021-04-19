@@ -548,6 +548,12 @@
   text-align: center;
   color: #c5e1e6;
 }
+.pay-container-tree {
+  position: absolute;
+  display: none;
+  top: 245px;
+  left: 11.2%;
+}
 
 .testimonial-wrapper {
   max-width: 1480px;
@@ -848,7 +854,7 @@
   .watch-text-main-dop {
     font-size: 48px;
     line-height: 57px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
   }
   .watch-text-details {
     margin-top: 30px;
@@ -981,4 +987,105 @@
     right: 22px;
     top: 294px;
   }
+  .pay-wrapper {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 0px 30px;
+  }
+  .pay-and-feed {
+    margin-top: 61px;
+    background: url(../../assets/images/pay-background_1200.svg);
+    height: 563px;
+  }
+  .pay-header {
+    padding-top: 106px;
+  }
+  .pay-header a {
+    font-size: 18px;
+    padding: 6px 65px 8px 65px;
+  }
+  .pay-container {
+    padding-top: 77px;
+  }
+  .pay-container-item-arrows:before {
+    top: 48%;
+    left: 26%;
+    background-position: center right;
+    max-width: 201px;
+  }
+  .pay-container-item-arrows:after {
+    top: 48%;
+    right: 25%;
+    background-position: center right;
+    max-width: 201px;
+  }
+  .pay-container-tree {
+    position: absolute;
+    display: block;
+    top: 263px;
+    left: -4.8%;
+    transform: scale(0.8);
+  }
+  .testimonial-wrapper {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 0px 30px;
+  }
+  .testimonial-header {
+    margin-top: 50px;
+  }
+  .leave-feedback {
+    width: 239px;
+    height: 42px;
+    font-size: 16px;
+    line-height: 21px;
+    padding: 8px 20px 11px 20px;
+  }
+  .testimonials {
+    margin-top: 37px;
+    margin-bottom: 53px;
+  }
+
+  .favorites-wrapper {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 0px 30px;
+  }
+  .favorites-animals-wrapper {
+    margin-top: 28px;
+  }
+  .animals-list{
+    margin-left: 13px;
+    margin-right: 90px;
+  }
+  .animals-arrows {
+    margin-right: 17px;
+  }
+
+  .animals-list-item:nth-child(7) {
+    display: none;
+  }
+
+  .footer-wrapper {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 0px 30px;
+  }
+  .footer {
+    margin-top: 66px;
+    height: 121px;
+    
+  }
+  .footer-left {
+    margin-top: 19px;
+  }
+  .footer-rigth {
+    margin-top: 39px;
+  }
+
+  .footer-design {
+    font-size: 12px;
+    line-height: 22px;
+  }
+
 }
