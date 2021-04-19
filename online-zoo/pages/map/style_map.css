@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --margin-right: 0px;
+}
+
+.body {
+  background: #f5f9fa;
+}
+
+.header {
+  display: block;
+  position: relative;
+  height: 110px;
+  background: #2a8086;
+  filter: drop-shadow(0px 1px 10px rgba(18, 87, 91, 0.25));
+  z-index: 10;
+}
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  max-width: 1480px;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+.header-h1 {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  /* margin: 0;*/
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  margin-top: 9px;
+}
+.header-nav {
+  margin-left: 0;
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+.header-nav ul {
+  display: flex;
+  justify-content: left;
+  margin-left: 52px;
+  list-style: none;
+}
+.header-nav-link {
+  display: block;
+  margin-left: 0;
+  margin-right: 52px;
+  color: #c5e1e6;
+  text-decoration: none;
+}
+.header-nav-link.active {
+  text-decoration: underline;
+  cursor: default;
+}
+.header-right {
+  margin-right: var(--margin-right);
+  margin-top: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+.header-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-search-input {
+  width: 0;
+  line-height: 28px;
+  border: none;
+  transition: 0.5s;
+}
+.header-search:hover .header-search-input {
+  width: 300px;
+}
+.header-log-in {
+  display: block;
+  padding: 16px 14px 15px 14px;
+  color: #c5e1e6;
+  text-decoration: none;
+  margin-left: 26px;
+}
+.header-sign-up {
+  display: block;
+  padding: 16px 14px 15px 14px;
+  border: 1px solid #c5e1e6;
+  box-sizing: border-box;
+  border-radius: 100px;
+  color: #c5e1e6;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.map-main {
+  display: block;
+  position: relative;
+  background: #2a8086;
+  height: 1040px;
+}
+
+.map-wrapper {
+  width: auto;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.map-title h2{
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #c5e1e6;
+}
+
+.item-map {
+  display: block;
+  position: relative;
+  height: 916px;
+}
+
+.footer {
+  margin-top: 116px;
+  display: block;
+  position: relative;
+  height: 200px;
+  background: #2a8086;
+  filter: drop-shadow(0px 1px 10px rgba(18, 87, 91, 0.25));
+}
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  max-width: 1480px;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+}
+.footer-rigth {
+  display: block;
+  align-items: center;
+  margin-top: 92px;
+  margin-right: var(--margin-right);
+}
+
+.footer-design {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: right;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.footer-nav ul {
+  display: flex;
+  justify-content: left;
+  margin-left: 77px;
+  list-style: none;
+}
+
+.footer {
+  margin-top: 116px;
+  display: block;
+  position: relative;
+  height: 200px;
+  background: #2a8086;
+  filter: drop-shadow(0px 1px 10px rgba(18, 87, 91, 0.25));
+}
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  max-width: 1480px;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+}
+.footer-rigth {
+  display: block;
+  align-items: center;
+  margin-top: 92px;
+  margin-right: var(--margin-right);
+}
+
+.footer-design {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: right;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.footer-nav ul {
+  display: flex;
+  justify-content: left;
+  margin-left: 77px;
+  list-style: none;
+}
