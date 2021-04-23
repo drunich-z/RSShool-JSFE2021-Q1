@@ -2,7 +2,13 @@
   margin: 0;
   padding: 0;
 }
+/*
+* {
+  border: 1px solid #f00 !important;
+}
+*/
 :root {
+  /*--margin-right: -130px;*/
   --margin-right: 0px;
 }
 
@@ -187,38 +193,64 @@
   font-style: normal;
   color: #0d444d;
 }
+
 .watch-picture-block {
-  margin-top: 45px;
-  background: url(../../assets/images/panda.jpg) no-repeat;
-  width: 804px;
-  height: 666px;
-  clip-path: url(#clip-path);
-  position: relative;
   display: block;
   position: relative;
-  transition: 0.3s;
+  margin-top: 45px;
+  width: 804px;
+  height: 666px;
 }
-.watch-picture-block:after {
-  content: "";
+
+.svg-pict {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.href-hero-img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../../assets/images/panda.jpg");
+  background-size: cover;
+  clip-path: url(#svg-hero-mask);
+  width: 100%;
+  height: 100%;
+}
+
+.watch-btn-play {
   position: absolute;
   top: 46%;
   right: 39%;
   width: 121px;
   height: 121px;
-  background: url(../../assets/icons/play-icon.svg);
+  background-image: url(../../assets/icons/play-icon.svg);
+  background-size: cover;
+  transition: 0.5s;
 }
-.watch-picture-block:hover {
+.watch-btn-play:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.2);
+  
 }
-.watch-picture-block:after:hover {
-  transform: scale(1.1);
+.whatch-btn-play-href{
+  position: absolute;
+  top: 0;  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
+/**********************************************************************************************************/
 
 .how-it-works {
   /*  how-it-works = hiw*/
   display: block;
 }
+
 .hiw-wrapper {
   display: block;
   max-width: 1480px;
@@ -815,7 +847,14 @@
 }
 
 /*****************************************************************************************************************************/
-
+/*****************************************************************************************************************************/
+/*****************************************************************************************************************************/
+/*****************************************************************************************************************************/
+/*****************************************************************************************************************************/
+/*****************************************************************************************************************************/
+/*****************************************************************************************************************************/
+/*****************************************************************************************************************************/
+/*****************************************************************************************************************************/
 @media (max-width: 1540px) {
   .header-wrapper {
     box-sizing: border-box;
@@ -850,6 +889,7 @@
   .watch-text-main {
     font-size: 64px;
     line-height: 76px;
+    width: 555px;
   }
   .watch-text-main-dop {
     font-size: 48px;
@@ -869,16 +909,12 @@
   .watch-picture-block {
     width: 560px;
     height: 464px;
+    margin-top: 48px;
   }
-  .watch-picture-block svg {
-    width: 100%;
-    height: auto;
-  }
-  #clip-path {
-    width: 100%;
-  }
-  #clip-path path {
-    width: 100%;
+  .watch-btn-play{
+    width: 84px;
+    height: 84px;
+    top: 48%;
   }
   .watch {
     background-image: url(../../assets/images/watch-background_1200.svg);
@@ -1054,7 +1090,7 @@
   .favorites-animals-wrapper {
     margin-top: 28px;
   }
-  .animals-list{
+  .animals-list {
     margin-left: 13px;
     margin-right: 90px;
   }
@@ -1074,7 +1110,6 @@
   .footer {
     margin-top: 66px;
     height: 121px;
-    
   }
   .footer-left {
     margin-top: 19px;
@@ -1087,5 +1122,4 @@
     font-size: 12px;
     line-height: 22px;
   }
-
 }
