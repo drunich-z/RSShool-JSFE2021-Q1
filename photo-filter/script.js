@@ -117,7 +117,12 @@ function saveImage() {
     canvas.width = img.width;
     canvas.height = img.height;
     const ctx = canvas.getContext("2d");
-    ctx.filter = `${filters[0]}`;
+    ctx.filter =
+      `blur(${outputs[0].value}px) `       +
+      `invert(${outputs[1].value}%)`       +
+      `sepia(${outputs[2].value}%)`        +
+      `saturate(${outputs[3].value}%)`     +
+      `hue-rotate(${outputs[3].value}deg)` ;
     ctx.drawImage(img, 0, 0);
     let link = document.createElement("a");
     link.download = "download.png";
