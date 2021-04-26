@@ -4,6 +4,9 @@ const btnFullScreen = document.querySelector(".fullscreen");
 const buttons = document.querySelector(".btn-container");
 const currentImage = document.querySelector(".current-picture");
 const fileInput = document.querySelector('input[type="file"]');
+const imageContainer = document.querySelector(".editor");
+const buttonReset = document.querySelector("btn-reset");
+const buttonNext = document.querySelector("btn-next");
 let currentImageIndex = 0;
 let pathToImages =
   "https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/night/";
@@ -91,7 +94,7 @@ function viewBgImage(src) {
 }
 
 //как бы красивую смену картинок сделать, когда имг не бэкграунд
-function getImage(event) {
+function getNextImage(event) {
   pathToImages = getPathToImages();
   const index = currentImageIndex % images.length;
   const imageSrc = pathToImages + images[index];
@@ -106,12 +109,22 @@ function getImage(event) {
 const buttonsHandle = (event) => {
   if (!(event.target === buttons)) changeActiveButton(event.target);
   if (event.target.textContent === "Reset") resetFilters();
-  if (event.target.textContent === "Next picture") getImage(event);
-
+  if (event.target.textContent === "Next picture") getNextImage(event);
+  if (event.target.placeholder === "Load picture")
+    changeActiveButton(fileInput.parentNode);
   console.log(event.target.name);
 };
 
 buttons.addEventListener("click", buttonsHandle);
+
+fileInput.addEventListener("input", function (e) {
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+  reader.onload = () => {
+    currentImage.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+});
 
 //************************************************************/
 function activateFullscreen(element) {
