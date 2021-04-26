@@ -7,10 +7,12 @@ const fileInput = document.querySelector('input[type="file"]');
 const imageContainer = document.querySelector(".editor");
 const buttonReset = document.querySelector("btn-reset");
 const buttonNext = document.querySelector("btn-next");
+const canvas = document.querySelector("canvas");
 let currentImageIndex = 0;
 let pathToImages =
   "https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/night/";
-
+const testImg =
+  "https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/night/01.jpg";
 const images = [
   "01.jpg",
   "02.jpg",
@@ -71,6 +73,7 @@ function resetFilters() {
     }
   }
 }
+
 function getPathToImages() {
   let date = new Date();
   const hours = date.getHours();
@@ -93,7 +96,7 @@ function viewBgImage(src) {
   };
 }
 
-//как бы красивую смену картинок сделать, когда имг не бэкграунд
+//красивую смену картинок сделать, когда имг не бэкграунд
 function getNextImage(event) {
   pathToImages = getPathToImages();
   const index = currentImageIndex % images.length;
@@ -106,12 +109,39 @@ function getNextImage(event) {
   }, 1000);
 }
 
+function saveImage() {
+  const img = new Image();
+  img.setAttribute("crossOrigin", "anonymous");
+  img.src = currentImage.src;
+  img.onload = function () {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.filter =
+      `blur(${outputs[0].value}px) `       +
+      `invert(${outputs[1].value}%)`       +
+      `sepia(${outputs[2].value}%)`        +
+      `saturate(${outputs[3].value}%)`     +
+      `hue-rotate(${outputs[3].value}deg)` ;
+    ctx.drawImage(img, 0, 0);
+    let link = document.createElement("a");
+    link.download = "download.png";
+    link.href = canvas.toDataURL();
+    link.click();
+    link.delete;
+  };
+
+  //drawImage();
+}
+
 const buttonsHandle = (event) => {
   if (!(event.target === buttons)) changeActiveButton(event.target);
   if (event.target.textContent === "Reset") resetFilters();
   if (event.target.textContent === "Next picture") getNextImage(event);
   if (event.target.placeholder === "Load picture")
     changeActiveButton(fileInput.parentNode);
+  if (event.target.textContent === "Save picture") saveImage();
+
   console.log(event.target.name);
 };
 
