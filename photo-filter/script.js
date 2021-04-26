@@ -131,8 +131,6 @@ function saveImage() {
     link.click();
     link.delete;
   };
-
-  //drawImage();
 }
 
 const buttonsHandle = (event) => {
