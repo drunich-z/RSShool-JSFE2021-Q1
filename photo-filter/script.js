@@ -117,8 +117,9 @@ function saveImage() {
     canvas.width = img.width;
     canvas.height = img.height;
     const ctx = canvas.getContext("2d");
+    const blurLength = outputs[0].value * (canvas.width / currentImage.width);
     ctx.filter =
-      `blur(${outputs[0].value}px) ` +
+      `blur(${blurLength}px) ` +
       `invert(${outputs[1].value}%)` +
       `sepia(${outputs[2].value}%)` +
       `saturate(${outputs[3].value}%)` +
