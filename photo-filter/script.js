@@ -103,10 +103,10 @@ function getNextImage(event) {
   const imageSrc = pathToImages + images[index];
   viewBgImage(imageSrc);
   currentImageIndex++;
-  event.target.disabled = true;
+  /*event.target.disabled = true;
   setTimeout(function () {
     event.target.disabled = false;
-  }, 1000);
+  }, 1000);*/
 }
 
 function saveImage() {
@@ -153,6 +153,7 @@ fileInput.addEventListener("input", function (e) {
     currentImage.src = reader.result;
   };
   reader.readAsDataURL(file);
+  fileInput.value='';
 });
 
 //************************************************************/
