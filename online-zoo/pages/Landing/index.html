@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style.css" />
   <title>Online-zoo</title>
 </head>
-<body class="body">
+<body class="body" id="body">
   <div class="common-wrapper">
     <header class="header">
       <div class="header-wrapper">
@@ -46,11 +46,15 @@
               <img src="../../assets/icons/search_icon.svg" alt="search">
             </a>
           </div>
-          <a href="#" class="header-log-in">log in</a>
-          <a href="#" class="header-sign-up">sign up</a>
-          <a href="#" class="header-user">
+          <a href="#" class="header-logIn" id="header-logIn" >log in</a>
+          <a href="#" class="header-signIn" id="header-signIn">sign up</a>
+          <a href="#" class="header-user hidden" 
+                      id="header-user"
+                      title=""
+                      data-authorized=false>
             <img src="../../assets/icons/user_icon.svg" alt="user">
           </a>
+          
         </div>
       </div>
     </header>
@@ -453,14 +457,22 @@
       </div>
     </footer>
 
-    <div class="form-signIn">
+    <div class="form-signIn hidden" id="form-signIn" data-currentform='signIn'>
       <div class="signIn-header">
         <img src="../../assets/icons/popup-logo.svg" alt="logo">
       </div>
       <div class="signIn-wrapper">
         <div class="signIn-logIn-block">
-          <button class="btn-signIn popup-btn-active" id="btn-signIn">create account</button>
-          <button class="btn-logIn" id="btn-logIn">log in</button>
+          <button class="btn-signIn popup-btn-active" 
+                  id="btn-signIn"
+                  data-activateform='signIn'>
+                  create account
+          </button>
+          <button class="btn-logIn" 
+                  id="btn-logIn"
+                  data-activateform='logIn'>
+                  log in
+          </button>
         </div>
         <div class="social-btns-block">
           <button class="btn-google-signIn" id="btn-google-signIn">
@@ -473,19 +485,19 @@
           </button>
         </div>
         <form class="signIn-send-form" action="">
-          <div class="signIn-name-wrapper">
-            <label class="signIn-bigLabel" for="signIn-name"> name: </label>
-            <input class="signIn-name" type="text" id="signIn-name" required>
+          <div class="signIn-name-wrapper" id = "signIn-name-wrapper" >
+            <label class="signIn-bigLabel" for="signIn-name"> name </label>
+            <input class="signIn-name" type="text" id="signIn-name" required >
           </div>
           <div class="signIn-email-wrapper">
-            <label class="signIn-bigLabel" for="signIn-email"> email: </label>
+            <label class="signIn-bigLabel" for="signIn-email"> email </label>
             <input class="signIn-email" type="email" id="signIn-email" required>
           </div>
           <div class="signIn-password-wrapper">
-            <label class="signIn-bigLabel" for="signIn-password">password: </label>
-            <input class="signIn-password" type="text" id="signIn-password" required></input>  
+            <label class="signIn-bigLabel" for="signIn-password">password </label>
+            <input class="signIn-password" type="password" minlength=8 id="signIn-password" required></input>  
           </div>
-          <div class="signIn-checkbox-wrapper">
+          <div class="signIn-checkbox-wrapper" id="signIn-checkbox-wrapper">
             <input class="signIn-checkbox" type="checkbox" id="signIn-checkbox" required></input>
             <label class="signIn-checkbox-label" for="signIn-checkbox hidden">
               Agree with the 
@@ -498,10 +510,12 @@
       </div>
     </div>
 
-    <div class="cover">
+    <div class="cover hidden" id="cover">
 
     </div>
 
   </div>  
+  <script src="popup.js"></script>
+ <!-- <script src="popup.js"></script>-->
 </body>
 </html>
