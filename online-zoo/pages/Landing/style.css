@@ -606,6 +606,7 @@ button {
 .testimonial-wrapper {
   max-width: 1480px;
   margin: 0 auto;
+  height: 100%;
 }
 .testimonial-header {
   display: flex;
@@ -652,16 +653,59 @@ button {
   padding: 16px;
 }
 
+.auto-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /*height: 480px;
+  background-color: #000;*/
+}
+
+.auto-carusel-wrapper{
+  width: 100%;
+  max-width: 1480px;
+  position: relative;
+}
+
+.carousel {
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.button-test{
+  display: none;
+  width: 100px;
+  height: 30px;
+  background-color: red;
+  border: 1px solid black;
+}
+
 .testimonials {
   display: flex;
   justify-content: space-between;
+  
+  /*width: 1480 px;*/
+  position: relative;
   margin-top: 50px;
   margin-bottom: 102px;
+  left: 0px;
 }
+
+.testimonials-left-slide {
+  transition: all 1s ease;
+  position: relative;
+  left: -500px;
+}
+
 .testimonials-item {
-  max-width: 480px;
-  width: 100%;
-  margin-right: 20px;
+  /*max-width: 480px;*/
+  /*width: 100%;*/
+  
+  width: 480px;
+  margin-right: 10px;
+  margin-left: 10px;
   font-family: "Roboto";
   font-style: italic;
   font-weight: normal;
@@ -669,12 +713,15 @@ button {
   line-height: 19px;
 }
 
+
+
 .testimonials-item-last {
   margin-right: 0;
 }
 .testimonial-box {
   box-sizing: border-box;
   position: relative;
+  width: 480px;
   height: 172px;
   background: #ffffff;
   box-shadow: 0 2px 30px rgba(0, 0, 0, 0.06);

@@ -54,6 +54,7 @@ function initUserForm(e) {
   }
 }
 
+
 //сделать тултип на любой элемент
 function signInValidate() {
   if (
