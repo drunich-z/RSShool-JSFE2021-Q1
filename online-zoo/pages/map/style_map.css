@@ -6,8 +6,18 @@
   --margin-right: 0px;
 }
 
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  
+}
+
 .body {
-  background: #f5f9fa;
+  background: #2a8086;
 }
 
 .header {
@@ -111,7 +121,8 @@
   display: block;
   position: relative;
   background: #2a8086;
-  height: 1040px;
+  height: 1020px;
+  /*border-top: 1px solid transparent;*/
 }
 
 .map-wrapper {
@@ -119,6 +130,7 @@
   max-width: 1480px;
   margin: 0 auto;
 }
+
 
 .map-title h2{
   font-family: "Rubik";
@@ -128,66 +140,47 @@
   line-height: 28px;
   text-transform: uppercase;
   color: #c5e1e6;
+  margin-top: 20px;
 }
 
+.map-items{
+  margin-top: 10px
+}
 .item-map {
   display: block;
   position: relative;
-  height: 916px;
+  /*height: 916px;*/
 }
 
+.map-zoom{
+  display: flex;
+  justify-content:flex-end;
+}
+
+.zoom-btn{
+  width: 33px;
+  height: 33px;
+  font-size: 30px;
+  line-height: 100%;
+  color: #c5e1e6;
+  border: 1px solid rgb(5, 22, 15);
+  border-radius: 50%;
+  background-color: rgb(5, 22, 15, 0.5);
+  margin: 0px 10px;
+}
+
+
+
+
+/******************************************************************/
+
+
 .footer {
-  margin-top: 116px;
   display: block;
   position: relative;
   height: 200px;
-  background: #2a8086;
-  filter: drop-shadow(0px 1px 10px rgba(18, 87, 91, 0.25));
-}
-.footer-wrapper {
-  display: flex;
-  justify-content: space-between;
-  width: auto;
-  max-width: 1480px;
-  margin: 0 auto;
-  text-transform: uppercase;
-}
-.footer-left {
-  display: flex;
-  align-items: center;
-  margin-top: 60px;
-}
-.footer-rigth {
-  display: block;
-  align-items: center;
-  margin-top: 92px;
-  margin-right: var(--margin-right);
-}
-
-.footer-design {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 30px;
-  text-align: right;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-.footer-nav ul {
-  display: flex;
-  justify-content: left;
-  margin-left: 77px;
-  list-style: none;
-}
-
-.footer {
-  margin-top: 116px;
-  display: block;
-  position: relative;
-  height: 200px;
-  background: #2a8086;
-  filter: drop-shadow(0px 1px 10px rgba(18, 87, 91, 0.25));
+  background-color: #196469;
+  
 }
 .footer-wrapper {
   display: flex;
