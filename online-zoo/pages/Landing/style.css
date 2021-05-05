@@ -861,6 +861,8 @@ button {
   margin-left: 77px;
   list-style: none;
 }
+/**************************************************************************************************************/
+/**************************************************************************************************************/
 
 .form-signIn {
   width: 568px;
@@ -1073,6 +1075,15 @@ button {
   width: 56px;
   height: 56px;
   margin-left: 31px;
+}
+
+.logout-href {
+  display: block;
+  position: absolute;
+  /*top: 0px;
+  left: 0px;*/
+  /*width: 100px;
+  height: 20px;*/
 }
 
 .cover {

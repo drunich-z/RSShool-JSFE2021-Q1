@@ -54,6 +54,7 @@ function initUserForm(e) {
   }
 }
 
+//сделать тултип на любой элемент
 function signInValidate() {
   if (
     (formUserElem.dataset.currentform == "signIn" &&
@@ -84,6 +85,7 @@ function login(e) {
   }
   userSignInButton.dataset.authorized = true;
   userSignInButton.title = userName;
+
   signInButton.classList.add("hidden");
   logInButton.classList.add("hidden");
   userSignInButton.classList.remove("hidden");
@@ -91,9 +93,9 @@ function login(e) {
 }
 
 function loginFromSend(e) {
-  e.preventDefault();
   if (formUserSendButton.classList.contains("btn-signIn-invalid")) return;
   login(e);
+  e.preventDefault();
 }
 
 function logout() {
@@ -133,7 +135,7 @@ signInButton.addEventListener("click", () => {
 });
 
 userSignInButton.addEventListener("click", (e) => {
-  if (!e.target.dataset.authorized) {
+  if (!e.target.parentNode.dataset.authorized) {
     bodyElem.classList.add("notScrollable");
     coverElem.classList.remove("hidden");
     initUserForm(formUserSignInButton);
