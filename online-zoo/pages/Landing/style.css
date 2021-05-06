@@ -1124,13 +1124,21 @@ button {
   margin-left: 31px;
 }
 
-.logout-href {
+.user-logout {
   display: block;
-  position: absolute;
-  /*top: 0px;
-  left: 0px;*/
-  /*width: 100px;
-  height: 20px;*/
+  width: 90px;
+  height: 20px;
+  text-decoration: underline;
+  text-align: center;
+  color: black;
+  background-color: #C5E1E5;
+  border: 1px solid #C5E1E5;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.user-logout:hover{
+  background-color: #0A5D69;
+  /*background-color: rgb(137, 180, 171);*/
 }
 
 .cover {
