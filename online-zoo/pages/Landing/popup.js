@@ -4,6 +4,7 @@ const bodyElem = document.getElementById("body");
 const signInButton = document.getElementById("header-signIn");
 const logInButton = document.getElementById("header-logIn");
 const userSignInButton = document.getElementById("header-user");
+const logoutLink = document.getElementById("user-logout");
 
 const formUserElem = document.getElementById("form-signIn");
 
@@ -54,7 +55,6 @@ function initUserForm(e) {
   }
 }
 
-
 //сделать тултип на любой элемент
 function signInValidate() {
   if (
@@ -90,6 +90,7 @@ function login(e) {
   signInButton.classList.add("hidden");
   logInButton.classList.add("hidden");
   userSignInButton.classList.remove("hidden");
+  logoutLink.classList.add("hidden");
   coverElem.click();
 }
 
@@ -100,7 +101,14 @@ function loginFromSend(e) {
 }
 
 function logout() {
-  console.log("ttt");
+  userSignInButton.dataset.authorized = false;
+  userSignInButton.title = "";
+  signInButton.classList.remove("hidden");
+  logInButton.classList.remove("hidden");
+  userSignInButton.classList.add("hidden");
+  logoutLink.classList.add("hidden");
+  removeSignInListeners();
+  logoutLink.removeEventListener("click", logout);
 }
 
 function setSignInListeners() {
@@ -143,7 +151,13 @@ userSignInButton.addEventListener("click", (e) => {
     formUserElem.classList.remove("hidden");
     setSignInListeners();
   } else {
-    logout();
+    if (logoutLink.classList.contains("hidden")) {
+      logoutLink.classList.remove("hidden");
+      logoutLink.addEventListener("click", logout);
+    } else {
+      logoutLink.classList.add("hidden");
+      logoutLink.removeEventListener("click", logout);
+    }
   }
 });
 
