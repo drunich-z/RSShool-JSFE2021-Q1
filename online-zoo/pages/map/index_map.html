@@ -53,34 +53,40 @@
 
   
   <main class="map-main">
-    <div class="map-wrapper">
+    <div class="map-content-wrapper">
       <div class="map-title">
         <h2>choose your favorite animal</h2>
       </div>
-      <div class="map-items">
-        <div class="item-map">
-          <img src="../../assets/images/map.svg" alt="map" class="item-map-svg">
+      <div class="map-frame-wrapper" id="map-frame-wrapper">
+        
+        
+        <img src="../../assets/images/map.svg" 
+             alt="map" 
+             class="item-map-svg" 
+             id="item-map-svg">
+        
+        <div class="item-animal item-animal-panda" id="item-animal-panda">
+          <img src="../../assets/images/animals_panda.jpg" 
+               alt="panda">
         </div>
-        <div class="item-animal">
-          
+        <div class="item-animal hidden">
+          alligator
         </div>
-        <div class="item-animal">
-         
+        <div class="item-animal hidden">
+          eagle
         </div>
-        <div class="item-animal">
-          
+        <div class="item-animal hidden">
+          gorrilla
         </div>
-        <div class="item-animal">
-         
+        <div class="map-zoom">
+          <button class="zoomIn zoom-btn" id="zoomIn">+</button>
+          <button class="zoomOut zoom-btn" id="zoomOut">	&#8211</button>
         </div>
-
       </div>
-      <div class="map-zoom">
-        <button class="zoomIn zoom-btn">+</button>
-        <button class="zoomOut zoom-btn">	&#8211</button>
-       
-
-      </div>
+      
+      
+      
+      
     </div>
   </main>
 
@@ -123,5 +129,6 @@
       </div>
     </div>
   </footer>
+<script src="script_map.js"></script>  
 </body>
 </html>

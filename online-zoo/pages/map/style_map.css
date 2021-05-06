@@ -125,7 +125,7 @@ button {
   /*border-top: 1px solid transparent;*/
 }
 
-.map-wrapper {
+.map-content-wrapper {
   width: auto;
   max-width: 1480px;
   margin: 0 auto;
@@ -143,20 +143,52 @@ button {
   margin-top: 20px;
 }
 
-.map-items{
-  margin-top: 10px
-}
-.item-map {
+.map-frame-wrapper{
   display: block;
+  margin-top: 10px;
   position: relative;
-  /*height: 916px;*/
+  width: 1480px;
+  height: 920px;
+  overflow: hidden;
+
 }
+
 
 .map-zoom{
+  position: absolute;
+  width: 90px;
+  bottom: 100px;
+  right: 0px;
   display: flex;
-  justify-content:flex-end;
+  justify-content:space-between;
 }
 
+.item-animal{
+  position:absolute;
+  top: 0px;
+}
+
+.item-animal-panda{
+  position: absolute;
+  width: 76px;
+  height: 73px;
+  border-radius: 120% 120% 170% 100%/120% 120% 150% 150%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 410px;
+  left: 1040px;
+}
+
+.item-animal img{
+  width:100%;
+  height: auto;
+}
+
+.hidden{
+  display: none;
+}
 .zoom-btn{
   width: 33px;
   height: 33px;
@@ -166,7 +198,7 @@ button {
   border: 1px solid rgb(5, 22, 15);
   border-radius: 50%;
   background-color: rgb(5, 22, 15, 0.5);
-  margin: 0px 10px;
+  
 }
 
 
