@@ -13,7 +13,6 @@ button {
   color: inherit;
   background-color: transparent;
   cursor: pointer;
-  
 }
 
 .body {
@@ -131,8 +130,7 @@ button {
   margin: 0 auto;
 }
 
-
-.map-title h2{
+.map-title h2 {
   font-family: "Rubik";
   font-style: normal;
   font-weight: normal;
@@ -143,32 +141,49 @@ button {
   margin-top: 20px;
 }
 
-.map-frame-wrapper{
+.map-frame-wrapper {
   display: block;
   margin-top: 10px;
   position: relative;
   width: 1480px;
-  height: 920px;
+  height: 912px;
   overflow: hidden;
-
+}
+/*
+.map-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+}
+*/
+.map-in {
+  position: absolute;
+  width: 1422px;
+  height: 912px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+}
+.map-in img {
+  width: 100%;
+  height: auto;
+  pointer-events: none;
 }
 
-
-.map-zoom{
+.map-zoom {
   position: absolute;
   width: 90px;
   bottom: 100px;
   right: 0px;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
-.item-animal{
-  position:absolute;
-  top: 0px;
-}
-
-.item-animal-panda{
+.item-animal {
   position: absolute;
   width: 76px;
   height: 73px;
@@ -177,19 +192,37 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.item-animal-panda {
   top: 410px;
   left: 1040px;
 }
 
-.item-animal img{
-  width:100%;
+.item-animal-gorilla {
+  top: 540px;
+  left: 680px;
+}
+
+.item-animal-eagle {
+  top: 360px;
+  left: 160px;
+}
+
+.item-animal-alligator {
+  top: 450px;
+  left: 330px;
+}
+
+.item-animal img {
+  width: 100%;
   height: auto;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
-.zoom-btn{
+.zoom-btn {
   width: 33px;
   height: 33px;
   font-size: 30px;
@@ -198,21 +231,15 @@ button {
   border: 1px solid rgb(5, 22, 15);
   border-radius: 50%;
   background-color: rgb(5, 22, 15, 0.5);
-  
 }
 
-
-
-
 /******************************************************************/
-
 
 .footer {
   display: block;
   position: relative;
   height: 200px;
   background-color: #196469;
-  
 }
 .footer-wrapper {
   display: flex;

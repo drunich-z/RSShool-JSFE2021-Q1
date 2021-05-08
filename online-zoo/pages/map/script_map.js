@@ -1,76 +1,105 @@
+const zoomStepInPercents = 20;
+const zoomInKoef = (100 + zoomStepInPercents) / 100;
+const zoomOutKoef = 100 / (100 + zoomStepInPercents);
+
 const mapImage = document.getElementById("item-map-svg");
-const wrapper = document.getElementById("map-frame-wrapper");
+const mapWrapper = document.getElementById("map-frame-wrapper");
+const centerX = mapWrapper.offsetWidth / 2;
+const centerY = mapWrapper.offsetHeight / 2;
 
 const zoomInButton = document.getElementById("zoomIn");
 const zoomOutButton = document.getElementById("zoomOut");
-const zoomKoef = 1.2;
+
 const mapItems = Array.from(
   document.querySelector(".map-frame-wrapper").children
 ).slice(0, -1);
 
-function zoomInAbsoluteElement(elem, koef) {
-  if (elem.style.position !== "absolute") {
-    elem.style.position = "absolute";
-  }
-  const prevWidth = elem.width;
-  const prevHeight = elem.height;
-  elem.style.width = `${elem.width * koef}px`;
-  elem.style.height = "auto";
-  const nextWidth = elem.width;
-  const nextHeight = elem.height;
-  const topPos = elem.offsetTop || 0;
-  const leftPos = elem.offsetLeft || 0;
-  elem.style.left = `${leftPos - (nextWidth - prevWidth) / 2}px`;
-  elem.style.top = `${topPos - (nextHeight - prevHeight) / 2}px`;
+let deltaX = 0;
+let deltaY = 0;
+let startX;
+let startY;
+
+function getNewCoordinateOfLeftAfterZoom(x, koef) {
+  return (x - centerX) * koef + centerX;
 }
 
-function zoomOutAbsoluteElement(elem, koef) {
+function getNewCoordinateOfTopAfterZoom(y, koef) {
+  return centerY - (centerY - y) * koef;
+}
+
+function zoomAbsoluteDivElement(elem, koef) {
   if (elem.style.position !== "absolute") {
     elem.style.position = "absolute";
   }
-  const prevWidth = elem.width;
-  const prevHeight = elem.height;
-  elem.style.width = `${elem.width / koef}px`;
-  elem.style.height = "auto";
-  const nextWidth = elem.width;
-  const nextHeight = elem.height;
+
+  const newWidth = elem.clientWidth * koef;
+  const newHeight = elem.clientHeight * koef;
+  elem.style.width = `${newWidth}px`;
+  elem.style.height = `${newHeight}px`;
+ // elem.clientWidth = newWidth;
+ // elem.clientHeight = newHeight;
+
   const topPos = elem.offsetTop || 0;
   const leftPos = elem.offsetLeft || 0;
-  elem.style.left = `${leftPos + (prevWidth - nextWidth) / 2}px`;
-  elem.style.top = `${topPos + (prevHeight - nextHeight) / 2}px`;
+  elem.style.left = `${getNewCoordinateOfLeftAfterZoom(leftPos, koef)}px`;
+  elem.style.top = `${getNewCoordinateOfTopAfterZoom(topPos, koef)}px`;
 }
 
 zoomInButton.addEventListener("click", () => {
-  if (mapImage.width <= wrapper.offsetWidth * 2) {
+  if (mapImage.width <= mapWrapper.offsetWidth * 3) {
     for (let i = 0; i < mapItems.length; i++) {
-      zoomInAbsoluteElement(mapItems[i], zoomKoef);
+      zoomAbsoluteDivElement(mapItems[i], zoomInKoef);
     }
   }
 });
 
 zoomOutButton.addEventListener("click", () => {
+  let newZoomOutKoef = zoomOutKoef;
   if (
-    mapImage.width >= wrapper.offsetWidth ||
-    mapImage.height >= wrapper.offsetHeight
+    mapImage.width >= mapWrapper.offsetWidth ||
+    mapImage.height >= mapWrapper.offsetHeight
   ) {
-    for (let i = 0; i < mapItems.length; i++) {
-      zoomOutAbsoluteElement(mapItems[i], zoomKoef);
-    }
-
     if (
-      mapImage.width <= wrapper.offsetWidth &&
-      mapImage.height <= wrapper.offsetHeight
+      !(
+        mapImage.width * newZoomOutKoef >= mapWrapper.offsetWidth ||
+        mapImage.height * newZoomOutKoef >= mapWrapper.offsetHeight
+      )
     ) {
-      mapImage.style.width = `${wrapper.offsetWidth}px`;
-      mapImage.style.height = "auto";
-      mapImage.style.top = `${(wrapper.offsetHeight - mapImage.height) / 2}px`;
-      mapImage.style.left = "0px";
-      if (mapImage.height >= wrapper.offsetHeight) {
-        mapImage.style.height = `${wrapper.offsetHeight}px`;
-        mapImage.style.width = "auto";
-        mapImage.style.top = "0px";
-        mapImage.style.left = `${(wrapper.offsetWidth - mapImage.width) / 2}px`;
-      }
+      newZoomOutKoef =
+        mapWrapper.offsetWidth / mapImage.width <
+        mapWrapper.offsetHeight / mapImage.height
+          ? mapWrapper.offsetWidth / mapImage.width
+          : mapWrapper.offsetHeight / mapImage.height;
+    }
+    for (let i = 0; i < mapItems.length; i++) {
+      zoomAbsoluteDivElement(mapItems[i], newZoomOutKoef);
     }
   }
+});
+
+const stopMove = () => {
+  mapWrapper.removeEventListener("mousemove", moveBlock);
+  mapWrapper.removeEventListener("mouseup", stopMove);
+  mapWrapper.removeEventListener("mouseout", stopMove);
+};
+
+const moveBlock = (e) => {
+  deltaX = startX - e.pageX;
+  deltaY = startY - e.pageY;
+  for (let i = 0; i < mapItems.length; i++) {
+    mapItems[i].style.left = `${mapItems[i].offsetLeft - deltaX}px`;
+    mapItems[i].style.top = `${mapItems[i].offsetTop - deltaY}px`;
+  }
+  startX = e.pageX;
+  startY = e.pageY;
+};
+
+mapWrapper.addEventListener("mousedown", (e) => {
+  
+  startX = e.pageX;
+  startY = e.pageY;
+
+  mapWrapper.addEventListener("mousemove", moveBlock);
+  mapWrapper.addEventListener("mouseup", stopMove);
+  mapWrapper.addEventListener("mouseout", stopMove);
 });
