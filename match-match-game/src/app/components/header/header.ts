@@ -4,15 +4,10 @@ import { BaseComponent } from '../base-component';
 // переделать, наверное, надо...построить хедер апендами
 export class Header extends BaseComponent {
   controlPlayer: HTMLElement | null;
-
   controlGameStart: HTMLElement | null;
-
   controlGameStop: HTMLElement | null;
-
   pointerAboutGame: HTMLElement | null;
-
   pointerGameScore: HTMLElement | null;
-
   pointerGameSettings: HTMLElement | null;
 
   constructor() {

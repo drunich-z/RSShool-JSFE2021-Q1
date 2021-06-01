@@ -67,7 +67,7 @@ export class DataAccess<T extends Item> implements IDataAccess<T> {
   private requestHandler(request: IDBRequest) {
     return new Promise<T>((resolve, reject) => {
       request.onsuccess = () => resolve(request.result);
-      request.onerror = () => reject(request.result);
+      request.onerror = () => reject(request.error);
     });
   }
 }

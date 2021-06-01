@@ -3,10 +3,12 @@ import { ImageCategoryModel } from '../models/image-category-model';
 
 export class App {
   private readonly game: Game;
+  classControlContainer: HTMLElement;
 
   constructor(private readonly rootElement: HTMLElement) {
     this.game = new Game();
     this.rootElement.appendChild(this.game.element);
+    this.classControlContainer = this.rootElement;//хм)
   }
 
   async start() {
