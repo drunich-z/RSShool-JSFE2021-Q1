@@ -1,0 +1,54 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 20px;
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #FFFFFF;
+}
+
+main {
+  min-height: calc(100vh - 6rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  color: #2196F3;
+}
+
+.cover {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.hidden {
+  display: none;
+}
+.notScrollable {
+  overflow: hidden;
+  /*17px вертикального скролла как бы красиво обработать*/
+}

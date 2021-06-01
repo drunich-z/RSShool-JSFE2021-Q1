@@ -15,7 +15,7 @@
   "plugins": [
     "@typescript-eslint"
   ],
-  "ignorePatterns": ["*.config.js", "node_modules/", "dist/", "*.ts"],
+  "ignorePatterns": ["*.config.js", "node_modules/", "dist/", "srs/", "*.ts"],
   "rules": {
     "no-plusplus": "off",
     "no-console": "warn",
