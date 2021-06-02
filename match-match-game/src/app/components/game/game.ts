@@ -24,7 +24,7 @@ export class Game extends BaseComponent {
     this.timer = new Timer();
   }
 
-  newGame(images: string[]) {
+  async newGame(images: string[]) {
     this.isGameStopped = false;
     this.isGameWinned = false;
     this.cardsTotalCount = images.length;
@@ -39,13 +39,14 @@ export class Game extends BaseComponent {
       card.element.addEventListener('click', () => this.cardHandler(card));
     });
 
-    this.cardsField.addCards(cards);
-    this.timer.startTimer();
+    this.timer.start();
+    await (this.cardsField.addCards(cards));
+    this.timer.restart();
   }
 
   finishGame() {
     this.isGameStopped = true;
-    this.timer.stopTimer();
+    this.timer.stop();
     this.cardsMatchedCount = 0;
     this.activeCard = undefined;
     this.isAnimation = false;
