@@ -1,0 +1,15 @@
+[
+    {
+      "category": "dogs",
+      "images": [
+        "australian-shepherd.jpg",
+        "basset-hound.jpg",
+        "corgi.jpg",
+        "french-bulldog.jpg",
+        "great-dane.jpg",
+        "pitbull.jpg",
+        "pointer.jpg",
+        "samoyed.jpg"
+      ]
+    }
+  ]
