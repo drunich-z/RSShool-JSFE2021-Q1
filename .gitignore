@@ -102,3 +102,37 @@ dist
 
 # TernJS port file
 .tern-port
+match-match-game/dist/_images.json
+match-match-game/dist/favicon.ico
+match-match-game/dist/images.json
+match-match-game/dist/index.html
+match-match-game/dist/main.4e4772c8eacb09d30c97.js
+match-match-game/dist/main.c6e343ead80360070af4.css
+match-match-game/dist/assets/resource/about_pointer_circles.svg
+match-match-game/dist/assets/resource/about_pointer_rects.svg
+match-match-game/dist/assets/resource/about.svg
+match-match-game/dist/assets/resource/card-back-origin.jpg
+match-match-game/dist/assets/resource/card-back-origin6c1d5ed7f14502e925fb.jpg
+match-match-game/dist/assets/resource/card-back.jpg
+match-match-game/dist/assets/resource/card-back.png
+match-match-game/dist/assets/resource/logo-about.svg
+match-match-game/dist/assets/resource/logo-game.svg
+match-match-game/dist/assets/resource/logo-score.svg
+match-match-game/dist/assets/resource/logo-settings.svg
+match-match-game/dist/assets/resource/penguin.svg
+match-match-game/dist/images/dogs/australian-shepherd.jpg
+match-match-game/dist/images/dogs/basset-hound.jpg
+match-match-game/dist/images/dogs/corgi.jpg
+match-match-game/dist/images/dogs/french-bulldog.jpg
+match-match-game/dist/images/dogs/great-dane.jpg
+match-match-game/dist/images/dogs/pitbull.jpg
+match-match-game/dist/images/dogs/pointer.jpg
+match-match-game/dist/images/dogs/samoyed.jpg
+match-match-game/dist/images/dogs1/australian-shepherd.png
+match-match-game/dist/images/dogs1/basset-hound.png
+match-match-game/dist/images/dogs1/corgi.png
+match-match-game/dist/images/dogs1/french-bulldog.png
+match-match-game/dist/images/dogs1/great-dane.png
+match-match-game/dist/images/dogs1/pitbull.png
+match-match-game/dist/images/dogs1/pointer.png
+match-match-game/dist/images/dogs1/samoyed.png
