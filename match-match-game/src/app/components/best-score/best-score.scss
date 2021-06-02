@@ -1,0 +1,64 @@
+.best-score-container{
+  width:70%;
+  max-width: 1440px;
+  height: 83vh;
+  font-family: "Roboto";
+  font-style: normal;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.best-score-container > ul > li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 63px;
+  padding: 0 10px 0 10px;
+  box-shadow: 0 0.15rem 0.15rem rgba(0, 0, 0, 0.5);
+  //border-bottom: 1px solid rgba(131, 131, 136, 0.931)
+}
+
+.player-info-container{
+  display: flex;
+  justify-content: space-around;
+  margin: 0, 10px;
+}
+.name-email-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.name{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.1px;
+  color: #333333;
+}
+
+.email{
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.4px;
+  color: #333333;
+}
+
+.score-container{
+  display: flex;
+  justify-content: center;
+}
+
+.score-text{
+  color: #3e3d42;
+  margin-right: 10px;
+}
+
+.score-value{
+  color: #2196F3;;
+}
+
+.avatar{
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
