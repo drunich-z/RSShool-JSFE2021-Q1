@@ -69,7 +69,6 @@ async function BestScoreShow() {
   bestScorePage.show(result);
 }
 
-
 function registerNewPlayer() {
   return;
 }
