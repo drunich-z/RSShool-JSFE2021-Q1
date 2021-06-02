@@ -20,19 +20,19 @@ export class Header extends BaseComponent {
         <nav class="header__nav">
           <ul>
             <li>
-              <a class = "pointerAboutGame" href="#">
+              <a id = "control__about" class = "control__about" href="#">
                 <img src="./assets/resource/logo-about.svg" alt="logo"> 
                 About Game
               </a>
             </li>
             <li>
-            <a class = "pointerGameScore" href="#">
+            <a id = "control__score" class = "control__score" href="#">
                 <img src="./assets/resource/logo-score.svg" alt="logo"> 
                 Best Score
               </a>
             </li>
             <li>
-            <a class = "pointerGameSettings" href="#">
+            <a id = "control__settings" class = "control__settings" href="#">
                 <img src="./assets/resource/logo-settings.svg" alt=""> 
                 Game Settings
               </a>
@@ -64,9 +64,9 @@ export class Header extends BaseComponent {
     this.controlPlayer = document.getElementById('control__user');
     this.controlGameStart = document.getElementById('control__game-start');
     this.controlGameStop = document.getElementById('control__game-stop');
-    this.pointerAboutGame = document.getElementById('control__user');
-    this.pointerGameScore = document.getElementById('control__user');
-    this.pointerGameSettings = document.getElementById('control__user');
+    this.pointerAboutGame = document.getElementById('control__about');
+    this.pointerGameScore = document.getElementById('control__score');
+    this.pointerGameSettings = document.getElementById('control__settings');
   }
 
   initNewPlayerButton() {

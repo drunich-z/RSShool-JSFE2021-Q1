@@ -11,7 +11,7 @@ export class BestScore extends BaseComponent {
     this.classControlContainer = this.element;
   }
 
-  outputScoreList(bestScoreList: PlayerScore[]){
+  show(bestScoreList: PlayerScore[]){
     this.removeAllChilds();
     this.element.classList.remove('hidden');
     const ul = createDOMElement('ul', ['best-score-list']);
@@ -23,14 +23,14 @@ export class BestScore extends BaseComponent {
     }
   }
   
-  hideScoreList() {
+  hide() {
     this.element.classList.add('hidden');
   }
 
   private makeListElement(player: PlayerScore){
     const name = `${player.name} ${player.surname}`;
     const email = player.email;
-    const score = `Score: ${player.score}`;
+    const score = player.score;
     const avatarPath = './assets/resource/logo-score.svg';
     
     const li = createDOMElement('li');
@@ -44,7 +44,9 @@ export class BestScore extends BaseComponent {
           const divName = createDOMElement('div', ['name'], name);
           const divEmail = createDOMElement('div', ['email'], email);
 
-      const divScore = createDOMElement('div', ['score'], score);
+      const divScoreContainer = createDOMElement('div', ['score-container']);
+        const divScoreText = createDOMElement('div', ['score-text'], 'Score:');
+        const divScoreValue = createDOMElement('div', ['score-value'], `${score}`);
 
     divNameEmailContainer.appendChild(divName);
     divNameEmailContainer.appendChild(divEmail);
@@ -52,10 +54,12 @@ export class BestScore extends BaseComponent {
     divPlayerInfoContainer.appendChild(img);
     divPlayerInfoContainer.appendChild(divNameEmailContainer);
 
+    divScoreContainer.appendChild(divScoreText);
+    divScoreContainer.appendChild(divScoreValue);
+
     li.appendChild(divPlayerInfoContainer);
-    li.appendChild(divScore);
+    li.appendChild(divScoreContainer);
 
     return li;
   }
-
 }

@@ -2,72 +2,99 @@ import './styles/styles.scss';
 import { App } from './app/app';
 import { Header } from './app/components/header/header';
 import { AboutGame } from './app/components/about-game/about-game';
-//import { DataAccess } from './app/components/database/DataAccess.class';
-//import { PlayerScore } from './app/components/database/PlayerScore.class'
 import { DBBestScore } from './app/components/database/DBBestScore.class'
 import { BestScore } from './app/components/best-score/best-score';
+import { Settings } from './app/components/settings/settings';
+
+const bodyElement = document.body;
+const appElement = document.getElementById('app');
+if (!appElement) throw Error('App root element not found');
 
 const idbScore = new DBBestScore('drunich-z', 'BestScore');
 idbScore.addFivePlayersOnStart();
-const about = new AboutGame();
-const bestScoreBlock = new BestScore();
 
-//let count = 0;
+const headerControls = new Header();
+bodyElement.prepend(headerControls.element);
+headerControls.initAllControl();
+
+const aboutPage = new AboutGame();
+appElement.appendChild(aboutPage.element);
+
+const bestScorePage = new BestScore();
+appElement.appendChild(bestScorePage.element);
+
+const settingsPage = new Settings();
+appElement.appendChild(settingsPage.element);
+
+const gamePage = new App(appElement);
 
 window.onload = () => {
-  const bodyElement = document.body;
-  const coverElem = document.getElementById('cover');
-  const headerControls = new Header();
-  bodyElement.prepend(headerControls.element);
-  headerControls.initAllControl();
-
-  const appElement = document.getElementById('app');
-  if (!appElement) throw Error('App root element not found');
-  
-  
-  appElement.appendChild(about.element);
-  appElement.appendChild(bestScoreBlock.element);
-
-  const gameApp = new App(appElement);
-
   headerControls.controlGameStart?.addEventListener('click', () => {
-    gameApp.start();
+    hideAllPages();
+    gamePage.show();
+    gamePage.startGame();
     headerControls.controlGameStart?.classList.add('hidden');
     headerControls.controlGameStop?.classList.remove('hidden');
-    about.classControlContainer.classList.add('hidden');
-    // bodyElement.classList.add("notScrollable");
-    // coverElem?.classList.remove("hidden");
-    // headerControls.controlGameStop?.classList.add("visible__active");
-    // bodyElement.classList.add('cover');
   });
+  
   headerControls.controlGameStop?.addEventListener('click', () => {
-    gameApp.stop();
+    gamePage.stopGame();
     headerControls.controlGameStart?.classList.remove('hidden');
     headerControls.controlGameStop?.classList.add('hidden');
-    // bodyElement.classList.remove("notScrollable");
-    // coverElem?.classList.add("hidden");
-    // headerControls.controlGameStop?.classList.remove("visible__active");
   });
-  headerControls.controlPlayer?.addEventListener('click', testBestScoreShow);
-  headerControls.pointerGameScore?.addEventListener('click', () => console.log('111'))
+  
+  headerControls.controlPlayer?.addEventListener('click', registerNewPlayer);
+  
+  headerControls.pointerGameScore?.addEventListener('click', BestScoreShow);
+
+  headerControls.pointerAboutGame?.addEventListener('click', () => {
+    hideAllPages();
+    StopGameIfItIsRunning();
+    aboutPage.show();
+  });
+
+  headerControls.pointerGameSettings?.addEventListener('click', () => {
+    hideAllPages();
+    StopGameIfItIsRunning();
+    settingsPage.show();
+  });
+
 };
 
-async function testDbWork() {
+async function BestScoreShow() {
   let result: any;
-  let result1: any;
-  result = await idbScore.retrieve();
-    //result1.then((res: any) => { result1 = res; });
-  result1 = await idbScore.getArrayOfFirstNSortedByScore(9);
-  console.log('vasya');
-  console.log(result);
-  console.log(result1);
+  result = await idbScore.getArrayOfFirstNSortedByScore(10);
+  hideAllPages();
+  StopGameIfItIsRunning();
+  bestScorePage.show(result);
 }
 
-async function testBestScoreShow() {
 
-  let result: any;
-  result = await idbScore.getArrayOfFirstNSortedByScore(9);
-  about.classControlContainer.classList.add('hidden');
-  bestScoreBlock.outputScoreList(result);
-  
+function registerNewPlayer() {
+  return;
 }
+
+function hideAllPages() {
+  aboutPage.hide();
+  bestScorePage.hide();
+  settingsPage.hide();
+  gamePage.hide();
+}
+
+function StopGameIfItIsRunning() {
+  if (gamePage.isCurrentGameIsRunning()) {
+    gamePage.stopGame();
+    headerControls.controlGameStart?.classList.remove('hidden');
+    headerControls.controlGameStop?.classList.add('hidden');
+  }
+}
+
+//let count = 0;
+//const coverElem = document.getElementById('cover');
+// bodyElement.classList.add("notScrollable");
+// coverElem?.classList.remove("hidden");
+// headerControls.controlGameStop?.classList.add("visible__active");
+// bodyElement.classList.add('cover');
+// bodyElement.classList.remove("notScrollable");
+// coverElem?.classList.add("hidden");
+// headerControls.controlGameStop?.classList.remove("visible__active");

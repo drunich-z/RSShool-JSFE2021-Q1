@@ -51,6 +51,10 @@ export class Game extends BaseComponent {
     this.isAnimation = false;
   }
 
+  isGameIsRunning(){
+    return !this.isGameStopped;
+  }
+
   private async cardHandler(card: Card) {
     if (this.isGameStopped) return;
     if (this.isAnimation) return;

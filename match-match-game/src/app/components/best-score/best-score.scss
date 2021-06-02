@@ -43,10 +43,22 @@
   color: #333333;
 }
 
-.score{
-  color: #8172c3;
+.score-container{
+  display: flex;
+  justify-content: center;
+}
+
+.score-text{
+  color: #3e3d42;
+  margin-right: 10px;
+}
+
+.score-value{
+  color: #2196F3;;
 }
 
 .avatar{
   margin-right: 10px;
+  width: 30px;
+  height: 30px;
 }
