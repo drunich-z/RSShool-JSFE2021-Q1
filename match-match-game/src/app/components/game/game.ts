@@ -70,7 +70,7 @@ export class Game extends BaseComponent {
       return;
     }
 
-    if (this.activeCard.image != card.image) {
+    if (this.activeCard.image !== card.image) {
       card.showError();
       this.activeCard.showError();
       await delay(FLIP_DELAY);
