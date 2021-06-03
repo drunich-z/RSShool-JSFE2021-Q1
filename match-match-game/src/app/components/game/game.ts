@@ -42,6 +42,7 @@ export class Game extends BaseComponent {
     this.timer.start();
     await (this.cardsField.addCards(cards));
     this.timer.restart();
+  
   }
 
   finishGame() {

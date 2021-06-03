@@ -5,6 +5,8 @@ import { AboutGame } from './app/components/about-game/about-game';
 import { DBBestScore } from './app/components/database/DBBestScore.class'
 import { BestScore } from './app/components/best-score/best-score';
 import { Settings } from './app/components/settings/settings';
+import { RegistrationForm } from './app/components/registration-form/registration-form';
+import { createDOMElement } from './shared/dom-functions';
 
 const bodyElement = document.body;
 const appElement = document.getElementById('app');
@@ -27,6 +29,12 @@ const settingsPage = new Settings();
 appElement.appendChild(settingsPage.element);
 
 const gamePage = new App(appElement);
+
+const regNewPlayer = new RegistrationForm();
+bodyElement.append(regNewPlayer.element);
+
+const coverElement = createDOMElement('div', ['cover', 'hidden']);
+bodyElement.append(coverElement);
 
 window.onload = () => {
   headerControls.controlGameStart?.addEventListener('click', () => {
@@ -69,8 +77,16 @@ async function BestScoreShow() {
   bestScorePage.show(result);
 }
 
+coverElement.addEventListener("click", () => {
+  bodyElement.classList.remove("notScrollable");
+  coverElement.classList.add("hidden");
+  regNewPlayer.hide();
+});
+
 function registerNewPlayer() {
-  return;
+  bodyElement.classList.add("notScrollable");
+  coverElement.classList.remove("hidden");
+  regNewPlayer.show();
 }
 
 function hideAllPages() {
@@ -88,12 +104,3 @@ function StopGameIfItIsRunning() {
   }
 }
 
-//let count = 0;
-//const coverElem = document.getElementById('cover');
-// bodyElement.classList.add("notScrollable");
-// coverElem?.classList.remove("hidden");
-// headerControls.controlGameStop?.classList.add("visible__active");
-// bodyElement.classList.add('cover');
-// bodyElement.classList.remove("notScrollable");
-// coverElem?.classList.add("hidden");
-// headerControls.controlGameStop?.classList.remove("visible__active");
