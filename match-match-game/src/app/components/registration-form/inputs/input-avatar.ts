@@ -39,11 +39,4 @@ export class InputAvatar extends BaseComponent {
       reader.onload = () => resolve(reader.result);
     });
   }
-
-
-  
-  
-  
-
-  
 }

@@ -17,15 +17,22 @@ export class RegistrationForm extends BaseComponent {
   private cancelButton: RegButton;
     
   constructor() {
+    const nameRegExp = '^[a-zA-Zа-яА-Я][a-zA-Z0-9\s]{1,30}$';
+    const emailRegExp = '^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     super ('form', ['registration-form', 'hidden']);
-    this.nameInput = new Input('text', 'input your name here', ['input-name']);
-    this.surnameInput = new Input('text', 'input your surname here', ['input-surname']);
-    this.emailInput = new Input('email', 'input your email here', ['input-email']);
+    this.nameInput = new Input('text', 'input your name here', ['input-name'], nameRegExp, 'Input correct name!');
+    this.surnameInput = new Input('text', 'input your surname here', ['input-surname'], nameRegExp, 'Input correct surname!');
+    this.emailInput = new Input('email', 'input your email here', ['input-email'], emailRegExp, 'Input correct email!');
     this.avatarInput = new InputAvatar();
     this.addButton  = new RegButton(['button', 'add-button'], 'add user');
     this.cancelButton  = new RegButton(['button', 'cancel-button'], 'cancel');
     this.initForm();
-    this.initValidate();
+
+    this.nameInput.initListener(this.func);
+    this.surnameInput.initListener(this.func);
+    this.emailInput.initListener(this.func);
+
+    
   }
 
   private initForm(){
@@ -49,8 +56,22 @@ export class RegistrationForm extends BaseComponent {
     this.element.appendChild(buttonsContainer);
   }
 
+
+
+  func() {
+    console.log('fkfkfk');
+    if ((this.nameInput.element as HTMLInputElement).validity.valid &&
+        (this.surnameInput.element as HTMLInputElement).validity.valid &&
+        (this.surnameInput.element as HTMLInputElement).validity.valid) {
+      this.addButton.element.classList.add('active');
+
+    }
+      
+  }
+
+  /*
   private initValidate(){
-    this.nameInput.initValidateListener(() => this.funk(this.nameInput, validateName));
+    //this.nameInput.initValidateListener(() => this.funk(this.nameInput, validateName));
     this.surnameInput.initValidateListener(() => this.funk(this.surnameInput, validateSurname));
     this.emailInput.initValidateListener(() => this.funk(this.emailInput, validateEmail));
   }
@@ -62,7 +83,7 @@ export class RegistrationForm extends BaseComponent {
     else input.element.classList.remove('valid');
       
   }
-
+*/
   show(){
     this.element.classList.remove('hidden');
   }
