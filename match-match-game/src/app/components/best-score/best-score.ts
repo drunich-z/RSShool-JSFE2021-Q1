@@ -18,7 +18,7 @@ export class BestScore extends BaseComponent {
     this.element.appendChild(ul);
     
     for (let i=0; i < bestScoreList.length; i++) {
-      let li = this.makeListElement(bestScoreList[i]);
+      let li = this.createListElement(bestScoreList[i]);
       ul.appendChild(li);
     }
   }
@@ -27,7 +27,7 @@ export class BestScore extends BaseComponent {
     this.element.classList.add('hidden');
   }
 
-  private makeListElement(player: PlayerScore){
+  private createListElement(player: PlayerScore){
     const name = `${player.name} ${player.surname}`;
     const email = player.email;
     const score = player.score;

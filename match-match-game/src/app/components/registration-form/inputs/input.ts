@@ -1,4 +1,5 @@
-import { BaseComponent } from "../base-component";
+import './input.scss'
+import { BaseComponent } from "../../base-component";
 
 export class Input extends BaseComponent {
    
@@ -11,6 +12,12 @@ export class Input extends BaseComponent {
     this.element.setAttribute('type', type);
     this.element.setAttribute('placeholder', placeholder);
   }
+
+  initValidateListener(funk: any) {
+    this.element.addEventListener('input', funk);
+  }
+
 }
+
 
 

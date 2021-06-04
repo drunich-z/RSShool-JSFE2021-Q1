@@ -1,0 +1,14 @@
+input{
+  margin: 20px 20px 0 20px;
+  width: 300px;
+  height: 40px;
+  box-sizing: border-box;
+  outline: none;
+  border: 2px red solid;
+  transition: 0.3s;
+}
+
+.valid {
+  border: 2px rgb(111, 233, 196) solid;
+  background-color: rgb(170, 255, 230);
+}

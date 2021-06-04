@@ -3,30 +3,63 @@
   height: 400px;
   position: fixed;
   z-index: 100;
-  top: calc(50vh - 387px);
+  top: calc(50vh - 300px);
   left: calc(50vw - 283px);
   background-color: #ffffff;
   box-shadow: 0 0 0.25rem black;
   border-radius: 5px;
 }
 
+.form-title{
+  color: black;
+  margin: 15px 0 0 20px; 
+}
+
+.inputs-container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  height: 60%;
+}
+
 .inputs{
   display: flex;
   flex-direction: column;
-
-  & input{
-    margin: 20px  ;
-    width: 300px;
-    height: 40px;
-    box-sizing: border-box;
-    border: 2px red solid;
-
-  }
 }
 
-.valid {
-  border: 2px green solid;
+.buttons-container{
+  display: flex;
+  justify-content: flex-end;
 }
+
+.button{
+  width: 108px;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 0.25rem black;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  margin-right: 20px;
+   
+}
+
+.add-button{
+  background-color: #2196F3;; 
+}
+
+.cancel-button{
+  color: #2196F3;
+  background-color: #E3F2FD;
+}
+
+
 
 .hidden {
   display: none;
