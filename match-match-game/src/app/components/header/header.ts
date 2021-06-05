@@ -1,14 +1,19 @@
 import './header.scss';
 import { BaseComponent } from '../base-component';
-import avaPict from '../../../assets/resource/avatar.png'
+import avaPict from '../../../assets/resource/avatar.png';
 
 // переделать, наверное, надо...построить хедер апендами
 export class Header extends BaseComponent {
   controlPlayer: HTMLElement | null;
+
   controlGameStart: HTMLElement | null;
+
   controlGameStop: HTMLElement | null;
+
   pointerAboutGame: HTMLElement | null;
+
   pointerGameScore: HTMLElement | null;
+
   pointerGameSettings: HTMLElement | null;
 
   constructor() {
@@ -78,11 +83,11 @@ export class Header extends BaseComponent {
     if (this.controlPlayer) this.controlPlayer.addEventListener('click', () => console.log('test'));
   }
 
-  initStartGameButton() {
+  initStartGameButton = () => {
 
   }
 
-  initStopGameButton() {
+  initStopGameButton = () => {
 
   }
 }

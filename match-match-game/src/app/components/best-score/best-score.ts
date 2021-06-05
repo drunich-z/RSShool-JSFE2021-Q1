@@ -11,43 +11,42 @@ export class BestScore extends BaseComponent {
     this.classControlContainer = this.element;
   }
 
-  show(bestScoreList: PlayerScore[]){
+  show(bestScoreList: PlayerScore[]) {
     this.removeAllChilds();
     this.element.classList.remove('hidden');
     const ul = createDOMElement('ul', ['best-score-list']);
     this.element.appendChild(ul);
-    
-    for (let i=0; i < bestScoreList.length; i++) {
-      let li = this.createListElement(bestScoreList[i]);
+
+    for (let i = 0; i < bestScoreList.length; i++) {
+      const li = this.createListElement(bestScoreList[i]);
       ul.appendChild(li);
     }
   }
-  
+
   hide() {
     this.element.classList.add('hidden');
   }
 
-  private createListElement(player: PlayerScore){
+  private createListElement = (player: PlayerScore) => {
     const name = `${player.name} ${player.surname}`;
-    const email = player.email;
-    const score = player.score;
+    const { email } = player;
+    const { score } = player;
     const avatarPath = player.avatar;
-    //const avatarPath = './assets/resource/logo-score.svg';
-    
+
     const li = createDOMElement('li');
-    
-      const divPlayerInfoContainer = createDOMElement('div', ['player-info-container']);
-        const img = createDOMElement('img', ['avatar']);
-              img.setAttribute('src', avatarPath);
-              img.setAttribute('alt', 'avatar') ;
 
-        const divNameEmailContainer = createDOMElement('div', ['name-email-container']);
-          const divName = createDOMElement('div', ['name'], name);
-          const divEmail = createDOMElement('div', ['email'], email);
+    const divPlayerInfoContainer = createDOMElement('div', ['player-info-container']);
+    const img = createDOMElement('img', ['avatar']);
+    img.setAttribute('src', avatarPath);
+    img.setAttribute('alt', 'avatar');
 
-      const divScoreContainer = createDOMElement('div', ['score-container']);
-        const divScoreText = createDOMElement('div', ['score-text'], 'Score:');
-        const divScoreValue = createDOMElement('div', ['score-value'], `${score}`);
+    const divNameEmailContainer = createDOMElement('div', ['name-email-container']);
+    const divName = createDOMElement('div', ['name'], name);
+    const divEmail = createDOMElement('div', ['email'], email);
+
+    const divScoreContainer = createDOMElement('div', ['score-container']);
+    const divScoreText = createDOMElement('div', ['score-text'], 'Score:');
+    const divScoreValue = createDOMElement('div', ['score-value'], `${score}`);
 
     divNameEmailContainer.appendChild(divName);
     divNameEmailContainer.appendChild(divEmail);
@@ -62,5 +61,5 @@ export class BestScore extends BaseComponent {
     li.appendChild(divScoreContainer);
 
     return li;
-  }
+  };
 }

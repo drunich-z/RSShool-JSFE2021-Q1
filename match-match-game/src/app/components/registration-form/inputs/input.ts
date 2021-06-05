@@ -1,25 +1,24 @@
-import './input.scss'
-import { BaseComponent } from "../../base-component";
+import './input.scss';
+import { BaseComponent } from '../../base-component';
 
 export class Input extends BaseComponent {
-  
   constructor(
-    type: string = 'text', 
-    placeholder: string = 'placeholder',
+    type = 'text',
+    placeholder = 'placeholder',
     classname: string[] = [''],
-    pattern: string = '', 
-    title: string = ''
-    ){
-    super ('input', classname);
+    pattern = '',
+    title = '',
+  ) {
+    super('input', classname);
     this.element.setAttribute('type', type);
     this.element.setAttribute('placeholder', placeholder);
     if (pattern) this.element.setAttribute('pattern', pattern);
     if (title) this.element.setAttribute('title', title);
-  
+
     this.initClasslistener();
   }
 
-  initOutclassListener (callback: any) {
+  initOutclassListener(callback: any) {
     this.element.addEventListener('input', callback);
   }
 
@@ -30,12 +29,8 @@ export class Input extends BaseComponent {
       } else this.element.classList.remove('valid');
     });
   }
-  
+
   clear() {
     (this.element as HTMLInputElement).value = '';
   }
-
 }
-
-
-

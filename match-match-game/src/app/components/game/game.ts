@@ -10,13 +10,21 @@ const FLIP_DELAY = 2000;
 
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
+
   private activeCard?: Card;
+
   private isAnimation = false;
+
   private isGameStopped = false;
+
   private isGameWinned = false;
+
   private timer: Timer;
+
   private cardsTotalCount = 0;
+
   private cardsMatchedCount = 0;
+
   private dbBestscore: DBBestScore;
 
   constructor() {
@@ -45,7 +53,6 @@ export class Game extends BaseComponent {
     this.timer.start();
     await (this.cardsField.addCards(cards));
     this.timer.restart();
-  
   }
 
   finishGame() {
@@ -62,14 +69,14 @@ export class Game extends BaseComponent {
         surname: player.surname,
         email: player.email,
         avatar: player.avatar,
-        score: 333
+        score: 333,
       });
       console.log('GAME IS WINNED');
       alert('Y R WIN');
     }
   }
 
-  isGameIsRunning(){
+  isGameIsRunning() {
     return !this.isGameStopped;
   }
 

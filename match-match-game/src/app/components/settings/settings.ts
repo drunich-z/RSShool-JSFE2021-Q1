@@ -12,12 +12,11 @@ export class Settings extends BaseComponent {
     this.element.appendChild(div);
   }
 
-  show(){
+  show() {
     this.element.classList.remove('hidden');
   }
-  
+
   hide() {
     this.element.classList.add('hidden');
   }
- 
 }

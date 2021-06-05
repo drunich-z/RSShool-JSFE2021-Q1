@@ -6,21 +6,19 @@ export class BaseComponent {
     this.element.classList.add(...styles);
   }
 
-  //or just use innnerHTML = '', if it needed
-  removeAllChilds(){
+  // or just use innnerHTML = '', if it needed
+  removeAllChilds() {
     while (this.element.firstChild) {
-     if (this.element.lastChild) this.element.removeChild(this.element.lastChild);
+      if (this.element.lastChild) this.element.removeChild(this.element.lastChild);
     }
   }
 
-  addChild(tag: keyof HTMLElementTagNameMap = 'div'
-         , styles: string[] = []
-         , innerText: string = ''){
-    
+  addChild(tag: keyof HTMLElementTagNameMap = 'div',
+    styles: string[] = [],
+    innerText = '') {
     const childElement = document.createElement(tag);
     childElement.classList.add(...styles);
     childElement.innerHTML = innerText;
     this.element.appendChild(childElement);
   }
-
 }

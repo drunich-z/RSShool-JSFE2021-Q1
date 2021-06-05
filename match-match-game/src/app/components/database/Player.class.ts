@@ -1,16 +1,19 @@
-import { Item } from "./Item.class";
+import { Item } from './Item.class';
 
-export class Player extends Item{
-    name: string;
-    surname: string;
-    email: string;
-    avatar: string;
+export class Player extends Item {
+  name: string;
 
-    constructor(uid: string, name: string, surname: string, email: string, avatar: string ='') {
-      super(uid);
-      this.name = name;
-      this.surname = surname;
-      this.email = email;
-      this.avatar = avatar;
-    }
+  surname: string;
+
+  email: string;
+
+  avatar: string;
+
+  constructor(uid: string, name: string, surname: string, email: string, avatar = '') {
+    super(uid);
+    this.name = name;
+    this.surname = surname;
+    this.email = email;
+    this.avatar = avatar;
   }
+}

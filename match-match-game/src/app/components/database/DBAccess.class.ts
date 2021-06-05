@@ -36,6 +36,8 @@ export class DBAccess implements IDBAccess {
   }
 
   get instance() {
-    return this.dbAccess ? this.dbAccess : this.dbAccess = new DBAccess();
+    if (this.dbAccess) return this.dbAccess;
+    return this.dbAccess = new DBAccess();
+    //return this.dbAccess ? this.dbAccess : this.dbAccess = new DBAccess();
   }
 }

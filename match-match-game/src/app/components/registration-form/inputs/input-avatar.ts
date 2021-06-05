@@ -1,37 +1,38 @@
 import './input-avatar.scss';
-import { createDOMElement } from "../../../../shared/dom-functions";
-import { BaseComponent } from "../../base-component";
-import { Input } from "./input";
-import avaPict from '../../../../assets/resource/avatar.png'
- 
+import { createDOMElement } from '../../../../shared/dom-functions';
+import { BaseComponent } from '../../base-component';
+import { Input } from './input';
+import avaPict from '../../../../assets/resource/avatar.png';
+
 export class InputAvatar extends BaseComponent {
   input: Input;
+
   avatarImage: HTMLElement;
+
   avatarBase64: string;
-    
+
   constructor() {
     super('div', ['ava-input-container']);
     this.input = new Input('file', 'your-ava', ['ava-input']);
-    this.avatarImage = createDOMElement('img',['ava-img'], '');
+    this.avatarImage = createDOMElement('img', ['ava-img'], '');
     this.avatarImage.setAttribute('src', avaPict);
     this.avatarImage.setAttribute('alt', 'ava');
     this.element.appendChild(this.avatarImage);
     this.element.appendChild(this.input.element);
     this.avatarBase64 = '';
-    //const tt = this.ReadImageFile(avaPict);
-    //const tt = this.toDataURL('../../../../assets/resource/avatar.png');
-    
+    // const tt = this.ReadImageFile(avaPict);
+    // const tt = this.toDataURL('../../../../assets/resource/avatar.png');
 
     this.initListener();
   }
 
   initListener() {
-    this.input.element.addEventListener('change', (e)=>this.onAvaPreload(e) )
+    this.input.element.addEventListener('change', (e) => this.onAvaPreload(e));
   }
 
   clear() {
     (this.element as HTMLInputElement).files = null;
-    (this.element as HTMLInputElement).value ='';
+    (this.element as HTMLInputElement).value = '';
     this.avatarImage.setAttribute('src', avaPict);
     this.avatarBase64 = '';
   }
@@ -44,24 +45,24 @@ export class InputAvatar extends BaseComponent {
     this.avatarImage.setAttribute('src', loadedImage as string);
   }
 
-  private ReadImageFile(files: File) {
+  private ReadImageFile = (files: File) => {
     return new Promise((resolve, reject) => {
-      let reader = new FileReader();
+      const reader = new FileReader();
       reader.readAsDataURL(files);
       reader.onload = () => resolve(reader.result);
     });
-  }
+  };
 
-  toDataURL(url: any){ 
+  toDataURL = (url: any) => {
     fetch(url)
-      .then(response => response.blob())
-      .then(blob => new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.onloadend = () => resolve(reader.result)
-        reader.onerror = reject
-        reader.readAsDataURL(blob)
-      }))
-  }
+      .then((response) => response.blob())
+      .then((blob) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      }));
+  };
 
   // private async base64 (files: File) {
   //   return await this.ReadImageFile(files);

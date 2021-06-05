@@ -1,10 +1,11 @@
 import './timer.scss';
 import { BaseComponent } from '../base-component';
-//import { delay } from '../../../shared/delay'
+// import { delay } from '../../../shared/delay'
 
 export class Timer extends BaseComponent {
   private timerId: any;
-  private startTime: number = 0;
+
+  private startTime = 0;
 
   constructor() {
     super('div', ['game-timer']);
@@ -20,29 +21,26 @@ export class Timer extends BaseComponent {
     }, 1000);
   }
 
-  stop() {
+  stop = () => {
     clearInterval(this.timerId);
-  }
+  };
 
-  pause() {
-    return;
-  }
+  pause = () => {
 
-  restart() {
+  };
+
+  restart = () => {
     this.stop();
     this.start();
-  }
+  };
 
+  getTotalTime = () => 100;
 
-  getTotalTime() {
-    return 100;
-  }
-
-  private milisecundesToMinutesAndSeconds(duration: number) {
+  private milisecundesToMinutesAndSeconds = (duration: number) => {
     const seconds = Math.floor((duration / 1000) % 60);
     const minutes = Math.floor((duration / (1000 * 60)) % 60);
     const strMinutes = (minutes < 10) ? `0${minutes}` : minutes;
     const strSeconds = (seconds < 10) ? `0${seconds}` : seconds;
     return `${strMinutes}:${strSeconds}`;
-  }
+  };
 }

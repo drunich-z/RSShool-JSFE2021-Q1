@@ -1,6 +1,6 @@
 import { BaseComponent } from '../base-component';
 import './about-game.scss';
-//import aboutSvg from '../../../assets/resource/about.svg';
+// import aboutSvg from '../../../assets/resource/about.svg';
 
 export class AboutGame extends BaseComponent {
   classControlContainer: HTMLElement;
@@ -19,13 +19,11 @@ export class AboutGame extends BaseComponent {
     // this.element.classList.add(...styles);
   }
 
-  show(){
+  show() {
     this.element.classList.remove('hidden');
   }
 
   hide() {
     this.element.classList.add('hidden');
   }
-
-  
 }
