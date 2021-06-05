@@ -1,5 +1,6 @@
 import './header.scss';
 import { BaseComponent } from '../base-component';
+import avaPict from '../../../assets/resource/avatar.png'
 
 // переделать, наверное, надо...построить хедер апендами
 export class Header extends BaseComponent {
@@ -43,12 +44,16 @@ export class Header extends BaseComponent {
           <div id="control__user" class="control__user ">
             register new user
           </div>
-          <div id="control__game-start" class="control__game-start ">
+          <div id="control__game-start" class="control__game-start hidden">
             start game
           </div>
           <div id="control__game-stop" class="control__game-stop hidden">
             stop game
           </div>
+          <div id="control__user-logged" class="control__user-logged hidden">
+            <img id="user-avatar" class="user-avatar" src="./assets/resource/avatar.png" alt="">
+          </div>
+
         </div>
       </div>
     `;

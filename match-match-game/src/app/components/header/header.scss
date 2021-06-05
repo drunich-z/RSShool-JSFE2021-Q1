@@ -46,6 +46,12 @@
   background-color: #1E88E5;
 }
 
+.controls{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .control__user,
 .control__game-start,
 .control__game-stop {
@@ -71,6 +77,19 @@
     transform: translateZ(2rem);
     box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.5);
   }
+}
+
+.control__user-logged{
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.user-avatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 30px;
 }
 
 .hidden {

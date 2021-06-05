@@ -2,7 +2,7 @@ import './input.scss'
 import { BaseComponent } from "../../base-component";
 
 export class Input extends BaseComponent {
-   
+  
   constructor(
     type: string = 'text', 
     placeholder: string = 'placeholder',
@@ -15,21 +15,26 @@ export class Input extends BaseComponent {
     this.element.setAttribute('placeholder', placeholder);
     if (pattern) this.element.setAttribute('pattern', pattern);
     if (title) this.element.setAttribute('title', title);
-
-    this.element.addEventListener('input', () => {
-      if ((this.element as HTMLInputElement).validity.valid) {
-        this.element.classList.add ('valid');
-      } else {
-        this.element.classList.remove ('valid');
-      }
-    })
+  
+    this.initClasslistener();
   }
 
-  initListener (callback:any) {
+  initOutclassListener (callback: any) {
     this.element.addEventListener('input', callback);
   }
 
+  initClasslistener() {
+    this.element.addEventListener('input', () => {
+      if ((this.element as HTMLInputElement).validity.valid) {
+        this.element.classList.add('valid');
+      } else this.element.classList.remove('valid');
+    });
+  }
   
+  clear() {
+    (this.element as HTMLInputElement).value = '';
+  }
+
 }
 
 

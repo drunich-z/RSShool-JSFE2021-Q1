@@ -8,7 +8,7 @@ input {
   transition: 0.3s;
 }
 
-*
+/*
 input:valid {
   border: 2px rgb(53, 114, 68) solid;
   background-color: rgb(131, 238, 158);
@@ -18,10 +18,15 @@ input:invalid {
   border: 2px rgb(248, 92, 20) solid;
   background-color: rgb(238, 147, 124);
 }
+*/
 
-/*
+
 .valid {
   border: 2px rgb(111, 233, 196) solid;
   background-color: rgb(170, 255, 230);
 }
-*/
+
+.invalid {
+  border: 2px rgb(248, 92, 20) solid;
+  background-color: rgb(238, 147, 124);
+}

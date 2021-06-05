@@ -47,20 +47,35 @@
   letter-spacing: 1.25px;
   text-transform: uppercase;
   margin-right: 20px;
-   
+  cursor: default;
+  transform-style: preserve-3d;
+  transition: all 0.5s;
+  box-shadow: 0 0 0.25rem black;
 }
+
+
 
 .add-button{
   background-color: #143b57; 
 }
 
 .active {
+  cursor: pointer;
   background-color: #2196F3; 
+  &:hover{
+    transform: translateZ(2rem);
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.5);
+  }
 }
 
 .cancel-button{
+  cursor: pointer;
   color: #2196F3;
   background-color: #E3F2FD;
+  &:hover{
+    transform: translateZ(2rem);
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.5);
+  }
 }
 
 

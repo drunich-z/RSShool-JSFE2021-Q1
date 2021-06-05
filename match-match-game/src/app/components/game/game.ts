@@ -2,6 +2,7 @@ import { delay } from '../../../shared/delay';
 import { BaseComponent } from '../base-component';
 import { Card } from '../card/card';
 import { CardsField } from '../cards-field/cards-field';
+import { DBBestScore } from '../database/DBBestScore.class';
 import { Timer } from '../timer/timer';
 import './game.scss';
 
@@ -16,12 +17,14 @@ export class Game extends BaseComponent {
   private timer: Timer;
   private cardsTotalCount = 0;
   private cardsMatchedCount = 0;
+  private dbBestscore: DBBestScore;
 
   constructor() {
     super('div', ['game-wrapper']);
     this.cardsField = new CardsField();
     this.element.appendChild(this.cardsField.element);
     this.timer = new Timer();
+    this.dbBestscore = new DBBestScore('drunich-z', 'BestScore');
   }
 
   async newGame(images: string[]) {
@@ -51,6 +54,19 @@ export class Game extends BaseComponent {
     this.cardsMatchedCount = 0;
     this.activeCard = undefined;
     this.isAnimation = false;
+    if (this.isGameWinned) {
+      const player = JSON.parse(localStorage.user);
+      this.dbBestscore.add({
+        uid: player.email,
+        name: player.name,
+        surname: player.surname,
+        email: player.email,
+        avatar: player.avatar,
+        score: 333
+      });
+      console.log('GAME IS WINNED');
+      alert('Y R WIN');
+    }
   }
 
   isGameIsRunning(){

@@ -31,7 +31,8 @@ export class BestScore extends BaseComponent {
     const name = `${player.name} ${player.surname}`;
     const email = player.email;
     const score = player.score;
-    const avatarPath = './assets/resource/logo-score.svg';
+    const avatarPath = player.avatar;
+    //const avatarPath = './assets/resource/logo-score.svg';
     
     const li = createDOMElement('li');
     

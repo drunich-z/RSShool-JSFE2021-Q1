@@ -3,6 +3,7 @@ import { App } from './app/app';
 import { Header } from './app/components/header/header';
 import { AboutGame } from './app/components/about-game/about-game';
 import { DBBestScore } from './app/components/database/DBBestScore.class'
+import { DBCurrentPlayer } from './app/components/database/DBCurrentPlayer.class';
 import { BestScore } from './app/components/best-score/best-score';
 import { Settings } from './app/components/settings/settings';
 import { RegistrationForm } from './app/components/registration-form/registration-form';
@@ -14,6 +15,9 @@ if (!appElement) throw Error('App root element not found');
 
 const idbScore = new DBBestScore('drunich-z', 'BestScore');
 idbScore.addFivePlayersOnStart();
+
+// const idbPlayer = new DBCurrentPlayer('drunich-z', 'CurrentPlayer');
+// idbPlayer.setNone();
 
 const headerControls = new Header();
 bodyElement.prepend(headerControls.element);
@@ -35,6 +39,7 @@ bodyElement.append(regNewPlayer.element);
 
 const coverElement = createDOMElement('div', ['cover', 'hidden']);
 bodyElement.append(coverElement);
+coverElement.setAttribute('id', 'cover');
 
 window.onload = () => {
   headerControls.controlGameStart?.addEventListener('click', () => {
@@ -99,7 +104,9 @@ function hideAllPages() {
 function StopGameIfItIsRunning() {
   if (gamePage.isCurrentGameIsRunning()) {
     gamePage.stopGame();
-    headerControls.controlGameStart?.classList.remove('hidden');
+    if (headerControls.controlPlayer?.classList.contains('hidden')) {
+      headerControls.controlGameStart?.classList.remove('hidden');
+    }
     headerControls.controlGameStop?.classList.add('hidden');
   }
 }

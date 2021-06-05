@@ -4,11 +4,11 @@ import { BaseComponent } from "../../base-component";
 import { Input } from "./input";
 import avaPict from '../../../../assets/resource/avatar.png'
  
-
 export class InputAvatar extends BaseComponent {
   input: Input;
   avatarImage: HTMLElement;
-  
+  avatarBase64: string;
+    
   constructor() {
     super('div', ['ava-input-container']);
     this.input = new Input('file', 'your-ava', ['ava-input']);
@@ -17,6 +17,10 @@ export class InputAvatar extends BaseComponent {
     this.avatarImage.setAttribute('alt', 'ava');
     this.element.appendChild(this.avatarImage);
     this.element.appendChild(this.input.element);
+    this.avatarBase64 = '';
+    //const tt = this.ReadImageFile(avaPict);
+    //const tt = this.toDataURL('../../../../assets/resource/avatar.png');
+    
 
     this.initListener();
   }
@@ -25,10 +29,18 @@ export class InputAvatar extends BaseComponent {
     this.input.element.addEventListener('change', (e)=>this.onAvaPreload(e) )
   }
 
+  clear() {
+    (this.element as HTMLInputElement).files = null;
+    (this.element as HTMLInputElement).value ='';
+    this.avatarImage.setAttribute('src', avaPict);
+    this.avatarBase64 = '';
+  }
+
   private async onAvaPreload(e:Event) {
     const target = e.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
     const loadedImage = await this.ReadImageFile(file);
+    this.avatarBase64 = loadedImage as string;
     this.avatarImage.setAttribute('src', loadedImage as string);
   }
 
@@ -39,4 +51,19 @@ export class InputAvatar extends BaseComponent {
       reader.onload = () => resolve(reader.result);
     });
   }
+
+  toDataURL(url: any){ 
+    fetch(url)
+      .then(response => response.blob())
+      .then(blob => new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onloadend = () => resolve(reader.result)
+        reader.onerror = reject
+        reader.readAsDataURL(blob)
+      }))
+  }
+
+  // private async base64 (files: File) {
+  //   return await this.ReadImageFile(files);
+  // }
 }
