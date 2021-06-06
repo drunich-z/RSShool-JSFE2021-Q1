@@ -23,11 +23,13 @@ export class Timer extends BaseComponent {
   }
 
   startCountDown(miliSeconds: number) {
-    this.element.innerText = '00:00';
-    this.startTime = Date.now() + miliSeconds+1000 ;
+    const start = miliSeconds + 500;
+    let count = 1;
     let diff = 0;
+    this.element.innerText = '00:00';
     this.timerId = setInterval(() => {
-      diff = this.startTime - Date.now();
+      diff = start - count*1000;
+      count += 1;
       this.element.innerText = `${this.milisecundesToMinutesAndSeconds(diff)}`;
     }, 1000);
   }
