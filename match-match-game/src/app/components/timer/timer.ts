@@ -22,6 +22,16 @@ export class Timer extends BaseComponent {
     }, 1000);
   }
 
+  startCountDown(miliSeconds: number) {
+    this.element.innerText = '00:00';
+    this.startTime = Date.now() + miliSeconds+1000 ;
+    let diff = 0;
+    this.timerId = setInterval(() => {
+      diff = this.startTime - Date.now();
+      this.element.innerText = `${this.milisecundesToMinutesAndSeconds(diff)}`;
+    }, 1000);
+  }
+
   stop() {
     clearInterval(this.timerId);
     this.finishTime = Date.now();

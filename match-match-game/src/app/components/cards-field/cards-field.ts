@@ -6,9 +6,14 @@ const SHOW_TIME = 10000;
 
 export class CardsField extends BaseComponent {
   private cards: Card[] = [];
+  _startShowTime: number;
 
   constructor() {
     super('div', ['cards-field']);
+    this._startShowTime = SHOW_TIME;
+  }
+  startShowTime():number {
+    return this._startShowTime;
   }
 
   clear() {

@@ -60,7 +60,7 @@ export class Game extends BaseComponent {
       card.element.addEventListener('click', () => this.cardHandler(card));
     });
 
-    this.timer.start();
+    this.timer.startCountDown(this.cardsField.startShowTime());
     await (this.cardsField.addCards(cards));
     if (!this.isGameStopped) this.timer.restart();
     else this.timer.stop();
