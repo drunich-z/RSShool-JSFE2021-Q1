@@ -9,7 +9,7 @@ export class DataAccess<T extends Item> implements IDataAccess<T> {
     this.connection = new DBAccess().instance.connect(dbName, storeName);
   }
 
-  async add(item: T): Promise<any> {
+  async add(item: T): Promise<T> {
     const db = await this.connection;
     const request = db.transaction([this.storeName], 'readwrite')
       .objectStore(this.storeName)
@@ -23,7 +23,7 @@ export class DataAccess<T extends Item> implements IDataAccess<T> {
     const store = db.transaction([this.storeName], 'readonly')
       .objectStore(this.storeName);
 
-    return new Promise<T[]>((resolve, reject) => {
+    return new Promise<T[]>((resolve) => {
       const result: T[] = [];
       store.openCursor().onsuccess = (event) => {
         const cursor = (event.target as any).result;

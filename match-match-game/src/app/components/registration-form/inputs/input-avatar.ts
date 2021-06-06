@@ -42,7 +42,7 @@ export class InputAvatar extends BaseComponent {
     this.avatarImage.setAttribute('src', loadedImage as string);
   }
 
-  private ReadImageFile = (files: File) => new Promise((resolve, reject) => {
+  private ReadImageFile = (files: File) => new Promise((resolve) => {
     const reader = new FileReader();
     reader.readAsDataURL(files);
     reader.onload = () => resolve(reader.result);

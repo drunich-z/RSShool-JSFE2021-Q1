@@ -79,7 +79,7 @@ export class Header extends BaseComponent {
     this.pointerGameSettings = document.getElementById('control__settings');
   }
 
-  initNewPlayerButton(): void {
-    if (this.controlPlayer) this.controlPlayer.addEventListener('click', () => console.log('test'));
-  }
+  // initNewPlayerButton(): void {
+  //   if (this.controlPlayer) this.controlPlayer.addEventListener('click', () => console.log('test'));
+  // }
 }

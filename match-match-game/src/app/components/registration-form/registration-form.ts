@@ -4,9 +4,8 @@ import { createDOMElement } from '../../../shared/dom-functions';
 import { Input } from './inputs/input';
 import { InputAvatar } from './inputs/input-avatar';
 import { RegButton } from './reg-button';
-import { validateName, validateSurname, validateEmail } from './validate-func';
-
-import { PlayerScore } from '../database/PlayerScore.class';
+// import { validateName, validateSurname, validateEmail } from './validate-func';
+// import { PlayerScore } from '../database/PlayerScore.class';
 import { DBBestScore } from '../database/DBBestScore.class';
 
 export class RegistrationForm extends BaseComponent {
@@ -135,13 +134,5 @@ export class RegistrationForm extends BaseComponent {
     coverElement?.classList.add('hidden');
 
     form.hide();
-  };
-
-  show = () => {
-    this.element.classList.remove('hidden');
-  };
-
-  hide = () => {
-    this.element.classList.add('hidden');
   };
 }
