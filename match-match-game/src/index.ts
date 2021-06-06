@@ -28,7 +28,9 @@ appElement.appendChild(bestScorePage.element);
 const settingsPage = new Settings();
 appElement.appendChild(settingsPage.element);
 
-const gamePage = new App(appElement);
+const gamePage = new App(appElement, 
+                         headerControls.controlGameStart,
+                         headerControls.controlGameStop);
 
 const regNewPlayer = new RegistrationForm();
 bodyElement.append(regNewPlayer.element);

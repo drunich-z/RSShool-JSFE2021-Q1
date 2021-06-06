@@ -5,6 +5,7 @@ import { CardsField } from '../cards-field/cards-field';
 import { DBBestScore } from '../database/DBBestScore.class';
 import { Timer } from '../timer/timer';
 import './game.scss';
+import { Popup } from '../popup/popup';
 
 const FLIP_DELAY = 2000;
 
@@ -28,13 +29,20 @@ export class Game extends BaseComponent {
   private totalAttempts = 0;
 
   private dbBestscore: DBBestScore;
+  private gameStartControl: HTMLElement | null;
+  private gameStopControl: HTMLElement | null;
 
-  constructor() {
+  constructor( 
+    gameStartControl: HTMLElement | null,
+    gameStopControl: HTMLElement | null
+    ) {
     super('div', ['game-wrapper']);
     this.cardsField = new CardsField();
     this.element.appendChild(this.cardsField.element);
     this.timer = new Timer();
     this.dbBestscore = new DBBestScore('drunich-z', 'BestScore');
+    this.gameStartControl = gameStartControl;
+    this.gameStopControl = gameStopControl;
   }
 
   async newGame(images: string[]) {
@@ -71,6 +79,9 @@ export class Game extends BaseComponent {
     this.timer.stop();
     this.activeCard = undefined;
     this.isAnimation = false;
+    this.gameStopControl?.classList.add('hidden');
+    this.gameStartControl?.classList.remove('hidden');
+
     if (this.isGameWinned) {
       const points = this.getWinPoints();
       const player = JSON.parse(localStorage.user);
@@ -82,8 +93,8 @@ export class Game extends BaseComponent {
         avatar: player.avatar,
         score: points
       });
-      console.log('GAME IS WINNED');
-      alert(`Y R WIN, YOUR POINTS ${points}`);
+      const popup = new Popup(`YOU ARE WIN! CONDRATULATIONS! YOUR TOTAL SCORE IS ${points}!`);
+      popup.show();
     }
     this.cardsMatchedCount = 0;
   }

@@ -3,13 +3,23 @@ import { ImageCategoryModel } from '../models/image-category-model';
 
 export class App {
   private readonly game: Game;
+  private gameStartControl: HTMLElement | null;
+  private gameStopControl: HTMLElement | null;
+
 
   classControlContainer: HTMLElement;
 
-  constructor(private readonly rootElement: HTMLElement) {
-    this.game = new Game();
+  constructor(private readonly rootElement: HTMLElement, 
+    gameStartControl: HTMLElement | null,
+    gameStopControl: HTMLElement | null,
+    ) {
+    this.gameStartControl = gameStartControl;
+    this.gameStopControl = gameStopControl;
+    this.game = new Game(this.gameStartControl,
+                         this.gameStopControl);
     this.rootElement.appendChild(this.game.element);
     this.classControlContainer = this.rootElement;// хм)
+    
   }
 
   async startGame() {
