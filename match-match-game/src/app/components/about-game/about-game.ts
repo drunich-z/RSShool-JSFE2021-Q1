@@ -13,17 +13,5 @@ export class AboutGame extends BaseComponent {
     img.classList.add('about-picture');
     img.setAttribute('alt', 'About');
     this.element.appendChild(img);
-
-    // this.element.innerHTML = aboutSvg;
-    // const img = document.createElement(tag);
-    // this.element.classList.add(...styles);
-  }
-
-  show() {
-    this.element.classList.remove('hidden');
-  }
-
-  hide() {
-    this.element.classList.add('hidden');
   }
 }

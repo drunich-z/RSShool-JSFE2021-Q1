@@ -11,7 +11,7 @@ export class BestScore extends BaseComponent {
     this.classControlContainer = this.element;
   }
 
-  show(bestScoreList: PlayerScore[]) {
+  showBestScore(bestScoreList: PlayerScore[]): void {
     this.removeAllChilds();
     this.element.classList.remove('hidden');
     const ul = createDOMElement('ul', ['best-score-list']);
@@ -21,10 +21,6 @@ export class BestScore extends BaseComponent {
       const li = this.createListElement(bestScoreList[i]);
       ul.appendChild(li);
     }
-  }
-
-  hide() {
-    this.element.classList.add('hidden');
   }
 
   private createListElement = (player: PlayerScore) => {

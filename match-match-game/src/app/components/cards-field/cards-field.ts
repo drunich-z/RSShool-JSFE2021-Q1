@@ -6,27 +6,29 @@ const SHOW_TIME = 10000;
 
 export class CardsField extends BaseComponent {
   private cards: Card[] = [];
-  _startShowTime: number;
+
+  private startShowTimer: number;
 
   constructor() {
     super('div', ['cards-field']);
-    this._startShowTime = SHOW_TIME;
-  }
-  startShowTime():number {
-    return this._startShowTime;
+    this.startShowTimer = SHOW_TIME;
   }
 
-  clear() {
+  startShowTime():number {
+    return this.startShowTimer;
+  }
+
+  clear(): void {
     this.cards = [];
     this.element.innerHTML = '';
   }
 
-  async addCards(cards: Card[]) {
+  async addCards(cards: Card[]): Promise<void> {
     this.cards = cards;
     this.cards.forEach((card) => this.element.appendChild(card.element));
     setTimeout(() => {
       this.cards.forEach((card) => card.flipToBack());
     }, SHOW_TIME);
-    return new Promise((resolve, reject) => setTimeout(resolve, SHOW_TIME));
+    return new Promise((resolve) => setTimeout(resolve, SHOW_TIME));
   }
 }

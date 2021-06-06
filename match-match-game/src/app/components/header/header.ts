@@ -1,6 +1,6 @@
 import './header.scss';
 import { BaseComponent } from '../base-component';
-import avaPict from '../../../assets/resource/avatar.png';
+// import avaPict from '../../../assets/resource/avatar.png';
 
 // переделать, наверное, надо...построить хедер апендами
 export class Header extends BaseComponent {
@@ -70,7 +70,7 @@ export class Header extends BaseComponent {
     this.pointerGameSettings = null;
   }
 
-  initAllControl() {
+  initAllControl(): void {
     this.controlPlayer = document.getElementById('control__user');
     this.controlGameStart = document.getElementById('control__game-start');
     this.controlGameStop = document.getElementById('control__game-stop');
@@ -79,15 +79,7 @@ export class Header extends BaseComponent {
     this.pointerGameSettings = document.getElementById('control__settings');
   }
 
-  initNewPlayerButton() {
+  initNewPlayerButton(): void {
     if (this.controlPlayer) this.controlPlayer.addEventListener('click', () => console.log('test'));
-  }
-
-  initStartGameButton = () => {
-
-  }
-
-  initStopGameButton = () => {
-
   }
 }

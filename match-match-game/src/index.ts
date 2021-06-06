@@ -28,9 +28,9 @@ appElement.appendChild(bestScorePage.element);
 const settingsPage = new Settings();
 appElement.appendChild(settingsPage.element);
 
-const gamePage = new App(appElement, 
-                         headerControls.controlGameStart,
-                         headerControls.controlGameStop);
+const gamePage = new App(appElement,
+  headerControls.controlGameStart,
+  headerControls.controlGameStop);
 
 const regNewPlayer = new RegistrationForm();
 bodyElement.append(regNewPlayer.element);
@@ -66,7 +66,7 @@ async function BestScoreShow() {
   const result = await idbScore.getArrayOfFirstNSortedByScore(10);
   hideAllPages();
   StopGameIfItIsRunning();
-  bestScorePage.show(result);
+  bestScorePage.showBestScore(result);
 }
 
 window.onload = () => {

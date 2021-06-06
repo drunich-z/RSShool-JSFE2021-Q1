@@ -25,14 +25,14 @@ export class RegistrationForm extends BaseComponent {
   testDB: DBBestScore;
 
   constructor() {
-    
     super('form', ['registration-form', 'hidden']);
-    
+
     const nameRegExp = '^[a-zA-Zа-яА-Я][a-zA-Za-zA-Zа-яА-Я0-9\s]{1,30}$';
     const emailRegExp = '^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
     this.nameInput = new Input('text', 'input your name here', ['input-name'], nameRegExp, 'Input correct name!');
-    this.surnameInput = new Input('text', 'input your surname here', ['input-surname'], nameRegExp, 'Input correct surname!');
+    this.surnameInput = new Input('text', 'input your surname here', ['input-surname'],
+      nameRegExp, 'Input correct surname!');
     this.emailInput = new Input('email', 'input your email here', ['input-email'], emailRegExp, 'Input correct email!');
 
     this.avatarInput = new InputAvatar();

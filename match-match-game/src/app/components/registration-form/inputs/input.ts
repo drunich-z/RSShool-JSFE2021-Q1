@@ -18,11 +18,11 @@ export class Input extends BaseComponent {
     this.initClasslistener();
   }
 
-  initOutclassListener(callback: any) {
+  initOutclassListener(callback: ()=>void): void {
     this.element.addEventListener('input', callback);
   }
 
-  initClasslistener() {
+  initClasslistener(): void {
     this.element.addEventListener('input', () => {
       if ((this.element as HTMLInputElement).validity.valid) {
         this.element.classList.add('valid');
@@ -30,7 +30,7 @@ export class Input extends BaseComponent {
     });
   }
 
-  clear() {
+  clear(): void {
     (this.element as HTMLInputElement).value = '';
   }
 }

@@ -20,17 +20,14 @@ export class InputAvatar extends BaseComponent {
     this.element.appendChild(this.avatarImage);
     this.element.appendChild(this.input.element);
     this.avatarBase64 = '';
-    // const tt = this.ReadImageFile(avaPict);
-    // const tt = this.toDataURL('../../../../assets/resource/avatar.png');
-
     this.initListener();
   }
 
-  initListener() {
+  initListener(): void {
     this.input.element.addEventListener('change', (e) => this.onAvaPreload(e));
   }
 
-  clear() {
+  clear(): void {
     (this.element as HTMLInputElement).files = null;
     (this.element as HTMLInputElement).value = '';
     this.avatarImage.setAttribute('src', avaPict);
@@ -45,15 +42,13 @@ export class InputAvatar extends BaseComponent {
     this.avatarImage.setAttribute('src', loadedImage as string);
   }
 
-  private ReadImageFile = (files: File) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(files);
-      reader.onload = () => resolve(reader.result);
-    });
-  };
+  private ReadImageFile = (files: File) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(files);
+    reader.onload = () => resolve(reader.result);
+  });
 
-  toDataURL = (url: any) => {
+  toDataURL = (url: string): void => {
     fetch(url)
       .then((response) => response.blob())
       .then((blob) => new Promise((resolve, reject) => {
@@ -63,8 +58,4 @@ export class InputAvatar extends BaseComponent {
         reader.readAsDataURL(blob);
       }));
   };
-
-  // private async base64 (files: File) {
-  //   return await this.ReadImageFile(files);
-  // }
 }

@@ -5,7 +5,7 @@ export class DBAccess implements IDBAccess {
 
   private db: IDBDatabase | undefined;
 
-  async connect(dbName: string, storeName: string) {
+  async connect(dbName: string, storeName: string): Promise<IDBDatabase> {
     if (this.db) {
       return this.db;
     }
@@ -35,9 +35,10 @@ export class DBAccess implements IDBAccess {
     });
   }
 
-  get instance() {
+  get instance(): DBAccess {
     if (this.dbAccess) return this.dbAccess;
-    return this.dbAccess = new DBAccess();
-    //return this.dbAccess ? this.dbAccess : this.dbAccess = new DBAccess();
+    this.dbAccess = new DBAccess();
+    return this.dbAccess;
+    // return this.dbAccess ? this.dbAccess : this.dbAccess = new DBAccess();
   }
 }

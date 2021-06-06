@@ -11,12 +11,12 @@ const FLIP_DELAY = 2000;
 
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
-  
+
   private activeCard?: Card;
 
   private isAnimation = false;
 
-  private isGameStopped = false;
+  private isGameStopped = true;
 
   private isGameWinned = false;
 
@@ -29,13 +29,15 @@ export class Game extends BaseComponent {
   private totalAttempts = 0;
 
   private dbBestscore: DBBestScore;
+
   private gameStartControl: HTMLElement | null;
+
   private gameStopControl: HTMLElement | null;
 
-  constructor( 
+  constructor(
     gameStartControl: HTMLElement | null,
-    gameStopControl: HTMLElement | null
-    ) {
+    gameStopControl: HTMLElement | null,
+  ) {
     super('div', ['game-wrapper']);
     this.cardsField = new CardsField();
     this.element.appendChild(this.cardsField.element);
@@ -45,7 +47,7 @@ export class Game extends BaseComponent {
     this.gameStopControl = gameStopControl;
   }
 
-  async newGame(images: string[]) {
+  async newGame(images: string[]): Promise<void> {
     this.isGameStopped = false;
     this.isGameWinned = false;
     this.cardsTotalCount = images.length;
@@ -66,15 +68,15 @@ export class Game extends BaseComponent {
     else this.timer.stop();
   }
 
-  getWinPoints = () => {
+  getWinPoints = (): number => {
     const time = this.timer.getTotalSeconds();
     const attemps = this.cardsMatchedCount;
-    const res = attemps*100 - time * 10;
+    const res = attemps * 100 - time * 10;
     if (res >= 0) return res;
-    else return 0;
+    return 0;
   };
 
-  finishGame() {
+  finishGame(): void {
     this.isGameStopped = true;
     this.timer.stop();
     this.activeCard = undefined;
@@ -91,7 +93,7 @@ export class Game extends BaseComponent {
         surname: player.surname,
         email: player.email,
         avatar: player.avatar,
-        score: points
+        score: points,
       });
       const popup = new Popup(`YOU ARE WIN! CONDRATULATIONS! YOUR TOTAL SCORE IS ${points}!`);
       popup.show();
@@ -99,7 +101,7 @@ export class Game extends BaseComponent {
     this.cardsMatchedCount = 0;
   }
 
-  isGameIsRunning() {
+  isGameIsRunning(): boolean {
     return !this.isGameStopped;
   }
 
@@ -126,7 +128,7 @@ export class Game extends BaseComponent {
       this.activeCard.removeError();
       this.activeCard = undefined;
       this.isAnimation = false;
-      this.totalAttempts += 1 ;
+      this.totalAttempts += 1;
       return;
     }
 

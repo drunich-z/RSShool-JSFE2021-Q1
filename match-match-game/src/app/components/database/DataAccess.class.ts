@@ -9,7 +9,7 @@ export class DataAccess<T extends Item> implements IDataAccess<T> {
     this.connection = new DBAccess().instance.connect(dbName, storeName);
   }
 
-  async add(item: T) {
+  async add(item: T): Promise<any> {
     const db = await this.connection;
     const request = db.transaction([this.storeName], 'readwrite')
       .objectStore(this.storeName)
@@ -18,13 +18,13 @@ export class DataAccess<T extends Item> implements IDataAccess<T> {
     return this.requestHandler(request);
   }
 
-  async retrieve() {
+  async retrieve(): Promise<T[]> {
     const db = await this.connection;
     const store = db.transaction([this.storeName], 'readonly')
       .objectStore(this.storeName);
 
     return new Promise<T[]>((resolve, reject) => {
-      const result: any[] = [];
+      const result: T[] = [];
       store.openCursor().onsuccess = (event) => {
         const cursor = (event.target as any).result;
         if (cursor) {
@@ -37,7 +37,7 @@ export class DataAccess<T extends Item> implements IDataAccess<T> {
     });
   }
 
-  async update(item: T) {
+  async update(item: T): Promise<T> {
     const db = await this.connection;
     const request = db.transaction([this.storeName], 'readwrite')
       .objectStore(this.storeName)
@@ -46,7 +46,7 @@ export class DataAccess<T extends Item> implements IDataAccess<T> {
     return this.requestHandler(request);
   }
 
-  async get(uid: string) {
+  async get(uid: string): Promise<T> {
     const db = await this.connection;
     const request = db.transaction([this.storeName], 'readonly')
       .objectStore(this.storeName)
@@ -55,7 +55,7 @@ export class DataAccess<T extends Item> implements IDataAccess<T> {
     return this.requestHandler(request);
   }
 
-  async remove(uid: string) {
+  async remove(uid: string): Promise<T> {
     const db = await this.connection;
     const request = db.transaction([this.storeName], 'readwrite')
       .objectStore(this.storeName)

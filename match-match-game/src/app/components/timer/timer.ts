@@ -3,54 +3,49 @@ import { BaseComponent } from '../base-component';
 // import { delay } from '../../../shared/delay'
 
 export class Timer extends BaseComponent {
-  private timerId: any;
+  private timerId = 0;
 
   private startTime = 0;
+
   private finishTime = 0;
 
   constructor() {
     super('div', ['game-timer']);
   }
 
-  start() {
+  start(): void {
     this.element.innerText = '00:00';
     this.startTime = Date.now();
     let diff = 0;
-    this.timerId = setInterval(() => {
+    this.timerId = window.setInterval(() => {
       diff = Date.now() - this.startTime;
       this.element.innerText = `${this.milisecundesToMinutesAndSeconds(diff)}`;
     }, 1000);
   }
 
-  startCountDown(miliSeconds: number) {
+  startCountDown(miliSeconds: number): void {
     const start = miliSeconds + 500;
     let count = 1;
     let diff = 0;
     this.element.innerText = '00:00';
-    this.timerId = setInterval(() => {
-      diff = start - count*1000;
+    this.timerId = window.setInterval(() => {
+      diff = start - count * 1000;
       count += 1;
       this.element.innerText = `${this.milisecundesToMinutesAndSeconds(diff)}`;
     }, 1000);
   }
 
-  stop() {
+  stop = (): void => {
     clearInterval(this.timerId);
     this.finishTime = Date.now();
   };
 
-  pause = () => {
-
-  };
-
-  restart = () => {
+  restart = (): void => {
     this.stop();
     this.start();
   };
 
-  getTotalSeconds = ():number => {
-    return Math.ceil((this.finishTime - this.startTime) / 1000);
-  };
+  getTotalSeconds = ():number => Math.ceil((this.finishTime - this.startTime) / 1000);
 
   private milisecundesToMinutesAndSeconds = (duration: number): string => {
     const seconds = Math.floor((duration / 1000) % 60);

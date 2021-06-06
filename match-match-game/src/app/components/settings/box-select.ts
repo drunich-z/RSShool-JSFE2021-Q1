@@ -3,7 +3,8 @@ import { BaseComponent } from '../base-component';
 import { createDOMElement } from '../../../shared/dom-functions';
 
 export class BoxSelect extends BaseComponent {
-  private options: HTMLElement[]=[];
+  private options: HTMLElement[] = [];
+
   constructor(classname: string, options: string[], selectName: string) {
     super('select', [classname]);
     this.element.setAttribute('required', 'required');
@@ -14,9 +15,7 @@ export class BoxSelect extends BaseComponent {
     }
   }
 
-  initOutclassListener(callback: any) {
+  initOutclassListener(callback: ()=>void): void {
     this.element.addEventListener('change', callback);
   }
-
-
 }

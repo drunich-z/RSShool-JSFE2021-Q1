@@ -1,9 +1,9 @@
 import { DataAccess } from './DataAccess.class';
 import { PlayerScore } from './PlayerScore.class';
-import avaPict from '../../../assets/resource/avatar.png';
+// import avaPict from '../../../assets/resource/avatar.png';
 
 export class DBBestScore extends DataAccess<PlayerScore> {
-  async addFivePlayersOnStart() {
+  async addFivePlayersOnStart(): Promise<void> {
     let res = await this.get('zverev-and@mail.ru');
     if (res === undefined) {
       this.add({
@@ -61,7 +61,7 @@ export class DBBestScore extends DataAccess<PlayerScore> {
     }
   }
 
-  async getArrayOfFirstNSortedByScore(n = 1) {
+  async getArrayOfFirstNSortedByScore(n = 1): Promise<PlayerScore[]> {
     const result = await this.retrieve();
     return result
       .sort((a, b) => (a.score > b.score ? -1 : 1))
