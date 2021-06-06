@@ -6,6 +6,7 @@ export class Timer extends BaseComponent {
   private timerId: any;
 
   private startTime = 0;
+  private finishTime = 0;
 
   constructor() {
     super('div', ['game-timer']);
@@ -21,8 +22,9 @@ export class Timer extends BaseComponent {
     }, 1000);
   }
 
-  stop = () => {
+  stop() {
     clearInterval(this.timerId);
+    this.finishTime = Date.now();
   };
 
   pause = () => {
@@ -34,9 +36,11 @@ export class Timer extends BaseComponent {
     this.start();
   };
 
-  getTotalTime = () => 100;
+  getTotalSeconds = ():number => {
+    return Math.ceil((this.finishTime - this.startTime) / 1000);
+  };
 
-  private milisecundesToMinutesAndSeconds = (duration: number) => {
+  private milisecundesToMinutesAndSeconds = (duration: number): string => {
     const seconds = Math.floor((duration / 1000) % 60);
     const minutes = Math.floor((duration / (1000 * 60)) % 60);
     const strMinutes = (minutes < 10) ? `0${minutes}` : minutes;
