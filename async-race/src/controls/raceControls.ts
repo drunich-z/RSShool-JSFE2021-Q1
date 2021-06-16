@@ -8,7 +8,7 @@ async function raceAll(promises: any, ids: any): Promise<any> {
   const { success, id, time } = await Promise.race(promises);
 
   if (!success) {
-    const failedIndex = ids.failedIndex((i:any) => i === id);
+    const failedIndex = ids.findIndex((i:any) => i === id);
     const restPromises = [...promises.slice(0, failedIndex), ...promises.slice(failedIndex + 1, promises.length)];
     const restIds = [...ids.slice(0, failedIndex), ...ids.slice(failedIndex + 1, ids.length)];
     return raceAll(restPromises, restIds);
@@ -23,10 +23,7 @@ async function race(action: any): Promise<any> {
     return action(startButton);
   });
 
-  console.log(promises);
   const winner = await raceAll(promises, Store.cars.map((car) => car.id));
-  console.log(winner);
-
   return winner;
 }
 
@@ -45,7 +42,8 @@ export default {
     if (!raceButton) return;
     raceButton.disabled = true;
     const winner = await race(CarControls.carStartDrive);
-    await Model.saveWinner(winner);
+    const winnerToSave = { id: winner.id, time: winner.time };
+    await Model.saveWinner(winnerToSave);
     const message = document.getElementById('message');
     if (!message) return;
     message.innerHTML = `${winner.name} went first (${winner.time}s)!`;

@@ -1,4 +1,3 @@
-import Model from './model';
 import Store from './shared/store';
 import GaragePage from './pages/garage/garage';
 import PageControls from './controls/pageControls';

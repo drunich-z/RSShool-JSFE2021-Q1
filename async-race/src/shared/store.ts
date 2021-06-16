@@ -9,7 +9,7 @@ const { items: winners, count: winnersCount } = await Model.getWinners({
 const animation: any = {};
 const selectedCar: Car = { name: '', color: '', id: 0 };
 
-// не разобрался как сказать что переменные определенного типа, чтобы линт не ругался
+// не разобрался как сказать что свойства в export defaults определенного типа (самоопределнного), чтобы линт не ругался
 // let sortBy: Sort; sortBy = 'wins'; sortBy = 'id';
 // let view: PageView; view = 'winners'; view = 'garage';
 // let sortOrder: Order; sortOrder = 'DESC'; sortOrder = 'ASC';

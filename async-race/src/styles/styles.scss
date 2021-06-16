@@ -190,8 +190,8 @@ body {
 }
 
 .message {
-  top: 200px;
-  left: calc(50%-250px);
+  top: calc(50vh - 300px);
+  left: calc(50vw - 283px);
   text-align: center;
   display: none;
   position: fixed;

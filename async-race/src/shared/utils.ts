@@ -1,4 +1,3 @@
-import Store from './store';
 import './types';
 
 const models = ['Tesla', 'Mersedes', 'BMW', 'Toyota', 'Lada', 'Moskvich', 'Opel', 'Porche', 'Subaru', 'Nissan'];
@@ -56,41 +55,7 @@ export default {
     return state;
   },
 
-  // async raceAll(promises: any, ids: any): Promise<any> {
-  //   const { success, id, time } = await Promise.race(promises);
-
-  //   if (!success) {
-  //     const failedIndex = ids.failedIndex((i:any) => i === id);
-  //     const restPromises = [...promises.slice(0, failedIndex), ...promises.slice(failedIndex + 1, promises.length)];
-  //     const restIds = [...ids.slice(0, failedIndex), ...ids.slice(failedIndex + 1, ids.length)];
-  //     return this.raceAll(restPromises, restIds);
-  //   }
-
-  //   return { ...Store.cars.find((car) => car.id === id), time: +(time / 1000).toFixed(2) };
-  // },
-
-  // async race(action: any): Promise<any> {
-  //   const promises = Store.cars.map(({ id }) => {
-  //     const startButton = document.getElementById(`start-engine-car-${id}`);
-  //     console.log(startButton?.classList);
-
-  //     return action(startButton);
-  //   });
-
-  //   const winner = await this.raceAll(promises, Store.cars.map((car) => car.id));
-
-  //   return winner;
-  // },
-
-  // async race(action: any): Promise<any> {
-  //   const promises = Store.cars.map(({ id }) => action(id));
-
-  //   const winner = await this.raceAll(promises, Store.cars.map((car) => car.id));
-
-  //   return winner;
-  // },
-
-  // разобраться с созданием массива машинок, map не получается
+  // разобраться с созданием массива машинок, map не получается почему-то
   generateRandomCars(count = 100): CarCreate[] {
     const result: CarCreate[] = new Array(count);
     for (let i = 0; i < count; i++) result[i] = { name: getRandomName(), color: getRandomColor() };

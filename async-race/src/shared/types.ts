@@ -32,6 +32,11 @@ type Winner = {
   time: number
 };
 
+type WinnerUpdate = {
+  wins: number,
+  time: number
+};
+
 type WinnerPlusCar = {
   id: number,
   wins: number,
@@ -40,16 +45,3 @@ type WinnerPlusCar = {
 };
 
 type Winners = WinnerPlusCar[];
-
-// type Winner = {
-//   id: number,
-//   wins: number,
-//   time: number
-// };
-
-// type WinnerPlusCar = {
-//   winner: Winner,
-//   car: Car
-// };
-
-// type Winners = WinnerPlusCar[];
