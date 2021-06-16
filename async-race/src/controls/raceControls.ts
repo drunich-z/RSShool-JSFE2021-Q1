@@ -27,7 +27,23 @@ async function race(action: any): Promise<any> {
   return winner;
 }
 
+function disableAllControlWhileRace(): void {
+  
+}
+
 export default {
+  raceButton: (document.getElementById('race') as HTMLButtonElement),
+  resetButton: (document.getElementById('reset') as HTMLButtonElement),
+  generateButton: (document.getElementById('generate') as HTMLButtonElement),
+  winMessage: (document.getElementById('message') as HTMLElement),
+
+  init(): void {
+    this.raceButton = (document.getElementById('race') as HTMLButtonElement);
+    this.resetButton = (document.getElementById('reset') as HTMLButtonElement);
+    this.generateButton = (document.getElementById('generate') as HTMLButtonElement);
+    this.winMessage = (document.getElementById('message') as HTMLElement);
+  },
+
   async generateExtraCarsHandle(generateButton: HTMLButtonElement): Promise<void> {
     if (!generateButton) return;
     generateButton.disabled = true;
@@ -35,6 +51,7 @@ export default {
     await Promise.all(cars.map(async (item) => Model.createCar(item)));
     await Store.updateStoreGarage();
     PageControls.updateGarageView();
+    PageControls.updateNextPrevButtonsState('garage');
     generateButton.disabled = false;
   },
 
@@ -44,12 +61,12 @@ export default {
     const winner = await race(CarControls.carStartDrive);
     const winnerToSave = { id: winner.id, time: winner.time };
     await Model.saveWinner(winnerToSave);
-    const message = document.getElementById('message');
-    if (!message) return;
-    message.innerHTML = `${winner.name} went first (${winner.time}s)!`;
-    message.classList.toggle('visible', true);
-    (document.getElementById('race') as HTMLButtonElement).disabled = true;
-    (document.getElementById('reset') as HTMLButtonElement).disabled = false;
+    this.winMessage.innerHTML = `${winner.name} went first (${winner.time}s)!`;
+    this.winMessage.classList.toggle('visible', true);
+    Store.updateStoreWinners();
+    PageControls.updateWinnersView();
+    this.raceButton.disabled = true;
+    this.resetButton.disabled = false;
   },
 
   async resetHandle(resetButton: HTMLButtonElement): Promise<void> {
@@ -59,11 +76,9 @@ export default {
       const stopButton = (document.getElementById(`stop-engine-car-${id}`) as HTMLButtonElement);
       return CarControls.carStopDrive(stopButton);
     });
-    const message = document.getElementById('message');
-    if (!message) return;
-    message.classList.toggle('visible', false);
-    (document.getElementById('race') as HTMLButtonElement).disabled = false;
-    (document.getElementById('reset') as HTMLButtonElement).disabled = true;
+    this.winMessage.classList.toggle('visible', false);
+    this.raceButton.disabled = false;
+    this.resetButton.disabled = true;
   },
 
 };
