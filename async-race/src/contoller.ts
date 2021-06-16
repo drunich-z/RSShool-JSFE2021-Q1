@@ -1,4 +1,3 @@
-import Model from './model';
 import Store from './shared/store';
 import GaragePage from './pages/garage/garage';
 import PageControls from './controls/pageControls';
@@ -7,7 +6,7 @@ import CarModifyControls from './controls/carModifyControls';
 import CarControls from './controls/carControls';
 import RaceControls from './controls/raceControls';
 
-async function handleClick(event: MouseEvent): Promise<void> {
+async function handleClickControl(event: MouseEvent): Promise<void> {
   const target = (event.target as HTMLButtonElement);
   if (!target) return;
   if (target.classList.contains('next-button')) PageControls.buttonNextPrevHandle('next');
@@ -40,8 +39,9 @@ export default {
   async initControlls(): Promise<void> {
     PageControls.init();
     CarModifyControls.init();
+    RaceControls.init();
     (PageControls.garageHTMLSection as HTMLElement).innerHTML = GaragePage.renderGarage();
-    document.body.addEventListener('click', (e) => handleClick(e));
+    document.body.addEventListener('click', (e) => handleClickControl(e));
     CarModifyControls.listenCreateCar();
     CarModifyControls.listenUpdateCar();
   },
