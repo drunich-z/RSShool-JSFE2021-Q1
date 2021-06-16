@@ -51,7 +51,7 @@ export default {
     if (view === 'garage') {
       this.garageViewHTMLSection.style.display = 'block';
       this.winnersViewHTMLSection.style.display = 'none';
-      //this.garagePage.setAttribute('onclick', 'return false');
+      // this.garagePage.setAttribute('onclick', 'return false');
     }
     if (view === 'winners') {
       Store.updateStoreWinners();

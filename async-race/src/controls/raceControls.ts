@@ -27,10 +27,6 @@ async function race(action: any): Promise<any> {
   return winner;
 }
 
-function disableAllControlWhileRace(): void {
-  
-}
-
 export default {
   raceButton: (document.getElementById('race') as HTMLButtonElement),
   resetButton: (document.getElementById('reset') as HTMLButtonElement),
