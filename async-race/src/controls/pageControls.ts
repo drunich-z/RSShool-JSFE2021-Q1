@@ -11,6 +11,9 @@ export default {
   prev: document.getElementById('prev') as HTMLButtonElement,
   next: document.getElementById('next') as HTMLButtonElement,
 
+  garagePage: document.getElementById('garage-menu') as HTMLElement,
+  winnersPage: document.getElementById('winners-menu') as HTMLElement,
+
   init(): void {
     this.garageHTMLSection = document.getElementById('garage') as HTMLElement;
     this.winnersHTMLSection = document.getElementById('winners-view') as HTMLElement;
@@ -19,6 +22,9 @@ export default {
 
     this.prev = (document.getElementById('prev') as HTMLButtonElement);
     this.next = (document.getElementById('next') as HTMLButtonElement);
+
+    this.garagePage = document.getElementById('garage-menu') as HTMLElement;
+    this.winnersPage = document.getElementById('winners-menu') as HTMLElement;
 
     this.updateNextPrevButtonsState('garage');
   },
@@ -45,6 +51,7 @@ export default {
     if (view === 'garage') {
       this.garageViewHTMLSection.style.display = 'block';
       this.winnersViewHTMLSection.style.display = 'none';
+      //this.garagePage.setAttribute('onclick', 'return false');
     }
     if (view === 'winners') {
       Store.updateStoreWinners();
