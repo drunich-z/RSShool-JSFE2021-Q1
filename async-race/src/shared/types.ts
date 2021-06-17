@@ -22,9 +22,9 @@ type EngineParams = {
 
 type EngineStatus = 'started' | 'stopped' | 'drive';
 
-type Sort = 'id' | 'wins' | 'time';
+type SortType = 'id' | 'wins' | 'time';
 
-type Order = 'ASC' | 'DESC';
+type OrderType = 'asc' | 'desc';
 
 type Winner = {
   id: number,
