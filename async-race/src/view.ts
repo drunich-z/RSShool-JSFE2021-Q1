@@ -27,7 +27,8 @@ export default {
       <div id="garage">
         
       </div>
-      <div>
+      <div class="message-container hidden" id="message-container">
+        <img src="./assets/resource/bob.jpg" alt="Marley" id="bob-image" class="message-pict"> 
         <p class="message" id="message"></p>
       </div>
     </div>

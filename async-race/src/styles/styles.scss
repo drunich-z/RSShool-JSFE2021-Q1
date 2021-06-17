@@ -190,11 +190,11 @@ body {
 }
 
 .message {
-  top: calc(50vh - 300px);
-  left: calc(50vw - 283px);
+  // top: calc(50vh - 300px);
+  // left: calc(50vw - 283px);
   text-align: center;
   display: none;
-  position: fixed;
+  //position: fixed;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 50px;
   color: white;
@@ -207,5 +207,26 @@ body {
   display: block;
 }
 
+.message-container{
+  top: calc(50vh - 300px);
+  left: calc(50vw - 283px);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.message-pict{
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+  //box-shadow: 1 1 1 1 rgb(253, 143, 17);
+  box-shadow: 0 0 50px 15px rgba(248, 122, 11, 0.986)
+}
+
+.hidden{
+  display: none;
+}
 
 

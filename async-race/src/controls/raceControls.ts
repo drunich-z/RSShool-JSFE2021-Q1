@@ -31,12 +31,14 @@ export default {
   raceButton: (document.getElementById('race') as HTMLButtonElement),
   resetButton: (document.getElementById('reset') as HTMLButtonElement),
   generateButton: (document.getElementById('generate') as HTMLButtonElement),
+  messageContainer: (document.getElementById('message-container') as HTMLElement),
   winMessage: (document.getElementById('message') as HTMLElement),
 
   init(): void {
     this.raceButton = (document.getElementById('race') as HTMLButtonElement);
     this.resetButton = (document.getElementById('reset') as HTMLButtonElement);
     this.generateButton = (document.getElementById('generate') as HTMLButtonElement);
+    this.messageContainer = (document.getElementById('message-container') as HTMLElement);
     this.winMessage = (document.getElementById('message') as HTMLElement);
   },
 
@@ -59,6 +61,7 @@ export default {
     await Model.saveWinner(winnerToSave);
     this.winMessage.innerHTML = `${winner.name} went first (${winner.time}s)!`;
     this.winMessage.classList.toggle('visible', true);
+    this.messageContainer.classList.remove('hidden');
     Store.updateStoreWinners();
     PageControls.updateWinnersView();
     this.raceButton.disabled = true;
@@ -73,6 +76,7 @@ export default {
       return CarControls.carStopDrive(stopButton);
     });
     this.winMessage.classList.toggle('visible', false);
+    this.messageContainer.classList.add('hidden');
     this.raceButton.disabled = false;
     this.resetButton.disabled = true;
   },
