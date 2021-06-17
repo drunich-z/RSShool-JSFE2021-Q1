@@ -85,7 +85,7 @@ export default {
     this.winnersHTMLSection.innerHTML = PageWinners.renderWinners();
   },
 
-  async reSortWinnersTable(sortBy: string): Promise<void> {
+  async reSortWinnersTable(sortBy: SortType): Promise<void> {
     Store.sortOrder = Store.sortOrder === 'asc' ? 'desc' : 'asc';
     Store.sortBy = sortBy;
 

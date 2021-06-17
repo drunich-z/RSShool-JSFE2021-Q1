@@ -8,6 +8,9 @@ const { items: winners, count: winnersCount } = await Model.getWinners({
 
 const animation: any = {};
 const selectedCar: Car = { name: '', color: '', id: 0 };
+const view = 'garage' as PageView;
+const sortBy = 'id' as SortType;
+const sortOrder = 'desc' as OrderType;
 
 // не разобрался как сказать что свойства в export defaults определенного типа (самоопределнного), чтобы линт не ругался
 // let sortBy: Sort; sortBy = 'wins'; sortBy = 'id';
@@ -24,9 +27,9 @@ export default {
   winners,
   winnersCount,
   animation,
-  view: 'garage',
-  sortBy: 'id',
-  sortOrder: 'desc',
+  view,
+  sortBy,
+  sortOrder,
   pageGarageLimit: PAGE_GARAGE_ITEMS_LIMIT,
   pageWinnersLimit: PAGE_WINNERS_ITEMS_LIMIT,
   selectedCar,
