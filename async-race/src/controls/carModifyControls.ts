@@ -34,6 +34,7 @@ export default {
       };
       await Model.createCar(car);
       await Store.updateStoreGarage();
+      PageControls.updateNextPrevButtonsState('garage');
       PageControls.updateGarageView();
       (this.inputCreateName as HTMLInputElement).value = '';
       (this.inputCreateColor as HTMLInputElement).value = '#ffffff';
@@ -50,6 +51,7 @@ export default {
       };
       await Model.updateCar(Store.selectedCar.id, updateBody);
       await Store.updateStoreGarage();
+      PageControls.updateNextPrevButtonsState('garage');
       PageControls.updateGarageView();
       (this.inputUpdateName as HTMLInputElement).value = '';
       (this.inputUpdateColor as HTMLInputElement).value = '#ffffff';

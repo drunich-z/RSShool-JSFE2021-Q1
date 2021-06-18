@@ -18,36 +18,39 @@ Promise <{ success: boolean, id: number, time:number }> {
 
   const car = document.getElementById(`car-${id}`);
   const flag = document.getElementById(`flag-${id}`);
-  if (car === null) return { success: false, id: 0, time: 100 };
-  if (flag === null) return { success: false, id: 0, time: 100 };
+  if (car === null) return { success: false, id: 0, time: 0 };
+  if (flag === null) return { success: false, id: 0, time: 0 };
   const htmlDistance = Math.floor(Utils.getDistanceBetweenElements(car, flag) + 100);
 
+  Store.setForceStopFlag(id, false);
   Store.animation[id] = Utils.animation(car, htmlDistance, time);
 
   const { success } = await Model.drive(id);
   if (!success) {
     window.cancelAnimationFrame(Store.animation[id].id);
+    Store.setForceStopFlag(id, true);
   }
 
   return { success, id, time };
 }
 
-async function stopDriving(id: number, stopButton: HTMLButtonElement) {
+async function stopDriving(id: number, stopButton: HTMLButtonElement): Promise<void> {
   const startButton = (document.getElementById(`start-engine-car-${id}`) as HTMLButtonElement);
   if (!stopButton) return;
   if (!startButton) return;
   stopButton.disabled = true;
   stopButton.classList.toggle('enabling', true);
-  await Model.stopEngine(id);
-  stopButton.classList.toggle('enabling', false);
-  stopButton.disabled = false;
 
+  Store.setForceStopFlag(id, true);
+  if (Store.animation[id]) window.cancelAnimationFrame(Store.animation[id].id);
   const car = document.getElementById(`car-${id}`);
   if (car) car.style.transform = 'translateX(0)';
+  await Model.stopEngine(id);
 
-  if (Store.animation[id]) window.cancelAnimationFrame(Store.animation[id].id);
-  startButton.disabled = false;
+  stopButton.classList.toggle('enabling', false);
+  stopButton.disabled = false;
   startButton.classList.toggle('enabling', false);
+  startButton.disabled = false;
 }
 
 export default {
@@ -81,6 +84,8 @@ export default {
     await Model.deleteWinner(id);
     await Store.updateStoreGarage();
     await Store.updateStoreWinners();
+    PageControls.updateNextPrevButtonsState('garage');
+    PageControls.updateNextPrevButtonsState('winners');
     PageControls.updateGarageView();
   },
 
