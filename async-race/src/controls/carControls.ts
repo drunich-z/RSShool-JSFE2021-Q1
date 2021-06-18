@@ -38,14 +38,14 @@ async function stopDriving(id: number, stopButton: HTMLButtonElement) {
   if (!startButton) return;
   stopButton.disabled = true;
   stopButton.classList.toggle('enabling', true);
-  await Model.stopEngine(id);
-  stopButton.classList.toggle('enabling', false);
-  stopButton.disabled = false;
-
-  const car = document.getElementById(`car-${id}`);
-  if (car) car.style.transform = 'translateX(0)';
 
   if (Store.animation[id]) window.cancelAnimationFrame(Store.animation[id].id);
+  const car = document.getElementById(`car-${id}`);
+  if (car) car.style.transform = 'translateX(0)';
+  await Model.stopEngine(id);
+
+  stopButton.classList.toggle('enabling', false);
+  stopButton.disabled = false;
   startButton.disabled = false;
   startButton.classList.toggle('enabling', false);
 }
