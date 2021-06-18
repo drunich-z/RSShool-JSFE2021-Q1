@@ -26,6 +26,17 @@ export default {
     };
   },
 
+  async getCarsPlusFlag(page: number): Promise<{ items: CarsPlus, count: XCount }> {
+    const { items, count } = await this.getCars(page);
+    const carsPlus: CarsPlus = new Array(items.length);
+    for (let i = 0; i < items.length; i++) carsPlus[i] = { ...items[i], forceStop: false };
+
+    return {
+      items: carsPlus,
+      count,
+    };
+  },
+
   async createCar(body: CarCreate): Promise <void> {
     (await fetch(garage, {
       method: 'POST',

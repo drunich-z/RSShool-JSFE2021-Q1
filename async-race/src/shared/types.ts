@@ -6,12 +6,21 @@ type Car = {
   id: number
 };
 
+// с флагом форсированной остановки
+type CarPlus = {
+  name: string,
+  color: string,
+  id: number
+  forceStop: boolean
+};
+
 type CarCreate = {
   name: string,
   color: string
 };
 
 type Cars = Car[];
+type CarsPlus = CarPlus[];
 
 type XCount = string | null;
 

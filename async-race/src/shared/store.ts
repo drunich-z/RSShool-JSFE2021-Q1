@@ -1,7 +1,8 @@
 import Model from '../model';
 import './types';
 
-const { items: cars, count: carsCount } = await Model.getCars(1);
+// const { items: carsTemp, count: carsCount } = await Model.getCars(1);
+const { items: cars, count: carsCount } = await Model.getCarsPlusFlag(1);
 const { items: winners, count: winnersCount } = await Model.getWinners({
   page: 1, limit: 10, sort: 'id', order: 'ASC',
 });
@@ -35,7 +36,8 @@ export default {
   selectedCar,
 
   async updateStoreGarage(): Promise<void> {
-    const { items, count } = await Model.getCars(this.carsPage);
+    //   const { items, count } = await Model.getCars(this.carsPage);
+    const { items, count } = await Model.getCarsPlusFlag(this.carsPage);
     this.cars = items;
     this.carsCount = count;
   },
@@ -49,5 +51,19 @@ export default {
     });
     this.winners = items;
     this.winnersCount = count;
+  },
+
+  setForceStopFlag(id: number, value:boolean): void {
+    // Вероника, как с потенциальным undefind бороться?
+    // У меня эти вставки кода ужасные такие
+    // в этом месте флаг принудительной остановки сбрасываю.
+    const currentCarInStore = this.cars.find((carr) => carr.id === id);
+    if (currentCarInStore) currentCarInStore.forceStop = value;
+  },
+
+  getForceStopFlag(id: number): boolean {
+    const currentCarInStore = this.cars.find((carr) => carr.id === id);
+    if (currentCarInStore) return currentCarInStore.forceStop;
+    return false;
   },
 };
