@@ -29,7 +29,7 @@ export default {
     this.updateNextPrevButtonsState('garage');
   },
 
-  updateNextPrevButtonsState(view: string): void {
+  updateNextPrevButtonsState(view: PageView): void {
     if (view === 'garage') {
       if (Store.carsPage * Store.pageGarageLimit < Number(Store.carsCount)) this.next.disabled = false;
       else this.next.disabled = true;
@@ -55,6 +55,7 @@ export default {
     }
     if (view === 'winners') {
       Store.updateStoreWinners();
+      this.updateNextPrevButtonsState('winners');
       this.updateWinnersView();
       this.garageViewHTMLSection.style.display = 'none';
       this.winnersViewHTMLSection.style.display = 'block';
