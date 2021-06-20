@@ -64,7 +64,6 @@ export default {
 
   getForceStopFlag(id: number): boolean {
     const currentCarInStore = this.cars.find((carr) => carr.id === id);
-    if (currentCarInStore) return currentCarInStore.forceStop;
-    return false;
+    return Boolean(currentCarInStore?.forceStop);
   },
 };
