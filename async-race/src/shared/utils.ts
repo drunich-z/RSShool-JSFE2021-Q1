@@ -59,11 +59,8 @@ export default {
     return state;
   },
 
-  // разобраться с созданием массива машинок, map не получается почему-то
   generateRandomCars(count = 100): CarCreate[] {
-    const result: CarCreate[] = new Array(count);
-    for (let i = 0; i < count; i++) result[i] = { name: getRandomName(), color: getRandomColor() };
-    return result;
+    return new Array(count).fill(1).map(() => ({ name: getRandomName(), color: getRandomColor() }));
   },
 
 };
