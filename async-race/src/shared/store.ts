@@ -7,7 +7,8 @@ const { items: winners, count: winnersCount } = await Model.getWinners({
   page: 1, limit: 10, sort: 'id', order: 'ASC',
 });
 
-const animation: any = {};
+// const animation: any = {};
+const animation: Record<number, AnimationId> = {};
 const selectedCar: Car = { name: '', color: '', id: 0 };
 const view = 'garage' as PageView;
 const sortBy = 'id' as SortType;

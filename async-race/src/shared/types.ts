@@ -54,3 +54,5 @@ type WinnerPlusCar = {
 };
 
 type Winners = WinnerPlusCar[];
+
+type AnimationId = { id: number };
