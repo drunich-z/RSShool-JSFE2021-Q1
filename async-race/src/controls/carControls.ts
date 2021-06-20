@@ -18,8 +18,7 @@ Promise <{ success: boolean, id: number, time:number }> {
 
   const car = document.getElementById(`car-${id}`);
   const flag = document.getElementById(`flag-${id}`);
-  if (car === null) return { success: false, id: 0, time: 0 };
-  if (flag === null) return { success: false, id: 0, time: 0 };
+  if (car === null || flag === null) return { success: false, id: 0, time: 0 };
   const htmlDistance = Math.floor(Utils.getDistanceBetweenElements(car, flag));
 
   Store.setForceStopFlag(id, false);
@@ -36,8 +35,8 @@ Promise <{ success: boolean, id: number, time:number }> {
 
 async function stopDriving(id: number, stopButton: HTMLButtonElement): Promise<void> {
   const startButton = (document.getElementById(`start-engine-car-${id}`) as HTMLButtonElement);
-  if (!stopButton) return;
-  if (!startButton) return;
+  if (!stopButton || !startButton) return;
+
   stopButton.disabled = true;
   stopButton.classList.toggle('enabling', true);
 
