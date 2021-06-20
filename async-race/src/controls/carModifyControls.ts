@@ -2,6 +2,8 @@ import Model from '../model';
 import PageControls from './pageControls';
 import Store from '../shared/store';
 
+const DEFAULT_CAR_COLOR = '#ffffff';
+
 export default {
   inputUpdateName: document.getElementById('update-name'),
   inputUpdateColor: document.getElementById('update-color'),
@@ -37,7 +39,7 @@ export default {
       PageControls.updateNextPrevButtonsState('garage');
       PageControls.updateGarageView();
       (this.inputCreateName as HTMLInputElement).value = '';
-      (this.inputCreateColor as HTMLInputElement).value = '#ffffff';
+      (this.inputCreateColor as HTMLInputElement).value = DEFAULT_CAR_COLOR;
     });
   },
 
@@ -54,7 +56,7 @@ export default {
       PageControls.updateNextPrevButtonsState('garage');
       PageControls.updateGarageView();
       (this.inputUpdateName as HTMLInputElement).value = '';
-      (this.inputUpdateColor as HTMLInputElement).value = '#ffffff';
+      (this.inputUpdateColor as HTMLInputElement).value = DEFAULT_CAR_COLOR;
       Store.selectedCar = { name: '', color: '', id: 0 };
       this.setUpdateControlsEnable(false);
     });
