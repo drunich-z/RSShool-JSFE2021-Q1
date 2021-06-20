@@ -7,17 +7,12 @@ const { items: winners, count: winnersCount } = await Model.getWinners({
   page: 1, limit: 10, sort: 'id', order: 'ASC',
 });
 
-// const animation: any = {};
 const animation: Record<number, AnimationId> = {};
 const selectedCar: Car = { name: '', color: '', id: 0 };
 const view = 'garage' as PageView;
 const sortBy = 'id' as SortType;
 const sortOrder = 'desc' as OrderType;
 
-// не разобрался как сказать что свойства в export defaults определенного типа (самоопределнного), чтобы линт не ругался
-// let sortBy: Sort; sortBy = 'wins'; sortBy = 'id';
-// let view: PageView; view = 'winners'; view = 'garage';
-// let sortOrder: Order; sortOrder = 'DESC'; sortOrder = 'ASC';
 const PAGE_WINNERS_ITEMS_LIMIT = 10;
 const PAGE_GARAGE_ITEMS_LIMIT = 7;
 
@@ -37,7 +32,6 @@ export default {
   selectedCar,
 
   async updateStoreGarage(): Promise<void> {
-    //   const { items, count } = await Model.getCars(this.carsPage);
     const { items, count } = await Model.getCarsPlusFlag(this.carsPage);
     this.cars = items;
     this.carsCount = count;
@@ -55,9 +49,6 @@ export default {
   },
 
   setForceStopFlag(id: number, value:boolean): void {
-    // Вероника, как с потенциальным undefind бороться?
-    // У меня эти вставки кода ужасные такие
-    // в этом месте флаг принудительной остановки сбрасываю.
     const currentCarInStore = this.cars.find((carr) => carr.id === id);
     if (currentCarInStore) currentCarInStore.forceStop = value;
   },
