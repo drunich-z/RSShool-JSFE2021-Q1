@@ -20,7 +20,7 @@ Promise <{ success: boolean, id: number, time:number }> {
   const flag = document.getElementById(`flag-${id}`);
   if (car === null) return { success: false, id: 0, time: 0 };
   if (flag === null) return { success: false, id: 0, time: 0 };
-  const htmlDistance = Math.floor(Utils.getDistanceBetweenElements(car, flag) + 100);
+  const htmlDistance = Math.floor(Utils.getDistanceBetweenElements(car, flag));
 
   Store.setForceStopFlag(id, false);
   Store.animation[id] = Utils.animation(car, htmlDistance, time);

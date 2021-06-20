@@ -31,8 +31,9 @@ export default {
   getDistanceBetweenElements(a: HTMLElement, b: HTMLElement): number {
     const aPosition = getPositionAtCenter(a);
     const bPosition = getPositionAtCenter(b);
+    const extraDistatnce = 100;
 
-    return Math.hypot(aPosition.x - bPosition.x, aPosition.y - bPosition.y);
+    return Math.hypot(aPosition.x - bPosition.x, aPosition.y - bPosition.y) + extraDistatnce;
   },
 
   animation(car: HTMLElement, distance: number, animationTime: number): { id: number } {
