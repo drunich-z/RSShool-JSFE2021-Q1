@@ -1,3 +1,6 @@
+# unnesessary parts (dir)
+async-race-flat
+
 # Logs
 logs
 *.log
