@@ -13,7 +13,7 @@ function handleHash(): void {
   if (name) {
     if (name === 'main') Controller.mainRoute();
     if (name === 'category') Controller.categoryRoute();
-    if (name === 'statistic') Controller.statisticsRoute();
+    if (name === 'statistics') Controller.statisticsRoute();
   }
 }
 

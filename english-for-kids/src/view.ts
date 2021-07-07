@@ -64,4 +64,15 @@ export default {
     root.innerHTML = html;
     document.body.appendChild(root);
   },
+
+  renderBurger(categories: Category[]): string {
+    let result = '';
+    result = '<a href="#main" class="burger-link" data-link="main">MAIN</a>';
+    for (let i = 0; i < categories.length; i++) {
+      result += `<a href="#category" class="burger-link" data-link="${categories[i].name}">${categories[i].name}</a>`;
+    }
+    result += '<a href="#statistics" class="burger-link" data-link="statistics">STATISTICS</a>';
+    return result;
+  },
+
 };

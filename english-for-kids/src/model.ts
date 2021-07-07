@@ -8,7 +8,8 @@ export default {
   async getCategories(): Promise<Category[]> {
     const response = await fetch(BASE);
     const [categories] = await response.json();
-    return categories.map((item: any) => ({ id: categories.indexOf(item), ...item }));
+
+    return categories.map((item: string) => ({ id: categories.indexOf(item), name: item }));
   },
 
   async getCardsOfCategory(category: string): Promise<CardLocal[]> {
