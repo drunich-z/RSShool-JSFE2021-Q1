@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  background-repeat: no-repeat;
+  background-position: center 180px;
+  overflow-x: hidden;
+  background-color: #FFFFFF;
+}
+
+
+.wrapper{
+  width: auto;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 95vh;
+}
+
+.cards-container {
+  height: 600px;
+}
+
+
+
+@import './components/header.scss';
+@import './components/footer.scss';
+@import './components/burger-menu.scss';
+@import './components/mode-switch.scss';
+
+
+@media (max-width: 1430px) {
+  .wrapper {
+      max-width: 1000px;
+  }
+  };
+  
+  @media (max-width: 1080px) {
+  .wrapper {
+      max-width: 650px;
+  }
+  };
+  
+  @media (max-width: 730px) {
+  .wrapper {
+      max-width: 300px;
+  }
+  };
