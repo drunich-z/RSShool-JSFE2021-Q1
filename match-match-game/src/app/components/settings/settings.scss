@@ -1,0 +1,16 @@
+.settings-container{
+  width:70%;
+  max-width: 1440px;
+  height: 83vh;
+  font-family: "Roboto";
+  font-style: normal;
+  background-color: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
