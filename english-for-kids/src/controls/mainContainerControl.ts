@@ -20,11 +20,19 @@ async function handleCategoryLinkClick(target: HTMLElement): Promise<void> {
 }
 
 async function handleCardClick(target: HTMLElement): Promise<void> {
-  playAudio(`./assets/resource/${String(target.dataset.audiosrc)}`);
+  const card = target.closest('.card') as HTMLElement;
+  if (!card.classList.contains('translate') && !target.classList.contains('rotate')) {
+    playAudio(`./assets/resource/${String(card.dataset.audiosrc)}`);
+  }
 }
 
 async function handleRotateClick(target: HTMLElement): Promise<void> {
-  console.log('rotate');
+  const card = target.closest('.card') as HTMLElement;
+  card.classList.add('translate');
+  // не пойму как удалить листенер после того как мышь покинет карточку
+  card.addEventListener('mouseleave', () => {
+    card.classList.remove('translate');
+  });
 }
 
 export default {
@@ -42,7 +50,7 @@ export default {
     if (target) handleCategoryLinkClick(target);
 
     target = (e.target as HTMLElement).closest('.card') as HTMLElement;
-    if (target) handleCardClick(target);
+    if (target) handleCardClick(e.target as HTMLElement);
 
     if ((e.target as HTMLElement).classList.contains('rotate')) handleRotateClick((e.target as HTMLElement));
   },
