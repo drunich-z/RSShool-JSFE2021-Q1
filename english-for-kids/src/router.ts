@@ -20,6 +20,7 @@ function handleHash(): void {
 export default {
   async init():Promise<void> {
     window.addEventListener('hashchange', handleHash);
+    window.location.hash = 'main';
     handleHash();
   },
 };

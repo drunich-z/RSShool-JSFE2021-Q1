@@ -1,4 +1,5 @@
 import Model from '../model';
+import Store from '../shared/store';
 import View from '../view';
 
 export default {
@@ -20,6 +21,7 @@ export default {
 
     this.burgerBtn.addEventListener('click', (e: Event) => this.burgerBtnHandler(e));
     this.coverElement.addEventListener('click', this.handleBurger.bind(this));
+    this.burgerLinks.addEventListener('click', (e: Event) => this.handleBurgerLinks(e));
   },
 
   burgerBtnHandler(e: Event): void {
@@ -31,6 +33,34 @@ export default {
     this.bodyElement.classList.toggle('notScrollable');
     this.coverElement.classList.toggle('hidden');
     this.burgerMenu.classList.toggle('burger-menu_active');
+  },
+
+  async handleBurgerLinks(e: Event): Promise<void> {
+    e.preventDefault();
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('burger-link') && !target.classList.contains('burger-link_active')) {
+      const prevActiveLink = document.querySelector('.burger-link_active') as HTMLElement;
+      if (prevActiveLink) prevActiveLink.classList.remove('burger-link_active');
+      target.classList.add('burger-link_active');
+      if (target.dataset.type === 'main') {
+        Store.page = 'main';
+        window.location.hash = 'main';
+        this.handleBurger();
+      }
+      if (target.dataset.type === 'category') {
+        Store.page = 'category';
+        Store.activeCategory.name = target.dataset.link as string;
+        Store.cards = await Model.getCardsOfCategory(Store.activeCategory.name);
+        window.location.hash = ' ';
+        window.location.hash = 'category';
+        this.handleBurger();
+      }
+      if (target.dataset.type === 'statistics') {
+        Store.page = 'statistics';
+        window.location.hash = 'statistics';
+        this.handleBurger();
+      }
+    }
   },
 
 };

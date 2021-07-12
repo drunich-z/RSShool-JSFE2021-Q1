@@ -96,9 +96,11 @@
 }
 
 .burger-link_active{
-  color: gold;
-  text-shadow: 4px 4px 6px rgba(150, 150, 150, 1);
-  transition: color 1s; 
+  // color: gold;
+  // text-shadow: 4px 4px 6px rgba(150, 150, 150, 1);
+  // transition: color 1s; 
+  text-decoration: underline;
+  cursor: default;
 }
 
 .burger-link:first-child,
@@ -110,6 +112,11 @@
 .burger-link:hover {
   filter: brightness(0.9);
   transform: scale(1.1);
+}
+
+.burger-link_active:hover {
+  transform: none;
+  filter: none;
 }
 
 .burger-menu_active .burger-cover {

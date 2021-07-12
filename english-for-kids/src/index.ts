@@ -3,7 +3,9 @@ import './shared/types';
 import View from './view';
 import Router from './router';
 import Controller from './contoller';
+import Store from './shared/store';
 
+await Store.tempInitStore();
 await View.renderBaseTemplate();
 Router.init();
 Controller.initControlls();

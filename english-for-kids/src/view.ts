@@ -12,17 +12,6 @@ export default {
             <span class="burger-menu_lines"></span>
           </a>
           <ul id="burger-links" class="burger-links green">
-            <a href class="burger-link">MAIN</a>
-            <a href class="burger-link">Cards---1</a>
-            <a href class="burger-link">Cards---2</a>
-            <a href class="burger-link">Cards---3</a>
-            <a href class="burger-link">Cards---4</a>
-            <a href class="burger-link">Cards---5</a>
-            <a href class="burger-link">Cards---6</a>
-            <a href class="burger-link">Cards---7</a>
-            <a href class="burger-link">Cards---8</a>
-            <a href class="burger-link">Staistics</a>
-
           </ul>
         </nav>
 
@@ -39,7 +28,9 @@ export default {
           </label>
         </div>
       </header>
-      <div class="cards-container">
+      <div id="main-container" class="main-container">
+        <div id="rating" class="rating none"> </div>
+        
         ТУТ БУДУТ КАРТОЧКИ
         <br>
         ДО КОНЦА КРОССЧЕКА ПОСТАРАЮСЬ ДОДЕЛАТЬ ФУНКЦИОНАЛ
@@ -60,18 +51,39 @@ export default {
       <div id="cover" class="cover hidden"></div>
     </div>
     `;
-    const root = document.createElement('div');
-    root.innerHTML = html;
-    document.body.appendChild(root);
+    const body = document.getElementById('body') as HTMLElement;
+    body.innerHTML = html;
   },
 
   renderBurger(categories: Category[]): string {
     let result = '';
-    result = '<a href="#main" class="burger-link" data-link="main">MAIN</a>';
+    result = '<a href="#main" class="burger-link burger-link_active" data-type="main">MAIN</a>';
     for (let i = 0; i < categories.length; i++) {
-      result += `<a href="#category" class="burger-link" data-link="${categories[i].name}">${categories[i].name}</a>`;
+      result += '<a href="#category" class="burger-link" data-type="category" '
+      + `data-link="${categories[i].name}">${categories[i].name}</a>`;
     }
-    result += '<a href="#statistics" class="burger-link" data-link="statistics">STATISTICS</a>';
+    result += '<a href="#statistics" class="burger-link" data-type="statistics" data-link="statistics">STATISTICS</a>';
+    return result;
+  },
+
+  renderTrainCards(cards: CardLocal[]): string {
+    let result = '';
+    for (let i = 0; i < cards.length; i++) {
+      result += `
+        <div class="card-container">
+          <div id="card-${cards[i].word}" class="card" data-word=${cards[i].word}>
+            <div class="front" style="background-image: url('./assets/resource/img/${cards[i].word}.jpg')">
+              <div class="card-header">${cards[i].word}</div>
+
+            </div>
+            <div class="back" style="background-image: url('./assets/resource/img/${cards[i].word}.jpg')">
+              <div class="card-header">${cards[i].translation}</div>
+            </div>
+            <div class="rotate" style="background-image: url('./assets/resource/control-img/rotate.svg')"></div>
+          </div>
+        </div>
+      `;
+    }
     return result;
   },
 

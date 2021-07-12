@@ -4,7 +4,7 @@ import Utils from './utils';
 
 const categories: Category[] = await Model.getCategories();
 const activeCategory: Category = { name: '', id: -1 };
-const cards: Card[] = [];
+const cards: CardLocal[] = [];
 const page = 'main' as PageView;
 const applicationMode = 'train' as ApplicationMode;
 const statistics: CardLocalForStatistics[] = [];
@@ -42,6 +42,14 @@ export default {
     const res = Model.getStatistics();
     if (res.length === 0) this.statistics = await Utils.initStatistics();
     else this.statistics = res;
+  },
+
+  async tempInitStore(): Promise<void> {
+    this.categories = await Model.getCategories();
+    [this.activeCategory] = this.categories;
+    this.cards = await Model.getCardsOfCategory(this.activeCategory.name);
+    this.page = 'category';
+    this.applicationMode = 'train';
   },
 
 };
