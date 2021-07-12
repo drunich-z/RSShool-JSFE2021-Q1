@@ -5,7 +5,7 @@ type ApplicationMode = 'train' | 'game';
 type Card = {
   word: string,
   translation: string,
-  category: string,
+  category: Category,
 };
 
 type CardLocal = {
@@ -13,13 +13,13 @@ type CardLocal = {
   translation: string,
   image: string,
   audio: string
-  category: string,
+  category: Category,
 };
 
 type CardLocalForStatistics = {
   word: string,
   translation: string,
-  category: string,
+  category: Category,
   trainClicks: number,
   gameCorrectClicks: number,
   gameErrorClicks: number,

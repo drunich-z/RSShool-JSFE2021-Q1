@@ -57,9 +57,10 @@ export default {
 
   renderBurger(categories: Category[]): string {
     let result = '';
-    result = '<a href="#main" class="burger-link burger-link_active" data-type="main">MAIN</a>';
+    result = '<a id="burger-link-main" href="#main" class="burger-link burger-link_active" data-type="main">MAIN</a>';
     for (let i = 0; i < categories.length; i++) {
-      result += '<a href="#category" class="burger-link" data-type="category" '
+      result += `<a id="burger-link-${categories[i].id}" href="#category"`
+      + `class="burger-link" data-type="category" data-id="${categories[i].id}"`
       + `data-link="${categories[i].name}">${categories[i].name}</a>`;
     }
     result += '<a href="#statistics" class="burger-link" data-type="statistics" data-link="statistics">STATISTICS</a>';
@@ -82,6 +83,22 @@ export default {
             <div class="rotate" style="background-image: url('./assets/resource/control-img/rotate.svg')"></div>
           </div>
         </div>
+      `;
+    }
+    return result;
+  },
+
+  renderCardsForMainPage(cards: CardLocal[], mode: ApplicationMode = 'train'): string {
+    const green = mode === 'train' ? 'green' : '';
+    let result = '';
+    for (let i = 0; i < cards.length; i++) {
+      result += `
+      <a href="#category" class="main-card ${green}" 
+                          data-category="${cards[i].category.name}" 
+                          data-id="${cards[i].category.id}">
+        <img src="./assets/resource/${cards[i].image}" alt="category-picture" class="pict">
+        ${cards[i].category.name}
+      </a>
       `;
     }
     return result;
