@@ -15,9 +15,9 @@ export default {
     if (this.switchInput.checked) Store.applicationMode = 'train';
     else Store.applicationMode = 'game';
 
-    if (Store.page === 'main') {
+    if (Store.page === 'main' || Store.page === 'category') {
       window.location.hash = ' ';
-      window.location.hash = 'main';
+      window.location.hash = Store.page;
     }
   },
 };

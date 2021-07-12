@@ -30,8 +30,12 @@ async function handleRotateClick(target: HTMLElement): Promise<void> {
   const card = target.closest('.card') as HTMLElement;
   card.classList.add('translate');
   // не пойму как удалить листенер после того как мышь покинет карточку
+  // можно ли так? )
   card.addEventListener('mouseleave', () => {
     card.classList.remove('translate');
+    card.removeEventListener('mouseleave', () => {
+      card.classList.remove('translate');
+    });
   });
 }
 
@@ -52,7 +56,8 @@ export default {
     target = (e.target as HTMLElement).closest('.card') as HTMLElement;
     if (target) handleCardClick(e.target as HTMLElement);
 
-    if ((e.target as HTMLElement).classList.contains('rotate')) handleRotateClick((e.target as HTMLElement));
+    if ((e.target as HTMLElement).classList.contains('rotate')
+      && Store.applicationMode === 'train') handleRotateClick((e.target as HTMLElement));
   },
 
 };

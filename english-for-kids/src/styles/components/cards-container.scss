@@ -84,7 +84,6 @@
   position: absolute;
   width: 50px;
   height: 50px;
-  // background-image: url(../../assets/resource/control-img/rotate.svg);
   background-size: 32px;
   background-repeat: no-repeat;
   background-position: center 16px;
@@ -96,4 +95,19 @@
 
 .rotate:hover {
   filter: none;
+}
+
+.card-cover .back, .card-cover .front {
+  background-size: cover;
+  background-position: 50%;
+}
+
+.none {
+  box-sizing: border-box;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  margin: 0;
+  padding: 0;
 }

@@ -67,23 +67,25 @@ export default {
     return result;
   },
 
-  renderTrainCards(cards: CardLocal[]): string {
+  renderCardsForCategoryPage(cards: CardLocal[], mode: ApplicationMode = 'train'): string {
+    const none = mode === 'train' ? '' : 'none';
+    const cardCover = mode === 'train' ? '' : 'card-cover';
     let result = '';
     for (let i = 0; i < cards.length; i++) {
       result += `
         <div class="card-container">
           <div id="card-${cards[i].word}" 
-               class="card" 
+               class="card ${cardCover}" 
                data-word=${cards[i].word}
                data-audiosrc=${cards[i].audio}>
-            <div class="front" style="background-image: url('./assets/resource/img/${cards[i].word}.jpg')">
-              <div class="card-header">${cards[i].word}</div>
+            <div class="front" style="background-image: url('./assets/resource/${cards[i].image}')">
+              <div class="card-header ${none}">${cards[i].word}</div>
 
             </div>
-            <div class="back" style="background-image: url('./assets/resource/img/${cards[i].word}.jpg')">
-              <div class="card-header">${cards[i].translation}</div>
+            <div class="back ${none}" style="background-image: url('./assets/resource/${cards[i].image}')">
+              <div class="card-header ${none}">${cards[i].translation}</div>
             </div>
-            <div class="rotate" 
+            <div class="rotate ${none}" 
                  style="background-image: url('./assets/resource/control-img/rotate.svg')"
                  data-word="${cards[i].word}">
             </div>
