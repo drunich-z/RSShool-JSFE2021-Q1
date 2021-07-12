@@ -15,39 +15,45 @@ body {
 }
 
 
-.wrapper{
-  width: auto;
-  max-width: 1440px;
-  margin: 0 auto;
-  min-height: 95vh;
+// .wrapper{
+//   width: auto;
+//   max-width: 1440px;
+//   margin: 0 auto;
+//   min-height: 95vh;
+// }
+
+
+.none {
+  box-sizing: border-box;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  margin: 0;
+  padding: 0;
 }
-
-.cards-container {
-  height: 600px;
-}
-
-
 
 @import './components/header.scss';
 @import './components/footer.scss';
 @import './components/burger-menu.scss';
 @import './components/mode-switch.scss';
+@import './components/cards-container.scss';
 
 
-@media (max-width: 1430px) {
-  .wrapper {
-      max-width: 1000px;
-  }
-  };
+// @media (max-width: 1430px) {
+//   .wrapper {
+//       max-width: 1050px;
+//   }
+//   };
   
-  @media (max-width: 1080px) {
-  .wrapper {
-      max-width: 650px;
-  }
-  };
+//   @media (max-width: 1080px) {
+//   .wrapper {
+//       max-width: 700px;
+//   }
+//   };
   
-  @media (max-width: 730px) {
-  .wrapper {
-      max-width: 300px;
-  }
-  };
+//   @media (max-width: 730px) {
+//   .wrapper {
+//       max-width: 350px;
+//   }
+//   };
