@@ -5,6 +5,7 @@ import Utils from './utils';
 const categories: Category[] = await Model.getCategories();
 const activeCategory: Category = { name: '', id: -1 };
 const cards: CardLocal[] = [];
+const cardsForMainPage: CardLocal[] = [];
 const page = 'main' as PageView;
 const applicationMode = 'train' as ApplicationMode;
 const statistics: CardLocalForStatistics[] = [];
@@ -34,6 +35,7 @@ export default {
   categories,
   activeCategory,
   cards,
+  cardsForMainPage,
   page,
   applicationMode,
   statistics,
@@ -48,7 +50,9 @@ export default {
     this.categories = await Model.getCategories();
     [this.activeCategory] = this.categories;
     this.cards = await Model.getCardsOfCategory(this.activeCategory.name);
-    this.page = 'category';
+
+    this.cardsForMainPage = await Utils.getFirstCardOfEachCategory();
+    this.page = 'main';
     this.applicationMode = 'train';
   },
 

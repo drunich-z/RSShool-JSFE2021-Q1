@@ -11,7 +11,13 @@ export default {
 
   switchHandler(): void {
     BurgerControl.burgerMenu.classList.toggle('green');
+
     if (this.switchInput.checked) Store.applicationMode = 'train';
     else Store.applicationMode = 'game';
+
+    if (Store.page === 'main') {
+      window.location.hash = ' ';
+      window.location.hash = 'main';
+    }
   },
 };

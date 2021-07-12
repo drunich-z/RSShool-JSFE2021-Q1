@@ -16,7 +16,18 @@ export default {
     const response = await fetch(BASE);
     const [categories, ...cards] = await response.json();
     const index = categories.indexOf(category);
-    return cards[index].filter((item: any) => (item.category === category));
+
+    return cards[index].filter((item: any) => (item.category === category))
+      .map((item:any) => ({
+        word: item.word,
+        translation: item.translation,
+        image: item.image,
+        audio: item.audioSrc,
+        category: {
+          name: item.category,
+          id: categories.indexOf(category),
+        },
+      }));
   },
 
   async getAllCards(): Promise<CardLocal[]> {
