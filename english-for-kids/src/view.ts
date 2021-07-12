@@ -72,7 +72,10 @@ export default {
     for (let i = 0; i < cards.length; i++) {
       result += `
         <div class="card-container">
-          <div id="card-${cards[i].word}" class="card" data-word=${cards[i].word}>
+          <div id="card-${cards[i].word}" 
+               class="card" 
+               data-word=${cards[i].word}
+               data-audiosrc=${cards[i].audio}>
             <div class="front" style="background-image: url('./assets/resource/img/${cards[i].word}.jpg')">
               <div class="card-header">${cards[i].word}</div>
 
@@ -80,7 +83,10 @@ export default {
             <div class="back" style="background-image: url('./assets/resource/img/${cards[i].word}.jpg')">
               <div class="card-header">${cards[i].translation}</div>
             </div>
-            <div class="rotate" style="background-image: url('./assets/resource/control-img/rotate.svg')"></div>
+            <div class="rotate" 
+                 style="background-image: url('./assets/resource/control-img/rotate.svg')"
+                 data-word="${cards[i].word}">
+            </div>
           </div>
         </div>
       `;
