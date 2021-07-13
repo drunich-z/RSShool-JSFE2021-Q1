@@ -1,5 +1,4 @@
 import Model from '../model';
-// import './types';
 
 export default {
   async initStatistics(): Promise<CardLocalForStatistics[]> {
@@ -71,6 +70,36 @@ export default {
     element.classList.add(...styles);
     element.innerHTML = innerText;
     return element;
+  },
+
+  popup(result: 'win' | 'lose', errors: number): void {
+    let sound; let text; let picture;
+    if (result === 'win') {
+      sound = './assets/resource/control-audio/win.mp3';
+      picture = './assets/resource/control-img/success.jpg';
+      text = 'Win!!!';
+    } else {
+      sound = './assets/resource/control-audio/failure.mp3';
+      picture = './assets/resource/control-img/failure.jpg';
+      text = `Lose...(${errors} errors)`;
+    }
+    const innerText = `
+      <div>${text}</div>
+      <img src="${picture}" alt="game result">
+    `;
+    const body = document.getElementById('body') as HTMLElement;
+    const cover = document.getElementById('cover') as HTMLElement;
+    const popupMsg = this.createDOMElement('div', ['popup'], innerText);
+    body.append(popupMsg);
+    this.playAudio(sound);
+    body.classList.toggle('notScrollable');
+    cover.classList.toggle('hidden');
+
+    setTimeout(() => {
+      body.classList.toggle('notScrollable');
+      cover.classList.toggle('hidden');
+      body.removeChild(popupMsg);
+    }, 3000);
   },
 
 };

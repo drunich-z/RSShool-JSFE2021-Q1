@@ -22,8 +22,11 @@ async function handleCardClickTrainMode(target: HTMLElement): Promise<void> {
 }
 
 function finishGame() {
-  alert('condrat to u');
-  console.log('condrat to u');
+  if (Store.errorWordsCounter === 0) Utils.popup('win', Store.errorWordsCounter);
+  else Utils.popup('lose', Store.errorWordsCounter);
+  Store.initGameState();
+  (document.getElementById('rating') as HTMLElement).innerHTML = '';
+  window.location.hash = 'main';
 }
 
 async function handleCardClickGameMode(target: HTMLElement): Promise<void> {
@@ -87,7 +90,7 @@ export default {
       rating.classList.remove('none');
 
       if (!eTarget.classList.contains('repeat')) {
-        Store.initGame();
+        Store.initGameState();
         eTarget.classList.add('repeat');
         Utils.playAudio(`./assets/resource/${Store.cardsForGame[Store.correctWordsCounter].audio}`);
       } else {
