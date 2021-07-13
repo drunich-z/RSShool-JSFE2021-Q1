@@ -1,5 +1,6 @@
 import Store from '../shared/store';
 import BurgerControl from './burgerControl';
+// import GameControl from './gameControl';
 
 export default {
   switchInput: document.getElementById('switch-input') as HTMLInputElement,
@@ -13,7 +14,10 @@ export default {
     BurgerControl.burgerMenu.classList.toggle('green');
 
     if (this.switchInput.checked) Store.applicationMode = 'train';
-    else Store.applicationMode = 'game';
+    else {
+      Store.applicationMode = 'game';
+      // if (Store.page === 'category') GameControl.initGameControls();
+    }
 
     if (Store.page === 'main' || Store.page === 'category') {
       window.location.hash = ' ';

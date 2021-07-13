@@ -70,7 +70,7 @@ export default {
   renderCardsForCategoryPage(cards: CardLocal[], mode: ApplicationMode = 'train'): string {
     const none = mode === 'train' ? '' : 'none';
     const cardCover = mode === 'train' ? '' : 'card-cover';
-    let result = '';
+    let result = '<div id="rating" class="rating none"> ДЛЯ ЗВЁЗД </div>';
     for (let i = 0; i < cards.length; i++) {
       result += `
         <div class="card-container">
@@ -93,6 +93,15 @@ export default {
         </div>
       `;
     }
+    result += `
+      <div id="btns" class="btns"> 
+        <button id="button-start" 
+                class="btn ${mode === 'train' ? 'none' : ''}"> 
+          Start game
+        </button>
+              
+      </div>
+      `;
     return result;
   },
 

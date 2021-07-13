@@ -5,31 +5,12 @@ import Utils from './utils';
 const categories: Category[] = await Model.getCategories();
 const activeCategory: Category = { name: '', id: -1 };
 const cards: CardLocal[] = [];
+const cardsForGame: CardLocal[] = [];
 const cardsForMainPage: CardLocal[] = [];
 const page = 'main' as PageView;
 const applicationMode = 'train' as ApplicationMode;
 const statistics: CardLocalForStatistics[] = [];
-
-// async function initStatistics(): Promise<CardLocalForStatistics[]> {
-//   const result = [];
-//   const gameCards = await Model.getAllCards();
-//   const obj = {
-//     word: '',
-//     translation: '',
-//     category: '',
-//     trainClicks: 0,
-//     gameCorrectClicks: 0,
-//     gameErrorClicks: 0,
-//     gameCorrectPercent: 0,
-//   };
-//   for (let i = 0; i < gameCards.length; i++) {
-//     obj.word = gameCards[i].word;
-//     obj.translation = gameCards[i].translation;
-//     obj.category = gameCards[i].category;
-//     result.push(obj);
-//   }
-//   return result;
-// }
+const gameErrors = 0;
 
 export default {
   categories,
@@ -39,6 +20,8 @@ export default {
   page,
   applicationMode,
   statistics,
+  gameErrors,
+  cardsForGame,
 
   async statInit(): Promise<void> {
     const res = Model.getStatistics();
@@ -50,10 +33,17 @@ export default {
     this.categories = await Model.getCategories();
     [this.activeCategory] = this.categories;
     this.cards = await Model.getCardsOfCategory(this.activeCategory.name);
+    this.cardsForGame = this.cards.slice();
 
     this.cardsForMainPage = await Utils.getFirstCardOfEachCategory();
     this.page = 'main';
     this.applicationMode = 'train';
+  },
+
+  initGame() {
+    this.gameErrors = 0;
+    this.cardsForGame = this.cards.slice();
+    this.cardsForGame = Utils.shuffle(this.cardsForGame);
   },
 
 };
