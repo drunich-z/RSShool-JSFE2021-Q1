@@ -135,6 +135,26 @@
   background-position: 50%;
 }
 
+.star-error{
+  background-image: url(/assets/resource/control-img/star-error.svg)
+}
+
+.star-success {
+  background-image: url(/assets/resource/control-img/star-success.svg)
+}
+
+.star-error, .star-success {
+  flex-shrink: 0;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+}
+
+.inactive {
+  opacity: .5;
+}
+
 .none {
   box-sizing: border-box;
   opacity: 0;

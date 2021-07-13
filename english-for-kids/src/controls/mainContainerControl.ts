@@ -12,12 +12,23 @@ async function handleCategoryLinkClick(target: HTMLElement): Promise<void> {
   window.location.hash = 'category';
 }
 
-async function handleCardClick(target: HTMLElement): Promise<void> {
+async function handleCardClickTrainMode(target: HTMLElement): Promise<void> {
   const card = target.closest('.card') as HTMLElement;
   if (!card.classList.contains('translate')
       && !target.classList.contains('rotate')
       && Store.applicationMode === 'train') {
     Utils.playAudio(`./assets/resource/${String(card.dataset.audiosrc)}`);
+  }
+}
+
+async function handleCardClickGameMode(target: HTMLElement): Promise<void> {
+  const card = target.closest('.card') as HTMLElement;
+  const raiting = document.getElementById('rating') as HTMLElement;
+  if (card.dataset.word === Store.cardsForGame[Store.totalNumberOfCorrectGameWords].word) {
+    card.classList.add('inactive');
+    Store.totalNumberOfCorrectGameWords++;
+    raiting.appendChild(Utils.createDOMElement('div', ['star-success']));
+    Utils.playAudio('./assets/resource/control-audio/correct.mp3');
   }
 }
 
@@ -51,15 +62,22 @@ export default {
     if (target) handleCategoryLinkClick(target);
 
     target = eTarget.closest('.card') as HTMLElement;
-    if (target) handleCardClick(e.target as HTMLElement);
+    if (target && Store.applicationMode === 'train') handleCardClickTrainMode(e.target as HTMLElement);
+    if (target && Store.applicationMode === 'game') handleCardClickGameMode(e.target as HTMLElement);
 
     if (eTarget.classList.contains('rotate')
       && Store.applicationMode === 'train') handleRotateClick(eTarget);
 
     if (eTarget.classList.contains('btn') && Store.applicationMode === 'game') {
+      const rating = document.getElementById('rating') as HTMLElement;
+      rating.classList.remove('none');
+
       if (!eTarget.classList.contains('repeat')) {
         Store.initGame();
         eTarget.classList.add('repeat');
+        Utils.playAudio(`./assets/resource/${Store.cardsForGame[Store.totalNumberOfCorrectGameWords].audio}`);
+      } else {
+        Utils.playAudio(`./assets/resource/${Store.cardsForGame[Store.totalNumberOfCorrectGameWords].audio}`);
       }
     }
   },
