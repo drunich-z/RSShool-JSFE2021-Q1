@@ -48,14 +48,14 @@ export default {
     this.applicationMode = 'train';
   },
 
-  initGameState():void {
+  initGameState(toggle = true):void {
     this.gameErrors = 0;
     this.cardsForGame = this.cards.slice();
     this.cardsForGame = Utils.shuffle(this.cardsForGame);
     this.wordsCounter = this.cardsForGame.length;
     this.correctWordsCounter = 0;
     this.errorWordsCounter = 0;
-    this.activeGame = true;
+    this.activeGame = toggle;
   },
 
 };

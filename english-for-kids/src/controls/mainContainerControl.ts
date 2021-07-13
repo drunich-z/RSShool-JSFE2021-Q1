@@ -24,7 +24,7 @@ async function handleCardClickTrainMode(target: HTMLElement): Promise<void> {
 function finishGame() {
   if (Store.errorWordsCounter === 0) Utils.popup('win', Store.errorWordsCounter);
   else Utils.popup('lose', Store.errorWordsCounter);
-  Store.initGameState();
+  Store.initGameState(false);
   (document.getElementById('rating') as HTMLElement).innerHTML = '';
   window.location.hash = 'main';
 }
@@ -80,7 +80,9 @@ export default {
 
     target = eTarget.closest('.card') as HTMLElement;
     if (target && Store.applicationMode === 'train') handleCardClickTrainMode(e.target as HTMLElement);
-    if (target && Store.applicationMode === 'game') handleCardClickGameMode(e.target as HTMLElement);
+    if (target
+      && Store.applicationMode === 'game'
+      && Store.activeGame) handleCardClickGameMode(e.target as HTMLElement);
 
     if (eTarget.classList.contains('rotate')
       && Store.applicationMode === 'train') handleRotateClick(eTarget);
