@@ -70,7 +70,7 @@ export default {
   renderCardsForCategoryPage(cards: CardLocal[], mode: ApplicationMode = 'train'): string {
     const none = mode === 'train' ? '' : 'none';
     const cardCover = mode === 'train' ? '' : 'card-cover';
-    let result = '<div id="rating" class="rating none"> ДЛЯ ЗВЁЗД </div>';
+    let result = '<div id="rating" class="rating none"></div>';
     for (let i = 0; i < cards.length; i++) {
       result += `
         <div class="card-container">
