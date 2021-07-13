@@ -3,11 +3,17 @@ import MainContainerControl from './controls/mainContainerControl';
 import SwitchModeControl from './controls/switchModeControl';
 import CategoryPage from './pages/category/categoryPage';
 import MainPage from './pages/main/mainPage';
-import View from './view';
+import Store from './shared/store';
 
 export default {
   async mainRoute(): Promise<void> {
+    const prevActiveLink = document.querySelector('.burger-link_active') as HTMLElement;
+    if (prevActiveLink) prevActiveLink.classList.remove('burger-link_active');
+    Store.activeCategory = { name: '', id: 0 };
+    Store.cards = [];
+    Store.page = 'main';
     MainPage.renderMainPage();
+    (document.getElementById('burger-link-main') as HTMLElement).classList.add('burger-link_active');
   },
 
   async categoryRoute(): Promise<void> {
