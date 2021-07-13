@@ -14,10 +14,7 @@ export default {
     BurgerControl.burgerMenu.classList.toggle('green');
 
     if (this.switchInput.checked) Store.applicationMode = 'train';
-    else {
-      Store.applicationMode = 'game';
-      // if (Store.page === 'category') GameControl.initGameControls();
-    }
+    else Store.applicationMode = 'game';
 
     if (Store.page === 'main' || Store.page === 'category') {
       window.location.hash = ' ';

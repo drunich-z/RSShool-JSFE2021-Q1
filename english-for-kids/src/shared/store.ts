@@ -11,8 +11,9 @@ const page = 'main' as PageView;
 const applicationMode = 'train' as ApplicationMode;
 const statistics: CardLocalForStatistics[] = [];
 const gameErrors = 0;
-const totalNumberOfGameWords = 0;
-const totalNumberOfCorrectGameWords = 0;
+const wordsCounter = 0;
+const correctWordsCounter = 0;
+const errorWordsCounter = 0;
 const activeGame = false as boolean;
 
 export default {
@@ -25,8 +26,9 @@ export default {
   statistics,
   gameErrors,
   cardsForGame,
-  totalNumberOfGameWords,
-  totalNumberOfCorrectGameWords,
+  wordsCounter,
+  correctWordsCounter,
+  errorWordsCounter,
   activeGame,
 
   async statInit(): Promise<void> {
@@ -50,8 +52,9 @@ export default {
     this.gameErrors = 0;
     this.cardsForGame = this.cards.slice();
     this.cardsForGame = Utils.shuffle(this.cardsForGame);
-    this.totalNumberOfGameWords = this.cardsForGame.length;
-    this.totalNumberOfCorrectGameWords = 0;
+    this.wordsCounter = this.cardsForGame.length;
+    this.correctWordsCounter = 0;
+    this.errorWordsCounter = 0;
     this.activeGame = true;
   },
 
