@@ -46,4 +46,22 @@ export default {
     return result;
   },
 
+  playAudio(src: string):void {
+    const audio = new Audio();
+    audio.src = src;
+    audio.currentTime = 0;
+    audio.play();
+  },
+
+  shuffle(arr: any[]): any[] {
+    let j;
+    for (let i = arr.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+      console.log(i, arr[i]);
+      console.log(j, arr[j]);
+    }
+    return arr;
+  },
+
 };
