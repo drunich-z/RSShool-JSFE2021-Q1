@@ -60,6 +60,9 @@ export default {
       if (!eTarget.classList.contains('repeat')) {
         Store.initGame();
         eTarget.classList.add('repeat');
+        Utils.playAudio(`./assets/resource/${Store.cardsForGame[Store.totalNumberOfCorrectGameWords].audio}`);
+      } else {
+        Utils.playAudio(`./assets/resource/${Store.cardsForGame[Store.totalNumberOfCorrectGameWords].audio}`);
       }
     }
   },

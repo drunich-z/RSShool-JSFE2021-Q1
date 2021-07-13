@@ -11,6 +11,9 @@ const page = 'main' as PageView;
 const applicationMode = 'train' as ApplicationMode;
 const statistics: CardLocalForStatistics[] = [];
 const gameErrors = 0;
+const totalNumberOfGameWords = 0;
+const totalNumberOfCorrectGameWords = 0;
+const activeGame = false as boolean;
 
 export default {
   categories,
@@ -22,6 +25,9 @@ export default {
   statistics,
   gameErrors,
   cardsForGame,
+  totalNumberOfGameWords,
+  totalNumberOfCorrectGameWords,
+  activeGame,
 
   async statInit(): Promise<void> {
     const res = Model.getStatistics();
@@ -40,10 +46,13 @@ export default {
     this.applicationMode = 'train';
   },
 
-  initGame() {
+  initGame():void {
     this.gameErrors = 0;
     this.cardsForGame = this.cards.slice();
     this.cardsForGame = Utils.shuffle(this.cardsForGame);
+    this.totalNumberOfGameWords = this.cardsForGame.length;
+    this.totalNumberOfCorrectGameWords = 0;
+    this.activeGame = true;
   },
 
 };
