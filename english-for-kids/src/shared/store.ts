@@ -48,7 +48,7 @@ export default {
     this.applicationMode = 'train';
   },
 
-  initGame():void {
+  initGameState():void {
     this.gameErrors = 0;
     this.cardsForGame = this.cards.slice();
     this.cardsForGame = Utils.shuffle(this.cardsForGame);
