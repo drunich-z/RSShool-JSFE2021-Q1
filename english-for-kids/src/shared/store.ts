@@ -32,9 +32,12 @@ export default {
   activeGame,
 
   async statInit(): Promise<void> {
-    const res = Model.getStatistics();
-    if (res.length === 0) this.statistics = await Utils.initStatistics();
-    else this.statistics = res;
+    // const res = Model.getStatistics();
+    // if (res.length === 0) {
+    //   this.statistics = await Utils.initStatistics();
+    //   Model.initStatistics(this.statistics);
+    // } else this.statistics = res;
+    // console.log(this.statistics);
   },
 
   async tempInitStore(): Promise<void> {
@@ -42,10 +45,10 @@ export default {
     [this.activeCategory] = this.categories;
     this.cards = await Model.getCardsOfCategory(this.activeCategory.name);
     this.cardsForGame = this.cards.slice();
-
     this.cardsForMainPage = await Utils.getFirstCardOfEachCategory();
     this.page = 'main';
     this.applicationMode = 'train';
+    // this.statInit();
   },
 
   initGameState(toggle = true):void {

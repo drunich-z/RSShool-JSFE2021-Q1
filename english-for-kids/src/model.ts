@@ -33,6 +33,7 @@ export default {
   async getAllCards(): Promise<CardLocal[]> {
     const response = await fetch(BASE);
     const [categories, ...cards] = await response.json();
+    // console.log('All-cards', cards);
     return cards;
   },
 
