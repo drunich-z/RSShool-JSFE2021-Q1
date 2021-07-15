@@ -17,7 +17,7 @@ async function handleCardClickTrainMode(target: HTMLElement): Promise<void> {
   if (!card.classList.contains('translate')
       && !target.classList.contains('rotate')
       && Store.applicationMode === 'train') {
-    Utils.playAudio(`./assets/resource/${String(card.dataset.audiosrc)}`);
+    Utils.playAudio(`${String(card.dataset.audiosrc)}`);
   }
 }
 
@@ -39,7 +39,7 @@ async function handleCardClickGameMode(target: HTMLElement): Promise<void> {
     Utils.playAudio('./assets/resource/control-audio/correct.mp3');
     if (Store.correctWordsCounter >= Store.wordsCounter) finishGame();
     else {
-      const nextAudio = `./assets/resource/${Store.cardsForGame[Store.correctWordsCounter].audio}`;
+      const nextAudio = `${Store.cardsForGame[Store.correctWordsCounter].audio}`;
       setTimeout(() => (Utils.playAudio(nextAudio)), 500);
     }
   } else if (!card.classList.contains('inactive')) {
@@ -94,9 +94,9 @@ export default {
       if (!eTarget.classList.contains('repeat')) {
         Store.initGameState();
         eTarget.classList.add('repeat');
-        Utils.playAudio(`./assets/resource/${Store.cardsForGame[Store.correctWordsCounter].audio}`);
+        Utils.playAudio(`${Store.cardsForGame[Store.correctWordsCounter].audio}`);
       } else {
-        Utils.playAudio(`./assets/resource/${Store.cardsForGame[Store.correctWordsCounter].audio}`);
+        Utils.playAudio(`${Store.cardsForGame[Store.correctWordsCounter].audio}`);
       }
     }
   },
