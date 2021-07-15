@@ -64,6 +64,8 @@ export default {
       + `data-link="${categories[i].name}">${categories[i].name}</a>`;
     }
     result += '<a href="#statistics" class="burger-link" data-type="statistics" data-link="statistics">STATISTICS</a>';
+    result += '<a id="burger-link-login" href="#login"'
+      + ' class="burger-link burger-link-login" data-type="login" data-link="login">LOGIN</a>';
     return result;
   },
 
