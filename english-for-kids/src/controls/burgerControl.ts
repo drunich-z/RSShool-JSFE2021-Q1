@@ -39,6 +39,7 @@ export default {
     e.preventDefault();
     const target = e.target as HTMLElement;
     if (target.classList.contains('burger-link') && !target.classList.contains('burger-link_active')) {
+      Store.activeGame = false;
       const prevActiveLink = document.querySelector('.burger-link_active') as HTMLElement;
       if (prevActiveLink) prevActiveLink.classList.remove('burger-link_active');
       target.classList.add('burger-link_active');

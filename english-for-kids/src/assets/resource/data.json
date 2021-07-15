@@ -13,57 +13,57 @@
     {
       "word": "cry",
       "translation": "плакать",
-      "image": "img/cry.jpg",
-      "audioSrc": "audio/cry.mp3",
+      "image": "./assets/resource/img/cry.jpg",
+      "audioSrc": "./assets/resource/audio/cry.mp3",
       "category": "Action (set A)"
     },
     {
       "word": "dance",
       "translation": "танцевать",
-      "image": "img/dance.jpg",
-      "audioSrc": "audio/dance.mp3",
+      "image": "./assets/resource/img/dance.jpg",
+      "audioSrc": "./assets/resource/audio/dance.mp3",
       "category": "Action (set A)"
     },
     {
       "word": "dive",
       "translation": "нырять",
-      "image": "img/dive.jpg",
-      "audioSrc": "audio/dive.mp3",
+      "image": "./assets/resource/img/dive.jpg",
+      "audioSrc": "./assets/resource/audio/dive.mp3",
       "category": "Action (set A)"
     },
     {
       "word": "draw",
       "translation": "рисовать",
-      "image": "img/draw.jpg",
-      "audioSrc": "audio/draw.mp3",
+      "image": "./assets/resource/img/draw.jpg",
+      "audioSrc": "./assets/resource/audio/draw.mp3",
       "category": "Action (set A)"
     },
     {
       "word": "fish",
       "translation": "ловить рыбу",
-      "image": "img/fish.jpg",
-      "audioSrc": "audio/fish.mp3",
+      "image": "./assets/resource/img/fish.jpg",
+      "audioSrc": "./assets/resource/audio/fish.mp3",
       "category": "Action (set A)"
     },
     {
       "word": "fly",
       "translation": "летать",
-      "image": "img/fly.jpg",
-      "audioSrc": "audio/fly.mp3",
+      "image": "./assets/resource/img/fly.jpg",
+      "audioSrc": "./assets/resource/audio/fly.mp3",
       "category": "Action (set A)"
     },
     {
       "word": "hug",
       "translation": "обнимать",
-      "image": "img/hug.jpg",
-      "audioSrc": "audio/hug.mp3",
+      "image": "./assets/resource/img/hug.jpg",
+      "audioSrc": "./assets/resource/audio/hug.mp3",
       "category": "Action (set A)"
     },
     {
       "word": "jump",
       "translation": "прыгать",
-      "image": "img/jump.jpg",
-      "audioSrc": "audio/jump.mp3",
+      "image": "./assets/resource/img/jump.jpg",
+      "audioSrc": "./assets/resource/audio/jump.mp3",
       "category": "Action (set A)"
     }
   ],
@@ -71,57 +71,57 @@
     {
       "word": "open",
       "translation": "открывать",
-      "image": "img/open.jpg",
-      "audioSrc": "audio/open.mp3",
+      "image": "./assets/resource/img/open.jpg",
+      "audioSrc": "./assets/resource/audio/open.mp3",
       "category": "Action (set B)"
     },
     {
       "word": "play",
       "translation": "играть",
-      "image": "img/play.jpg",
-      "audioSrc": "audio/play.mp3",
+      "image": "./assets/resource/img/play.jpg",
+      "audioSrc": "./assets/resource/audio/play.mp3",
       "category": "Action (set B)"
     },
     {
       "word": "point",
       "translation": "указывать",
-      "image": "img/point.jpg",
-      "audioSrc": "audio/point.mp3",
+      "image": "./assets/resource/img/point.jpg",
+      "audioSrc": "./assets/resource/audio/point.mp3",
       "category": "Action (set B)"
     },
     {
       "word": "ride",
       "translation": "ездить",
-      "image": "img/ride.jpg",
-      "audioSrc": "audio/ride.mp3",
+      "image": "./assets/resource/img/ride.jpg",
+      "audioSrc": "./assets/resource/audio/ride.mp3",
       "category": "Action (set B)"
     },
     {
       "word": "run",
       "translation": "бегать",
-      "image": "img/run.jpg",
-      "audioSrc": "audio/run.mp3",
+      "image": "./assets/resource/img/run.jpg",
+      "audioSrc": "./assets/resource/audio/run.mp3",
       "category": "Action (set B)"
     },
     {
       "word": "sing",
       "translation": "петь",
-      "image": "img/sing.jpg",
-      "audioSrc": "audio/sing.mp3",
+      "image": "./assets/resource/img/sing.jpg",
+      "audioSrc": "./assets/resource/audio/sing.mp3",
       "category": "Action (set B)"
     },
     {
       "word": "skip",
       "translation": "пропускать, прыгать",
-      "image": "img/skip.jpg",
-      "audioSrc": "audio/skip.mp3",
+      "image": "./assets/resource/img/skip.jpg",
+      "audioSrc": "./assets/resource/audio/skip.mp3",
       "category": "Action (set B)"
     },
     {
       "word": "swim",
       "translation": "плавать",
-      "image": "img/swim.jpg",
-      "audioSrc": "audio/swim.mp3",
+      "image": "./assets/resource/img/swim.jpg",
+      "audioSrc": "./assets/resource/audio/swim.mp3",
       "category": "Action (set B)"
     }
   ],
@@ -129,57 +129,57 @@
     {
       "word": "cat",
       "translation": "кот",
-      "image": "img/cat.jpg",
-      "audioSrc": "audio/cat.mp3",
+      "image": "./assets/resource/img/cat.jpg",
+      "audioSrc": "./assets/resource/audio/cat.mp3",
       "category": "Animal (set A)"
     },
     {
       "word": "chick",
       "translation": "цыплёнок",
-      "image": "img/chick.jpg",
-      "audioSrc": "audio/chick.mp3",
+      "image": "./assets/resource/img/chick.jpg",
+      "audioSrc": "./assets/resource/audio/chick.mp3",
       "category": "Animal (set A)"
     },
     {
       "word": "chicken",
       "translation": "курица",
-      "image": "img/chicken.jpg",
-      "audioSrc": "audio/chicken.mp3",
+      "image": "./assets/resource/img/chicken.jpg",
+      "audioSrc": "./assets/resource/audio/chicken.mp3",
       "category": "Animal (set A)"
     },
     {
       "word": "dog",
       "translation": "собака",
-      "image": "img/dog.jpg",
-      "audioSrc": "audio/dog.mp3",
+      "image": "./assets/resource/img/dog.jpg",
+      "audioSrc": "./assets/resource/audio/dog.mp3",
       "category": "Animal (set A)"
     },
     {
       "word": "horse",
       "translation": "лошадь",
-      "image": "img/horse.jpg",
-      "audioSrc": "audio/horse.mp3",
+      "image": "./assets/resource/img/horse.jpg",
+      "audioSrc": "./assets/resource/audio/horse.mp3",
       "category": "Animal (set A)"
     },
     {
       "word": "pig",
       "translation": "свинья",
-      "image": "img/pig.jpg",
-      "audioSrc": "audio/pig.mp3",
+      "image": "./assets/resource/img/pig.jpg",
+      "audioSrc": "./assets/resource/audio/pig.mp3",
       "category": "Animal (set A)"
     },
     {
       "word": "rabbit",
       "translation": "кролик",
-      "image": "img/rabbit.jpg",
-      "audioSrc": "audio/rabbit.mp3",
+      "image": "./assets/resource/img/rabbit.jpg",
+      "audioSrc": "./assets/resource/audio/rabbit.mp3",
       "category": "Animal (set A)"
     },
     {
       "word": "sheep",
       "translation": "овца",
-      "image": "img/sheep.jpg",
-      "audioSrc": "audio/sheep.mp3",
+      "image": "./assets/resource/img/sheep.jpg",
+      "audioSrc": "./assets/resource/audio/sheep.mp3",
       "category": "Animal (set A)"
     }
   ],
@@ -187,57 +187,57 @@
     {
       "word": "bird",
       "translation": "птица",
-      "image": "img/bird.jpg",
-      "audioSrc": "audio/bird.mp3",
+      "image": "./assets/resource/img/bird.jpg",
+      "audioSrc": "./assets/resource/audio/bird.mp3",
       "category": "Animal (set B)"
     },
     {
       "word": "fish",
       "translation": "рыба",
-      "image": "img/fish1.jpg",
-      "audioSrc": "audio/fish.mp3",
+      "image": "./assets/resource/img/fish1.jpg",
+      "audioSrc": "./assets/resource/audio/fish.mp3",
       "category": "Animal (set B)"
     },
     {
       "word": "frog",
       "translation": "жаба",
-      "image": "img/frog.jpg",
-      "audioSrc": "audio/frog.mp3",
+      "image": "./assets/resource/img/frog.jpg",
+      "audioSrc": "./assets/resource/audio/frog.mp3",
       "category": "Animal (set B)"
     },
     {
       "word": "giraffe",
       "translation": "жирафа",
-      "image": "img/giraffe.jpg",
-      "audioSrc": "audio/giraffe.mp3",
+      "image": "./assets/resource/img/giraffe.jpg",
+      "audioSrc": "./assets/resource/audio/giraffe.mp3",
       "category": "Animal (set B)"
     },
     {
       "word": "lion",
       "translation": "лев",
-      "image": "img/lion.jpg",
-      "audioSrc": "audio/lion.mp3",
+      "image": "./assets/resource/img/lion.jpg",
+      "audioSrc": "./assets/resource/audio/lion.mp3",
       "category": "Animal (set B)"
     },
     {
       "word": "mouse",
       "translation": "мышь",
-      "image": "img/mouse.jpg",
-      "audioSrc": "audio/mouse.mp3",
+      "image": "./assets/resource/img/mouse.jpg",
+      "audioSrc": "./assets/resource/audio/mouse.mp3",
       "category": "Animal (set B)"
     },
     {
       "word": "turtle",
       "translation": "черепаха",
-      "image": "img/turtle.jpg",
-      "audioSrc": "audio/turtle.mp3",
+      "image": "./assets/resource/img/turtle.jpg",
+      "audioSrc": "./assets/resource/audio/turtle.mp3",
       "category": "Animal (set B)"
     },
     {
       "word": "dolphin",
       "translation": "дельфин",
-      "image": "img/dolphin.jpg",
-      "audioSrc": "audio/dolphin.mp3",
+      "image": "./assets/resource/img/dolphin.jpg",
+      "audioSrc": "./assets/resource/audio/dolphin.mp3",
       "category": "Animal (set B)"
     }
   ],
@@ -245,57 +245,57 @@
     {
       "word": "skirt",
       "translation": "юбка",
-      "image": "img/skirt.jpg",
-      "audioSrc": "audio/skirt.mp3",
+      "image": "./assets/resource/img/skirt.jpg",
+      "audioSrc": "./assets/resource/audio/skirt.mp3",
       "category": "Clothes"
     },
     {
       "word": "pants",
       "translation": "брюки",
-      "image": "img/pants.jpg",
-      "audioSrc": "audio/pants.mp3",
+      "image": "./assets/resource/img/pants.jpg",
+      "audioSrc": "./assets/resource/audio/pants.mp3",
       "category": "Clothes"
     },
     {
       "word": "blouse",
       "translation": "блузка",
-      "image": "img/blouse.jpg",
-      "audioSrc": "audio/blouse.mp3",
+      "image": "./assets/resource/img/blouse.jpg",
+      "audioSrc": "./assets/resource/audio/blouse.mp3",
       "category": "Clothes"
     },
     {
       "word": "dress",
       "translation": "платье",
-      "image": "img/dress.jpg",
-      "audioSrc": "audio/dress.mp3",
+      "image": "./assets/resource/img/dress.jpg",
+      "audioSrc": "./assets/resource/audio/dress.mp3",
       "category": "Clothes"
     },
     {
       "word": "boot",
       "translation": "ботинок",
-      "image": "img/boot.jpg",
-      "audioSrc": "audio/boot.mp3",
+      "image": "./assets/resource/img/boot.jpg",
+      "audioSrc": "./assets/resource/audio/boot.mp3",
       "category": "Clothes"
     },
     {
       "word": "shirt",
       "translation": "рубашка",
-      "image": "img/shirt.jpg",
-      "audioSrc": "audio/shirt.mp3",
+      "image": "./assets/resource/img/shirt.jpg",
+      "audioSrc": "./assets/resource/audio/shirt.mp3",
       "category": "Clothes"
     },
     {
       "word": "coat",
       "translation": "пальто",
-      "image": "img/coat.jpg",
-      "audioSrc": "audio/coat.mp3",
+      "image": "./assets/resource/img/coat.jpg",
+      "audioSrc": "./assets/resource/audio/coat.mp3",
       "category": "Clothes"
     },
     {
       "word": "shoe",
       "translation": "туфли",
-      "image": "img/shoe.jpg",
-      "audioSrc": "audio/shoe.mp3",
+      "image": "./assets/resource/img/shoe.jpg",
+      "audioSrc": "./assets/resource/audio/shoe.mp3",
       "category": "Clothes"
     }
   ],
@@ -303,57 +303,57 @@
     {
       "word": "sad",
       "translation": "грустный",
-      "image": "img/sad.jpg",
-      "audioSrc": "audio/sad.mp3",
+      "image": "./assets/resource/img/sad.jpg",
+      "audioSrc": "./assets/resource/audio/sad.mp3",
       "category": "Emotions"
     },
     {
       "word": "angry",
       "translation": "сердитый",
-      "image": "img/angry.jpg",
-      "audioSrc": "audio/angry.mp3",
+      "image": "./assets/resource/img/angry.jpg",
+      "audioSrc": "./assets/resource/audio/angry.mp3",
       "category": "Emotions"
     },
     {
       "word": "happy",
       "translation": "счастливый",
-      "image": "img/happy.jpg",
-      "audioSrc": "audio/happy.mp3",
+      "image": "./assets/resource/img/happy.jpg",
+      "audioSrc": "./assets/resource/audio/happy.mp3",
       "category": "Emotions"
     },
     {
       "word": "tired",
       "translation": "уставший",
-      "image": "img/tired.jpg",
-      "audioSrc": "audio/tired.mp3",
+      "image": "./assets/resource/img/tired.jpg",
+      "audioSrc": "./assets/resource/audio/tired.mp3",
       "category": "Emotions"
     },
     {
       "word": "surprised",
       "translation": "удивлённый",
-      "image": "img/surprised.jpg",
-      "audioSrc": "audio/surprised.mp3",
+      "image": "./assets/resource/img/surprised.jpg",
+      "audioSrc": "./assets/resource/audio/surprised.mp3",
       "category": "Emotions"
     },
     {
       "word": "scared",
       "translation": "испуганный",
-      "image": "img/scared.jpg",
-      "audioSrc": "audio/scared.mp3",
+      "image": "./assets/resource/img/scared.jpg",
+      "audioSrc": "./assets/resource/audio/scared.mp3",
       "category": "Emotions"
     },
     {
       "word": "smile",
       "translation": "улыбка",
-      "image": "img/smile.jpg",
-      "audioSrc": "audio/smile.mp3",
+      "image": "./assets/resource/img/smile.jpg",
+      "audioSrc": "./assets/resource/audio/smile.mp3",
       "category": "Emotions"
     },
     {
       "word": "laugh",
       "translation": "смех",
-      "image": "img/laugh.jpg",
-      "audioSrc": "audio/laugh.mp3",
+      "image": "./assets/resource/img/laugh.jpg",
+      "audioSrc": "./assets/resource/audio/laugh.mp3",
       "category": "Emotions"
     }
   ],
@@ -361,57 +361,57 @@
     {
       "word": "beach",
       "translation": "пляж",
-      "image": "img/beach.jpg",
-      "audioSrc": "audio/beach.mp3",
+      "image": "./assets/resource/img/beach.jpg",
+      "audioSrc": "./assets/resource/audio/beach.mp3",
       "category": "Nature"
     },
     {
       "word": "desert",
       "translation": "пустыня",
-      "image": "img/desert.jpg",
-      "audioSrc": "audio/desert.mp3",
+      "image": "./assets/resource/img/desert.jpg",
+      "audioSrc": "./assets/resource/audio/desert.mp3",
       "category": "Nature"
     },
     {
       "word": "forest",
       "translation": "лес",
-      "image": "img/forest.jpg",
-      "audioSrc": "audio/forest.mp3",
+      "image": "./assets/resource/img/forest.jpg",
+      "audioSrc": "./assets/resource/audio/forest.mp3",
       "category": "Nature"
     },
     {
       "word": "island",
       "translation": "остров",
-      "image": "img/island.jpg",
-      "audioSrc": "audio/island.mp3",
+      "image": "./assets/resource/img/island.jpg",
+      "audioSrc": "./assets/resource/audio/island.mp3",
       "category": "Nature"
     },
     {
       "word": "lake",
       "translation": "озеро",
-      "image": "img/lake.jpg",
-      "audioSrc": "audio/lake.mp3",
+      "image": "./assets/resource/img/lake.jpg",
+      "audioSrc": "./assets/resource/audio/lake.mp3",
       "category": "Nature"
     },
     {
       "word": "sea",
       "translation": "море",
-      "image": "img/sea.jpg",
-      "audioSrc": "audio/sea.mp3",
+      "image": "./assets/resource/img/sea.jpg",
+      "audioSrc": "./assets/resource/audio/sea.mp3",
       "category": "Nature"
     },
     {
       "word": "river",
       "translation": "река",
-      "image": "img/river.jpg",
-      "audioSrc": "audio/river.mp3",
+      "image": "./assets/resource/img/river.jpg",
+      "audioSrc": "./assets/resource/audio/river.mp3",
       "category": "Nature"
     },
     {
       "word": "volcano",
       "translation": "вулкан",
-      "image": "img/volcano.jpg",
-      "audioSrc": "audio/volcano.mp3",
+      "image": "./assets/resource/img/volcano.jpg",
+      "audioSrc": "./assets/resource/audio/volcano.mp3",
       "category": "Nature"
     }
   ],
@@ -419,57 +419,57 @@
     {
       "word": "apple",
       "translation": "яблоко",
-      "image": "img/apple.jpg",
-      "audioSrc": "audio/apple.mp3",
+      "image": "./assets/resource/img/apple.jpg",
+      "audioSrc": "./assets/resource/audio/apple.mp3",
       "category": "Food"
     },
     {
       "word": "banana",
       "translation": "банан",
-      "image": "img/banana.jpg",
-      "audioSrc": "audio/banana.mp3",
+      "image": "./assets/resource/img/banana.jpg",
+      "audioSrc": "./assets/resource/audio/banana.mp3",
       "category": "Food"
     },
     {
       "word": "bread",
       "translation": "хлеб",
-      "image": "img/bread.jpg",
-      "audioSrc": "audio/bread.mp3",
+      "image": "./assets/resource/img/bread.jpg",
+      "audioSrc": "./assets/resource/audio/bread.mp3",
       "category": "Food"
     },
     {
       "word": "cake",
       "translation": "пироженное",
-      "image": "img/cake.jpg",
-      "audioSrc": "audio/cake.mp3",
+      "image": "./assets/resource/img/cake.jpg",
+      "audioSrc": "./assets/resource/audio/cake.mp3",
       "category": "Food"
     },
     {
       "word": "cheese",
       "translation": "сыр",
-      "image": "img/cheese.jpg",
-      "audioSrc": "audio/cheese.mp3",
+      "image": "./assets/resource/img/cheese.jpg",
+      "audioSrc": "./assets/resource/audio/cheese.mp3",
       "category": "Food"
     },
     {
       "word": "egg",
       "translation": "яйцо",
-      "image": "img/egg.jpg",
-      "audioSrc": "audio/egg.mp3",
+      "image": "./assets/resource/img/egg.jpg",
+      "audioSrc": "./assets/resource/audio/egg.mp3",
       "category": "Food"
     },
     {
       "word": "milk",
       "translation": "молоко",
-      "image": "img/milk.jpg",
-      "audioSrc": "audio/milk.mp3",
+      "image": "./assets/resource/img/milk.jpg",
+      "audioSrc": "./assets/resource/audio/milk.mp3",
       "category": "Food"
     },
     {
       "word": "potato",
       "translation": "бульба",
-      "image": "img/potato.jpg",
-      "audioSrc": "audio/potato.mp3",
+      "image": "./assets/resource/img/potato.jpg",
+      "audioSrc": "./assets/resource/audio/potato.mp3",
       "category": "Food"
     }
   ]

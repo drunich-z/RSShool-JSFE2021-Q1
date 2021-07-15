@@ -3,7 +3,7 @@ import './types';
 import Utils from './utils';
 
 const categories: Category[] = await Model.getCategories();
-const activeCategory: Category = { name: '', id: -1 };
+const activeCategory: Category = { name: '', id: -1, description: '' };
 const cards: CardLocal[] = [];
 const cardsForGame: CardLocal[] = [];
 const cardsForMainPage: CardLocal[] = [];
@@ -31,14 +31,14 @@ export default {
   errorWordsCounter,
   activeGame,
 
-  async statInit(): Promise<void> {
-    // const res = Model.getStatistics();
-    // if (res.length === 0) {
-    //   this.statistics = await Utils.initStatistics();
-    //   Model.initStatistics(this.statistics);
-    // } else this.statistics = res;
-    // console.log(this.statistics);
-  },
+  // async statInit(): Promise<void> {
+  //   // const res = Model.getStatistics();
+  //   // if (res.length === 0) {
+  //   //   this.statistics = await Utils.initStatistics();
+  //   //   Model.initStatistics(this.statistics);
+  //   // } else this.statistics = res;
+  //   // console.log(this.statistics);
+  // },
 
   async tempInitStore(): Promise<void> {
     this.categories = await Model.getCategories();

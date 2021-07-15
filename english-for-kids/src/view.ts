@@ -64,6 +64,8 @@ export default {
       + `data-link="${categories[i].name}">${categories[i].name}</a>`;
     }
     result += '<a href="#statistics" class="burger-link" data-type="statistics" data-link="statistics">STATISTICS</a>';
+    result += '<a id="burger-link-login" href="#login"'
+      + ' class="burger-link burger-link-login" data-type="login" data-link="login">LOGIN</a>';
     return result;
   },
 
@@ -78,11 +80,11 @@ export default {
                class="card ${cardCover}" 
                data-word=${cards[i].word}
                data-audiosrc=${cards[i].audio}>
-            <div class="front" style="background-image: url('./assets/resource/${cards[i].image}')">
+            <div class="front" style="background-image: url('${cards[i].image}')">
               <div class="card-header ${none}">${cards[i].word}</div>
 
             </div>
-            <div class="back ${none}" style="background-image: url('./assets/resource/${cards[i].image}')">
+            <div class="back ${none}" style="background-image: url('${cards[i].image}')">
               <div class="card-header ${none}">${cards[i].translation}</div>
             </div>
             <div class="rotate ${none}" 
@@ -113,7 +115,7 @@ export default {
       <a href="#category" class="main-card ${green}" 
                           data-category="${cards[i].category.name}" 
                           data-id="${cards[i].category.id}">
-        <img src="./assets/resource/${cards[i].image}" alt="category-picture" class="pict">
+        <img src="${cards[i].image}" alt="category-picture" class="pict">
         ${cards[i].category.name}
       </a>
       `;

@@ -6,7 +6,8 @@ async function handleCategoryLinkClick(target: HTMLElement): Promise<void> {
   const prevActiveLink = document.querySelector('.burger-link_active') as HTMLElement;
   if (prevActiveLink) prevActiveLink.classList.remove('burger-link_active');
   (document.getElementById(`burger-link-${target.dataset.id}`) as HTMLElement).classList.add('burger-link_active');
-  Store.activeCategory = { name: String(target.dataset.category), id: Number(target.dataset.id) };
+  Store.activeCategory = await Model.getCategoryByName(String(target.dataset.category));
+  // Store.activeCategory = { name: String(target.dataset.category), id: Number(target.dataset.id) };
   Store.cards = await Model.getCardsOfCategory(String(target.dataset.category));
   Store.page = 'category';
   window.location.hash = 'category';
@@ -17,7 +18,7 @@ async function handleCardClickTrainMode(target: HTMLElement): Promise<void> {
   if (!card.classList.contains('translate')
       && !target.classList.contains('rotate')
       && Store.applicationMode === 'train') {
-    Utils.playAudio(`./assets/resource/${String(card.dataset.audiosrc)}`);
+    Utils.playAudio(`${String(card.dataset.audiosrc)}`);
   }
 }
 
@@ -39,7 +40,7 @@ async function handleCardClickGameMode(target: HTMLElement): Promise<void> {
     Utils.playAudio('./assets/resource/control-audio/correct.mp3');
     if (Store.correctWordsCounter >= Store.wordsCounter) finishGame();
     else {
-      const nextAudio = `./assets/resource/${Store.cardsForGame[Store.correctWordsCounter].audio}`;
+      const nextAudio = `${Store.cardsForGame[Store.correctWordsCounter].audio}`;
       setTimeout(() => (Utils.playAudio(nextAudio)), 500);
     }
   } else if (!card.classList.contains('inactive')) {
@@ -94,9 +95,9 @@ export default {
       if (!eTarget.classList.contains('repeat')) {
         Store.initGameState();
         eTarget.classList.add('repeat');
-        Utils.playAudio(`./assets/resource/${Store.cardsForGame[Store.correctWordsCounter].audio}`);
+        Utils.playAudio(`${Store.cardsForGame[Store.correctWordsCounter].audio}`);
       } else {
-        Utils.playAudio(`./assets/resource/${Store.cardsForGame[Store.correctWordsCounter].audio}`);
+        Utils.playAudio(`${Store.cardsForGame[Store.correctWordsCounter].audio}`);
       }
     }
   },

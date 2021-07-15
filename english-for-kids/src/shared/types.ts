@@ -8,6 +8,14 @@ type Card = {
   category: Category,
 };
 
+type JsonCard = {
+  word: string,
+  translation: string,
+  image: string,
+  audio: string
+  category: string,
+};
+
 type CardLocal = {
   word: string,
   translation: string,
@@ -27,6 +35,7 @@ type CardLocalForStatistics = {
 };
 
 type Category = {
+  id: number
   name: string,
-  id: number,
+  description: string,
 };
