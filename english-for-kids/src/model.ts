@@ -1,39 +1,50 @@
 import './shared/types';
 
-const BASE = './assets/resource/data.json';
-// const BASE = './data.json';
+// const BASE = './assets/resource/data.json';
+const BASE_CATEGORIES = './assets/resource/data-categories.json';
+const BASE_CARDS = './assets/resource/data-cards.json';
 
 export default {
 
   async getCategories(): Promise<Category[]> {
-    const response = await fetch(BASE);
-    const [categories] = await response.json();
-
-    return categories.map((item: string) => ({ id: categories.indexOf(item), name: item }));
+    const response = await fetch(BASE_CATEGORIES);
+    const categories = await response.json();
+    return categories;
   },
 
-  async getCardsOfCategory(category: string): Promise<CardLocal[]> {
-    const response = await fetch(BASE);
-    const [categories, ...cards] = await response.json();
-    const index = categories.indexOf(category);
+  async getCategoryByName(name: string): Promise<Category> {
+    const response = await fetch(BASE_CATEGORIES);
+    const categories = await response.json();
+    const [result] = categories.filter((item: Category) => item.name === name);
+    return result;
+  },
 
-    return cards[index].filter((item: any) => (item.category === category))
-      .map((item:any) => ({
+  async getCategoryById(id: number): Promise<Category> {
+    const response = await fetch(BASE_CATEGORIES);
+    const [categories] = await response.json();
+    const [result] = Array(categories).filter((item) => item.id === id);
+    return result;
+  },
+
+  async getCardsOfCategory(categoryName: string): Promise<CardLocal[]> {
+    const response = await fetch(BASE_CARDS);
+    const cards = await response.json();
+    const cardCategory = await this.getCategoryByName(categoryName);
+
+    const result = cards.filter((item: JsonCard) => (item.category === categoryName))
+      .map((item: JsonCard) => ({
         word: item.word,
         translation: item.translation,
         image: item.image,
-        audio: item.audioSrc,
-        category: {
-          name: item.category,
-          id: categories.indexOf(category),
-        },
+        audio: item.audio,
+        category: cardCategory,
       }));
+    return result;
   },
 
   async getAllCards(): Promise<CardLocal[]> {
-    const response = await fetch(BASE);
-    const [categories, ...cards] = await response.json();
-    // console.log('All-cards', cards);
+    const response = await fetch(BASE_CARDS);
+    const cards = await response.json();
     return cards;
   },
 

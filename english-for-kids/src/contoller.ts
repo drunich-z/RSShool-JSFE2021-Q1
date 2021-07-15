@@ -9,11 +9,12 @@ export default {
   async mainRoute(): Promise<void> {
     const prevActiveLink = document.querySelector('.burger-link_active') as HTMLElement;
     if (prevActiveLink) prevActiveLink.classList.remove('burger-link_active');
-    Store.activeCategory = { name: '', id: 0 };
+    Store.activeCategory = { name: '', id: -1, description: '' };
     Store.cards = [];
     Store.page = 'main';
     MainPage.renderMainPage();
-    (document.getElementById('burger-link-main') as HTMLElement).classList.add('burger-link_active');
+    const mainLink = (document.getElementById('burger-link-main') as HTMLElement);
+    if (mainLink) mainLink.classList.add('burger-link_active');
   },
 
   async categoryRoute(): Promise<void> {

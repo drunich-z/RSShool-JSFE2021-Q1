@@ -7,7 +7,7 @@ export default {
     const obj = {
       word: '',
       translation: '',
-      category: { name: '', id: 0 },
+      category: { name: '', id: -1, description: '' },
       trainClicks: 0,
       gameCorrectClicks: 0,
       gameErrorClicks: 0,
