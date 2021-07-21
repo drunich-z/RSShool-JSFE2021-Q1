@@ -10,12 +10,15 @@ export class Popup extends BaseComponent {
 
   private okButton: BaseComponent;
 
-  constructor(popupTexp: string) {
+  private removeCover: boolean;
+
+  constructor(popupTexp: string, removeCover = true) {
     super('div', ['popup-wrapper', 'hidden']);
     this.popupTextContainer = new BaseComponent('div', ['popup-text-contaier']);
     this.okButton = new BaseComponent('div', ['popup-ok-button']);
     this.popupTextContainer.element.innerText = popupTexp;
     this.okButton.element.innerText = 'OK';
+    this.removeCover = removeCover;
     document.body.appendChild(this.element);
     this.element.appendChild(this.popupTextContainer.element);
     this.element.appendChild(this.okButton.element);
@@ -28,7 +31,7 @@ export class Popup extends BaseComponent {
     this.okButton.element.addEventListener('click', () => {
       this.removeAllChilds();
       document.body.removeChild(this.element);
-      if (this.coverElement) this.coverElement.classList.add('hidden');
+      if (this.removeCover && this.coverElement) this.coverElement.classList.add('hidden');
     });
   }
 }
