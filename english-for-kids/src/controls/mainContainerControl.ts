@@ -30,7 +30,7 @@ function finishGame() {
   window.location.hash = 'main';
 }
 
-async function handleCardClickGameMode(target: HTMLElement): Promise<void> {
+function handleCardClickGameMode(target: HTMLElement): void {
   const card = target.closest('.card') as HTMLElement;
   const raiting = document.getElementById('rating') as HTMLElement;
   if (card.dataset.word === Store.cardsForGame[Store.correctWordsCounter].word) {
@@ -66,12 +66,17 @@ async function handleRotateClick(target: HTMLElement): Promise<void> {
 export default {
   mainContainer: document.getElementById('main-container') as HTMLElement,
 
-  async initMainContainerControls(): Promise<void> {
+  initMainContainerControls(): void {
     this.mainContainer = document.getElementById('main-container') as HTMLElement;
-    this.mainContainer.addEventListener('click', (e: Event) => this.mainHandler(e));
+    this.mainContainer.addEventListener('click', this.mainHandler);
   },
 
-  async mainHandler(e: Event): Promise<void> {
+  switchOffMainContainerControls(): void {
+    this.mainContainer = document.getElementById('main-container') as HTMLElement;
+    this.mainContainer.removeEventListener('click', this.mainHandler);
+  },
+
+  mainHandler(e: Event): void {
     e.preventDefault();
 
     const eTarget = (e.target as HTMLElement);

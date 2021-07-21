@@ -1,4 +1,4 @@
-type PageView = 'main' | 'category' | 'statistics';
+type PageView = 'main' | 'category' | 'statistics' |'admin';
 
 type ApplicationMode = 'train' | 'game';
 

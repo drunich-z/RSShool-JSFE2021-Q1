@@ -15,6 +15,7 @@ const wordsCounter = 0;
 const correctWordsCounter = 0;
 const errorWordsCounter = 0;
 const activeGame = false as boolean;
+const authorized = false as boolean;
 
 export default {
   categories,
@@ -30,6 +31,7 @@ export default {
   correctWordsCounter,
   errorWordsCounter,
   activeGame,
+  authorized,
 
   // async statInit(): Promise<void> {
   //   // const res = Model.getStatistics();

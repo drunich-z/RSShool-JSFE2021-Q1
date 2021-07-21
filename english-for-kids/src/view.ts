@@ -66,6 +66,11 @@ export default {
     result += '<a href="#statistics" class="burger-link" data-type="statistics" data-link="statistics">STATISTICS</a>';
     result += '<a id="burger-link-login" href="#login"'
       + ' class="burger-link burger-link-login" data-type="login" data-link="login">LOGIN</a>';
+    result += '<a id="burger-link-logout" href="#logout"'
+      + ' class="burger-link burger-link-logout hidden" data-type="logout" data-link="logout">LOGOUT</a>';
+    result += '<a id="burger-link-admin" href="#admin"'
+      + ' class="burger-link burger-link-admin hidden" data-type="admin" data-link="admin">ADMIN PANEL</a>';
+
     return result;
   },
 
@@ -121,6 +126,70 @@ export default {
       `;
     }
     return result;
+  },
+
+  // renderCardForAdminPage(): string {
+  //   const html = `
+  //     <form id="form-card" action="submit" class="form-card">
+  //         <input id="input-word" name="word" type="text" class="input-word">
+  //         <input id="input-translation" name="translation" type="text" class="input-transation">
+  //         <input id="input-sound" name="sound" type="file" class="input-sound">
+  //         <input id="input-picture" name="picture" type="file" class="input-picture" accept="image/*">
+  //       <input id="form-card-submit" type="submit">
+  //     </form>
+  //   `;
+  //   return html;
+  // },
+  renderCardForAdminPage(): string {
+    const html = `
+      <form id="form-card" action="submit" class="form-card">
+        <div class="form-row">
+          <label id="label-word" for="input-word">word:</label>
+          <input name="word" id="input-word" type="text" class="input-word">
+        </div>
+        <div class="form-row">
+          <label id="label-translation" for="input-translation">translation:</label>
+          <input name="translation" id="input-translation" type="text" class="input-transation">
+        </div>
+        <div class="form-row">
+          <label id="label-sound" for="input-sound">sound:</label>
+          <input name="sound" id="input-sound" type="file" class="input-sound" accept=".mp3" >
+        </div>
+        <div class="form-row">
+          <label id="label-picture" for="input-picture">picture:</label>
+          <input name="picture" id="input-picture" type="file" class="input-picture" accept="image/*">
+        </div>
+
+        <span id="output" class="output">
+          <img id="preview" class="preview" src="" alt="preview">
+        </span>
+        
+        <input id="form-card-submit" type="submit">
+
+      </form>
+    `;
+    return html;
+  },
+
+  renderLoginForm(): string {
+    const html = `
+      <form id="form-login" action="submit" class="form-login">
+      <div class="login-header">LOGIN  (admin/admin is correct)</div>
+      <div class="login-row">
+        <label id="label-login" for="input-login"></label>
+        <input name="input-login" id="input-login" type="text" class="input-login" placeholder="LOGIN">
+      </div>
+      <div class="login-row">
+        <label id="label-login" for="input-pass"></label>
+        <input name="input-pass" id="input-pass" type="password" class="input-pass" placeholder="PASSWORD">
+      </div>
+      <div class="login-footer">
+        <button id="btnCancel" class="btn-cancel">Cancel</button>
+        <button id="btnOk" class="btn-ok">Ok</button>
+      </div>
+    </form>
+    `;
+    return html;
   },
 
 };

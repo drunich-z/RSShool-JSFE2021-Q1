@@ -14,6 +14,7 @@ function handleHash(): void {
     if (name === 'main') Controller.mainRoute();
     if (name === 'category') Controller.categoryRoute();
     if (name === 'statistics') Controller.statisticsRoute();
+    if (name === 'admin') Controller.adminRoute();
   }
 }
 
