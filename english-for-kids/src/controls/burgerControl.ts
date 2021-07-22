@@ -31,7 +31,7 @@ export default {
     this.reset = document.getElementById('burger-link-reset') as HTMLElement;
 
     this.burgerBtn.addEventListener('click', (e: Event) => this.burgerBtnHandler(e));
-    this.coverElement.addEventListener('click', this.handleBurger.bind(this));
+    // this.coverElement.addEventListener('click', this.handleBurger.bind(this));
     this.burgerLinks.addEventListener('click', (e: Event) => this.handleBurgerLinks(e));
   },
 

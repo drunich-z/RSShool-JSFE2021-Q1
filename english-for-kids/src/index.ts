@@ -11,5 +11,5 @@ await Store.InitStore();
 await View.renderBaseTemplate();
 Router.init();
 Controller.initControlls();
-const message = new Popup('Доброго дня! Закончу сегодня в 22:00 UTC. Спасибо)');
-message.show();
+// const message = new Popup('Доброго дня! Закончу сегодня в 22:00 UTC. Спасибо)');
+// message.show();
