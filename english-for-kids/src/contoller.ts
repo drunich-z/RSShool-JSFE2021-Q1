@@ -2,10 +2,11 @@ import BurgerControl from './controls/burgerControl';
 import MainContainerControl from './controls/mainContainerControl';
 import SwitchModeControl from './controls/switchModeControl';
 import AdminControl from './controls/adminControl';
-import CategoryPage from './pages/category/categoryPage';
-import MainPage from './pages/main/mainPage';
-import AdminPage from './pages/admin/adminPage';
+import CategoryPage from './pages/game-mode/gameCardsPage';
+import MainPage from './pages/main/mainCategoryPage';
+import AdminPage from './pages/admin/adminCategoryPage';
 import Store from './shared/store';
+import Utils from './shared/utils';
 
 export default {
   async mainRoute(): Promise<void> {
@@ -14,6 +15,7 @@ export default {
     Store.activeCategory = { name: '', id: -1, description: '' };
     Store.cards = [];
     Store.page = 'main';
+    Store.cardsForCategories = await Utils.getCardsForCategories();
     MainPage.renderMainPage();
     const mainLink = (document.getElementById('burger-link-main') as HTMLElement);
     if (mainLink) mainLink.classList.add('burger-link_active');
@@ -22,14 +24,14 @@ export default {
   },
 
   async categoryRoute(): Promise<void> {
-    CategoryPage.renderCategoryPage();
+    CategoryPage.renderGameCardsPage();
     MainContainerControl.switchOffMainContainerControls();
     MainContainerControl.initMainContainerControls();
   },
 
   async statisticsRoute(): Promise<void> {
     const mainContainer = document.getElementById('main-container') as HTMLElement;
-    mainContainer.innerHTML = 'СТРАНИЦА СТАТИСТИКИ <br> ЕЩЁ ДОДЕЛЫВАЮ (';
+    mainContainer.innerHTML = 'СТРАНИЦА СТАТИСТИКИ <br> НЕ ГОТОВА (';
     MainContainerControl.switchOffMainContainerControls();
   },
 

@@ -6,6 +6,6 @@ export default {
 
   renderMainPage(): void {
     const mainContainer = document.getElementById('main-container') as HTMLElement;
-    mainContainer.innerHTML = View.renderCardsForMainPage(Store.cardsForMainPage, Store.applicationMode);
+    mainContainer.innerHTML = View.renderCardsForMainCategoryPage(Store.cardsForCategories, Store.applicationMode);
   },
 };

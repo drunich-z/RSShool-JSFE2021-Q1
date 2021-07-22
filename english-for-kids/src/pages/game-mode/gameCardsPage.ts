@@ -4,9 +4,9 @@ import View from '../../view';
 
 export default {
 
-  renderCategoryPage(): void {
+  renderGameCardsPage(): void {
     const mainContainer = document.getElementById('main-container') as HTMLElement;
-    mainContainer.innerHTML = View.renderCardsForCategoryPage(Store.cards, Store.applicationMode);
+    mainContainer.innerHTML = View.renderCardsForGameCardsPage(Store.cards, Store.applicationMode);
   },
 
 };

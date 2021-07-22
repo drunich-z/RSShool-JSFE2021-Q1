@@ -24,7 +24,7 @@ export default {
     return result;
   },
 
-  async getFirstCardOfEachCategory(): Promise<CardCategory[]> {
+  async getCardsForCategories(): Promise<CardCategory[]> {
     const result: CardCategory[] = [];
     let firstCard: CardLocal;
     const categories = await Model.getCategories();

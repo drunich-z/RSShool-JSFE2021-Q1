@@ -74,7 +74,7 @@ export default {
     return result;
   },
 
-  renderCardsForCategoryPage(cards: CardLocal[], mode: ApplicationMode = 'train'): string {
+  renderCardsForGameCardsPage(cards: CardLocal[], mode: ApplicationMode = 'train'): string {
     const none = mode === 'train' ? '' : 'none';
     const cardCover = mode === 'train' ? '' : 'card-cover';
     let result = '<div id="rating" class="rating none"></div>';
@@ -112,7 +112,7 @@ export default {
     return result;
   },
 
-  renderCardsForMainPage(cards: CardCategory[], mode: ApplicationMode = 'train'): string {
+  renderCardsForMainCategoryPage(cards: CardCategory[], mode: ApplicationMode = 'train'): string {
     const green = mode === 'train' ? 'green' : '';
     let result = '';
     for (let i = 0; i < cards.length; i++) {
