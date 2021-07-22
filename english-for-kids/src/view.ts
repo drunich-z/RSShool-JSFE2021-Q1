@@ -73,7 +73,7 @@ export default {
       ${authorized ? '' : 'hidden'}" data-type="logout" data-link="logout">LOGOUT</a>
     `;
     result += `<a id="burger-link-admin" href="#admin"class="burger-link burger-link-admin 
-      ${authorized ? '' : 'hidden burger-link_active'}" data-type="admin" data-link="admin">ADMIN PANEL</a>
+      ${authorized ? '' : 'hidden'}" data-type="admin" data-link="admin">ADMIN PANEL</a>
     `;
     result += `<a id="burger-link-reset" href="#" class="burger-link burger-link-reset
       ${authorized ? '' : 'hidden'}" data-type="reset" data-link="reset">RESET TO INITIAL STATE</a>
