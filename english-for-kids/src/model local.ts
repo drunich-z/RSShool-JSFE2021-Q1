@@ -1,32 +1,47 @@
 import './shared/types';
 
-// const BASE = 'http://localhost:3000/api';
-const BASE = 'https://efk-srv.herokuapp.com/api';
-const CATEGORY = '/categories';
-const CARDS = '/cards';
+const BASE_CATEGORIES = './assets/resource/data-categories.json';
+const BASE_CARDS = './assets/resource/data-cards.json';
 
 export default {
 
   async getCategories(): Promise<Category[]> {
-    const response = await fetch(`${BASE}${CATEGORY}/`);
+    const response = await fetch(BASE_CATEGORIES);
     const categories = await response.json();
     return categories;
   },
 
+  async getCategoryByName(name: string): Promise<Category> {
+    const response = await fetch(BASE_CATEGORIES);
+    const categories = await response.json();
+    const [result] = categories.filter((item: Category) => item.name === name);
+    return result;
+  },
+
   async getCategoryById(id: number): Promise<Category> {
-    const response = await fetch(`${BASE}${CATEGORY}/${id}`);
-    const result = await response.json();
+    const response = await fetch(BASE_CATEGORIES);
+    const [categories] = await response.json();
+    const [result] = Array(categories).filter((item) => item.id === id);
     return result;
   },
 
   async getCardsOfCategoryById(categoryId: number): Promise<CardLocal[]> {
-    const response = await fetch(`${BASE}${CARDS}/category/${categoryId}`);
-    const result = await response.json();
+    const response = await fetch(BASE_CARDS);
+    const cards = await response.json();
+    const result = cards.filter((item:CardLocal) => (item.categoryId === categoryId));
+    return result;
+  },
+
+  async getCardsOfCategoryByName(categoryName: string): Promise<CardLocal[]> {
+    const response = await fetch(BASE_CARDS);
+    const cards = await response.json();
+    const categoryId = (await this.getCategoryByName(categoryName)).id;
+    const result = cards.filter((item: CardLocal) => (item.categoryId === categoryId));
     return result;
   },
 
   async getAllCards(): Promise<CardLocal[]> {
-    const response = await fetch(`${BASE}${CARDS}/`);
+    const response = await fetch(BASE_CARDS);
     const cards = await response.json();
     return cards;
   },
