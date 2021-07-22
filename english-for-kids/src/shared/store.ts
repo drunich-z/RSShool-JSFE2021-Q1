@@ -6,7 +6,7 @@ const categories: Category[] = await Model.getCategories();
 const activeCategory = { name: '', id: -1, description: '' } as Category;
 const cards: CardLocal[] = [];
 const cardsForGame: CardLocal[] = [];
-const cardsForMainPage: CardCategory[] = [];
+const cardsForCategories: CardCategory[] = [];
 const page = 'main' as PageView;
 const applicationMode = 'train' as ApplicationMode;
 const statistics: CardLocalForStatistics[] = [];
@@ -21,7 +21,7 @@ export default {
   categories,
   activeCategory,
   cards,
-  cardsForMainPage,
+  cardsForCategories,
   page,
   applicationMode,
   statistics,
@@ -47,7 +47,7 @@ export default {
     [this.activeCategory] = this.categories;
     this.cards = await Model.getCardsOfCategoryById(this.activeCategory.id);
     this.cardsForGame = this.cards.slice();
-    this.cardsForMainPage = await Utils.getFirstCardOfEachCategory();
+    this.cardsForCategories = await Utils.getCardsForCategories();
     this.page = 'main';
     this.applicationMode = 'train';
     // this.statInit();

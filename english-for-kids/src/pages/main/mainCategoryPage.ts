@@ -4,9 +4,8 @@ import View from '../../view';
 
 export default {
 
-  renderCategoryPage(): void {
+  renderMainPage(): void {
     const mainContainer = document.getElementById('main-container') as HTMLElement;
-    mainContainer.innerHTML = View.renderCardsForCategoryPage(Store.cards, Store.applicationMode);
+    mainContainer.innerHTML = View.renderCardsForMainCategoryPage(Store.cardsForCategories, Store.applicationMode);
   },
-
 };

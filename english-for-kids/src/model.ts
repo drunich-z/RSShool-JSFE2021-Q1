@@ -4,6 +4,7 @@ import './shared/types';
 const BASE = 'https://efk-srv.herokuapp.com/api';
 const CATEGORY = '/categories';
 const CARDS = '/cards';
+const RESET = '/reset';
 
 export default {
 
@@ -29,6 +30,26 @@ export default {
     const response = await fetch(`${BASE}${CARDS}/`);
     const cards = await response.json();
     return cards;
+  },
+
+  async resetBDToInitialState(): Promise<void> {
+    await fetch(`${BASE}${RESET}/`, {
+      method: 'PUT',
+    });
+  },
+
+  async deleteCategory(id: number): Promise<void> {
+    await fetch(`${BASE}${CATEGORY}/${id}`, {
+      method: 'DELETE',
+    });
+  },
+
+  async UpdateCategory(id: number, body: Category): Promise<void> {
+    await fetch(`${BASE}${CATEGORY}/${id}`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' },
+    });
   },
 
   // ********************************************************************************

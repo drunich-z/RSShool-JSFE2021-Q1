@@ -13,6 +13,7 @@ type CardCategory = {
   name: string,
   description: string,
   image: string,
+  words: number,
 };
 
 type CardLocal = {

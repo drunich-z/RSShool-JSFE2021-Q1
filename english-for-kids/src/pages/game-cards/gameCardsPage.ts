@@ -4,14 +4,9 @@ import View from '../../view';
 
 export default {
 
-  renderAdminPage(): void {
+  renderGameCardsPage(): void {
     const mainContainer = document.getElementById('main-container') as HTMLElement;
-
-    mainContainer.innerHTML = `
-    <div id="admin-container" class="admin-container">
-    ${View.renderCardForAdminPage()}
-    </div>
-    `;
+    mainContainer.innerHTML = View.renderCardsForGameCardsPage(Store.cards, Store.applicationMode);
   },
 
 };
