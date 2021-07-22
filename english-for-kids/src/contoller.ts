@@ -1,12 +1,24 @@
 import BurgerControl from './controls/burgerControl';
 import MainContainerControl from './controls/mainContainerControl';
 import SwitchModeControl from './controls/switchModeControl';
-import AdminControl from './controls/adminControl';
-import CategoryPage from './pages/game-mode/gameCardsPage';
+import AdminControl from './controls/adminContainerControl';
+import GameCardsPage from './pages/game-cards/gameCardsPage';
 import MainPage from './pages/main/mainCategoryPage';
 import AdminPage from './pages/admin/adminCategoryPage';
 import Store from './shared/store';
 import Utils from './shared/utils';
+
+const switchOnMainControls = () => {
+  MainContainerControl.switchOffMainContainerControls();
+  AdminControl.switchOffAdminContainerControls();
+  MainContainerControl.initMainContainerControls();
+};
+
+const switchOnAdminControls = () => {
+  MainContainerControl.switchOffMainContainerControls();
+  AdminControl.switchOffAdminContainerControls();
+  AdminControl.initAdminContainerControls();
+};
 
 export default {
   async mainRoute(): Promise<void> {
@@ -19,14 +31,12 @@ export default {
     MainPage.renderMainPage();
     const mainLink = (document.getElementById('burger-link-main') as HTMLElement);
     if (mainLink) mainLink.classList.add('burger-link_active');
-    MainContainerControl.switchOffMainContainerControls();
-    MainContainerControl.initMainContainerControls();
+    switchOnMainControls();
   },
 
   async categoryRoute(): Promise<void> {
-    CategoryPage.renderGameCardsPage();
-    MainContainerControl.switchOffMainContainerControls();
-    MainContainerControl.initMainContainerControls();
+    GameCardsPage.renderGameCardsPage();
+    switchOnMainControls();
   },
 
   async statisticsRoute(): Promise<void> {
@@ -36,16 +46,19 @@ export default {
   },
 
   async adminRoute(): Promise<void> {
+    const prevActiveLink = document.querySelector('.burger-link_active') as HTMLElement;
+    if (prevActiveLink) prevActiveLink.classList.remove('burger-link_active');
+    Store.activeCategory = { name: '', id: -1, description: '' };
+    Store.cards = [];
+    Store.page = 'admin';
+    Store.cardsForCategories = await Utils.getCardsForCategories();
     AdminPage.renderAdminPage();
-    MainContainerControl.switchOffMainContainerControls();
-    AdminControl.initAdminControls();
+    switchOnAdminControls();
   },
 
   async initControlls(): Promise<void> {
     BurgerControl.initBurger();
     SwitchModeControl.initSwitch();
-    // MainContainerControl.initMainContainerControls();
-    // MainContainerControl.switchOffMainContainerControls();
   },
 
 };

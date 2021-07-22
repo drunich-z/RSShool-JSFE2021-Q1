@@ -4,6 +4,7 @@ const BASE = 'http://localhost:3000/api';
 // const BASE = 'https://efk-srv.herokuapp.com/api';
 const CATEGORY = '/categories';
 const CARDS = '/cards';
+const RESET = '/reset';
 
 export default {
 
@@ -29,6 +30,18 @@ export default {
     const response = await fetch(`${BASE}${CARDS}/`);
     const cards = await response.json();
     return cards;
+  },
+
+  async resetBDToInitialState(): Promise<void> {
+    await fetch(`${BASE}${RESET}/`, {
+      method: 'PUT',
+    });
+  },
+
+  async deleteCategory(id: number): Promise<void> {
+    await fetch(`${BASE}${CATEGORY}/${id}`, {
+      method: 'DELETE',
+    });
   },
 
   // ********************************************************************************

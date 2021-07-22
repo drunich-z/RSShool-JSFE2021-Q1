@@ -13,6 +13,7 @@ export default {
   adminPanel: document.getElementById('burger-link-admin') as HTMLElement,
   login: document.getElementById('burger-link-login') as HTMLElement,
   logout: document.getElementById('burger-link-logout') as HTMLElement,
+  reset: document.getElementById('burger-link-reset') as HTMLElement,
 
   async initBurger(): Promise<void> {
     this.burgerBtn = document.getElementById('burger-menu_button') as HTMLElement;
@@ -22,15 +23,21 @@ export default {
     this.burgerLinks = document.getElementById('burger-links') as HTMLElement;
 
     const categoriesForRender = await Model.getCategories();
-    this.burgerLinks.innerHTML = View.renderBurger(categoriesForRender);
+    this.burgerLinks.innerHTML = View.renderBurger(categoriesForRender, Store.authorized);
 
     this.adminPanel = document.getElementById('burger-link-admin') as HTMLElement;
     this.login = document.getElementById('burger-link-login') as HTMLElement;
     this.logout = document.getElementById('burger-link-logout') as HTMLElement;
+    this.reset = document.getElementById('burger-link-reset') as HTMLElement;
 
     this.burgerBtn.addEventListener('click', (e: Event) => this.burgerBtnHandler(e));
     this.coverElement.addEventListener('click', this.handleBurger.bind(this));
     this.burgerLinks.addEventListener('click', (e: Event) => this.handleBurgerLinks(e));
+  },
+
+  async initBurgerLinks(): Promise<void> {
+    const categories = await Model.getCategories();
+    this.burgerLinks.innerHTML = View.renderBurger(categories, Store.authorized);
   },
 
   burgerBtnHandler(e: Event): void {
@@ -52,9 +59,11 @@ export default {
       const prevActiveLink = document.querySelector('.burger-link_active') as HTMLElement;
       if (prevActiveLink
         && !target.classList.contains('burger-link-login')
-        && !target.classList.contains('burger-link-logout')) prevActiveLink.classList.remove('burger-link_active');
+        && !target.classList.contains('burger-link-logout')
+        && !target.classList.contains('burger-link-reset')) prevActiveLink.classList.remove('burger-link_active');
       if (!target.classList.contains('burger-link-login')
-        && !target.classList.contains('burger-link-logout')) target.classList.add('burger-link_active');
+        && !target.classList.contains('burger-link-logout')
+        && !target.classList.contains('burger-link-reset')) target.classList.add('burger-link_active');
       if (target.dataset.type === 'main') {
         Store.page = 'main';
         window.location.hash = 'main';
@@ -79,7 +88,13 @@ export default {
       if (target.dataset.type === 'logout') {
         this.handleLogout();
       }
-
+      if (target.dataset.type === 'reset') {
+        Model.resetBDToInitialState();
+        this.initBurgerLinks();
+        window.location.hash = ' ';
+        window.location.hash = 'main';
+        this.handleBurger();
+      }
       if (target.dataset.type === 'admin') {
         Store.page = 'admin';
         window.location.hash = 'admin';
@@ -93,6 +108,7 @@ export default {
     this.adminPanel.classList.toggle('hidden');
     this.logout.classList.toggle('hidden');
     this.login.classList.toggle('hidden');
+    this.reset.classList.toggle('hidden');
     this.handleBurger();
     Store.page = 'main';
     window.location.hash = 'main';
@@ -129,6 +145,7 @@ export default {
         this.adminPanel.classList.toggle('hidden');
         this.logout.classList.toggle('hidden');
         this.login.classList.toggle('hidden');
+        this.reset.classList.toggle('hidden');
         removeForm();
         return;
       }

@@ -55,24 +55,42 @@ export default {
     body.innerHTML = html;
   },
 
-  renderBurger(categories: Category[]): string {
+  renderBurger(categories: Category[], authorized = false): string {
     let result = '';
-    result = '<a id="burger-link-main" href="#main" class="burger-link burger-link_active" data-type="main">MAIN</a>';
+    result = `<a id="burger-link-main" href="#main" class="burger-link 
+      ${authorized ? '' : 'burger-link_active'}" data-type="main">MAIN</a>
+    `;
     for (let i = 0; i < categories.length; i++) {
       result += `<a id="burger-link-${categories[i].id}" href="#category"`
       + `class="burger-link" data-type="category" data-id="${categories[i].id}"`
       + `data-link="${categories[i].name}">${categories[i].name}</a>`;
     }
     result += '<a href="#statistics" class="burger-link" data-type="statistics" data-link="statistics">STATISTICS</a>';
-    result += '<a id="burger-link-login" href="#login"'
-      + ' class="burger-link burger-link-login" data-type="login" data-link="login">LOGIN</a>';
-    result += '<a id="burger-link-logout" href="#logout"'
-      + ' class="burger-link burger-link-logout hidden" data-type="logout" data-link="logout">LOGOUT</a>';
-    result += '<a id="burger-link-admin" href="#admin"'
-      + ' class="burger-link burger-link-admin hidden" data-type="admin" data-link="admin">ADMIN PANEL</a>';
+    result += `<a id="burger-link-login" href="#login" class="burger-link burger-link-login 
+      ${authorized ? 'hidden' : ''}" data-type="login" data-link="login">LOGIN</a>
+    `;
+    result += `<a id="burger-link-logout" href="#logout" class="burger-link burger-link-logout 
+      ${authorized ? '' : 'hidden'}" data-type="logout" data-link="logout">LOGOUT</a>
+    `;
+    result += `<a id="burger-link-admin" href="#admin"class="burger-link burger-link-admin 
+      ${authorized ? '' : 'hidden burger-link_active'}" data-type="admin" data-link="admin">ADMIN PANEL</a>
+    `;
+    result += `<a id="burger-link-reset" href="#" class="burger-link burger-link-reset
+      ${authorized ? '' : 'hidden'}" data-type="reset" data-link="reset">RESET TO INITIAL STATE</a>
+    `;
 
     return result;
   },
+
+  // renderBurgerCategoryLinks(categories: Category[]): string {
+  //   let result = '';
+  //   for (let i = 0; i < categories.length; i++) {
+  //     result += `<a id="burger-link-${categories[i].id}" href="#category"`
+  //     + `class="burger-link" data-type="category" data-id="${categories[i].id}"`
+  //     + `data-link="${categories[i].name}">${categories[i].name}</a>`;
+  //   }
+  //   return result;
+  // },
 
   renderCardsForGameCardsPage(cards: CardLocal[], mode: ApplicationMode = 'train'): string {
     const none = mode === 'train' ? '' : 'none';
@@ -128,48 +146,70 @@ export default {
     return result;
   },
 
-  // renderCardForAdminPage(): string {
+  renderCardsForAdminCategoryPage(cards: CardCategory[]): string {
+    let result = '';
+    for (let i = 0; i < cards.length; i++) {
+      result += `
+      <div id="admin-category-card-${cards[i].id}" class="admin-category-card" data-id="${cards[i].id}">
+        <div class="input-category-container">
+          <label id="label-word" for="input-category"></label>
+          <input id="category-${cards[i].id}" 
+                 name="category-${cards[i].id}" 
+                 type="text" 
+                 class="input-category" 
+                 value="${cards[i].name}" >
+        </div>
+        <a href="#" class="category-words" data-id="${cards[i].id}">words: ${cards[i].words}</a>
+        <div class="category-btn-container">
+          <button class="btn-update-category   
+                  category-btn" data-id="${cards[i].id}">Update</button>
+          <button class="btn-add-word-category 
+                  category-btn" data-id="${cards[i].id}">Add word</button>
+          <button class="btn-delete-category 
+                  category-btn" data-id="${cards[i].id}">Delete</button>
+        </div>
+      </div>
+      `;
+    }
+    result += `
+      <div class="admin-category-card">
+        <h3>Create new category</h3>
+        <img class="new-category" src="./assets/resource/control-img/plus.png" alt="new category">
+      </div>
+    `;
+    return result;
+  },
+
+  // renderCardsForAdminPage(): string {
   //   const html = `
   //     <form id="form-card" action="submit" class="form-card">
-  //         <input id="input-word" name="word" type="text" class="input-word">
-  //         <input id="input-translation" name="translation" type="text" class="input-transation">
-  //         <input id="input-sound" name="sound" type="file" class="input-sound">
-  //         <input id="input-picture" name="picture" type="file" class="input-picture" accept="image/*">
+  //       <div class="form-row">
+  //         <label id="label-word" for="input-word">word:</label>
+  //         <input name="word" id="input-word" type="text" class="input-word">
+  //       </div>
+  //       <div class="form-row">
+  //         <label id="label-translation" for="input-translation">translation:</label>
+  //         <input name="translation" id="input-translation" type="text" class="input-transation">
+  //       </div>
+  //       <div class="form-row">
+  //         <label id="label-sound" for="input-sound">sound:</label>
+  //         <input name="sound" id="input-sound" type="file" class="input-sound" accept=".mp3" >
+  //       </div>
+  //       <div class="form-row">
+  //         <label id="label-picture" for="input-picture">picture:</label>
+  //         <input name="picture" id="input-picture" type="file" class="input-picture" accept="image/*">
+  //       </div>
+
+  //       <span id="output" class="output">
+  //         <img id="preview" class="preview" src="" alt="preview">
+  //       </span>
+
   //       <input id="form-card-submit" type="submit">
+
   //     </form>
   //   `;
   //   return html;
   // },
-  renderCardForAdminPage(): string {
-    const html = `
-      <form id="form-card" action="submit" class="form-card">
-        <div class="form-row">
-          <label id="label-word" for="input-word">word:</label>
-          <input name="word" id="input-word" type="text" class="input-word">
-        </div>
-        <div class="form-row">
-          <label id="label-translation" for="input-translation">translation:</label>
-          <input name="translation" id="input-translation" type="text" class="input-transation">
-        </div>
-        <div class="form-row">
-          <label id="label-sound" for="input-sound">sound:</label>
-          <input name="sound" id="input-sound" type="file" class="input-sound" accept=".mp3" >
-        </div>
-        <div class="form-row">
-          <label id="label-picture" for="input-picture">picture:</label>
-          <input name="picture" id="input-picture" type="file" class="input-picture" accept="image/*">
-        </div>
-
-        <span id="output" class="output">
-          <img id="preview" class="preview" src="" alt="preview">
-        </span>
-        
-        <input id="form-card-submit" type="submit">
-
-      </form>
-    `;
-    return html;
-  },
 
   renderLoginForm(): string {
     const html = `

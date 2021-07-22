@@ -26,13 +26,13 @@ export default {
 
   async getCardsForCategories(): Promise<CardCategory[]> {
     const result: CardCategory[] = [];
-    let firstCard: CardLocal;
+    let cards: CardLocal[];
     const categories = await Model.getCategories();
     for (let i = 0; i < categories.length; i++) {
       // eslint-disable-next-line no-await-in-loop
-      [firstCard] = await Model.getCardsOfCategoryById(categories[i].id);
-      if (firstCard) result[i] = { ...categories[i], image: firstCard.image };
-      else result[i] = { ...categories[i], image: DEFAULT_CATEGORY_IMAGE };
+      cards = await Model.getCardsOfCategoryById(categories[i].id);
+      if (cards.length > 0) result[i] = { ...categories[i], image: cards[0].image, words: cards.length };
+      else result[i] = { ...categories[i], image: DEFAULT_CATEGORY_IMAGE, words: 0 };
     }
     return result;
   },
