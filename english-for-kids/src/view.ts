@@ -226,4 +226,21 @@ export default {
     return html;
   },
 
+  renderCreateCategoryForm(): string {
+    const html = `
+      <form id="form-create-category" action="submit" class="form-create-category">
+      <div class="login-header">CREATE CATEGORY</div>
+      <div class="login-row">
+        <label id="label-login" for="input-new-name"></label>
+        <input name="input-new-name" id="input-new-name" type="text" class="input-login" placeholder="CATEGORY NAME">
+      </div>
+      <div class="login-footer">
+        <button id="btnCancel" class="btn-cancel">Cancel</button>
+        <button id="btnOk" class="btn-ok">Ok</button>
+      </div>
+    </form>
+    `;
+    return html;
+  },
+
 };

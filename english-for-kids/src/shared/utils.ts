@@ -1,6 +1,6 @@
 import Model from '../model';
 
-const DEFAULT_CATEGORY_IMAGE = '';
+const DEFAULT_CATEGORY_IMAGE = './assets/resource/control-img/no-cards-in.jpg';
 
 export default {
   async initStatistics(): Promise<CardLocalForStatistics[]> {

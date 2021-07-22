@@ -52,6 +52,14 @@ export default {
     });
   },
 
+  async CreateCategory(body: Category): Promise<void> {
+    await fetch(`${BASE}${CATEGORY}/`, {
+      method: 'PUT',
+      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' },
+    });
+  },
+
   // ********************************************************************************
 
   updateStatistics(card: CardLocalForStatistics): void {
