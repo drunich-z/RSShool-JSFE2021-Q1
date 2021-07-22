@@ -21,7 +21,9 @@ body {
 //   margin: 0 auto;
 //   min-height: 95vh;
 // }
-
+.hidden {
+  display: none;
+}
 
 .none {
   box-sizing: border-box;
@@ -33,6 +35,8 @@ body {
   padding: 0;
 }
 
+
+
 @import './components/header.scss';
 @import './components/footer.scss';
 @import './components/burger-menu.scss';
@@ -40,6 +44,7 @@ body {
 @import './components/cards-container.scss';
 @import './components/main.scss';
 @import './components/popup.scss';
+@import './components/admin.scss';
 
 
 // @media (max-width: 1430px) {

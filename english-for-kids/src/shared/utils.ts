@@ -1,5 +1,7 @@
 import Model from '../model';
 
+const DEFAULT_CATEGORY_IMAGE = '';
+
 export default {
   async initStatistics(): Promise<CardLocalForStatistics[]> {
     const result = [];
@@ -7,7 +9,7 @@ export default {
     const obj = {
       word: '',
       translation: '',
-      category: { name: '', id: -1, description: '' },
+      categoryId: -1,
       trainClicks: 0,
       gameCorrectClicks: 0,
       gameErrorClicks: 0,
@@ -16,18 +18,21 @@ export default {
     for (let i = 0; i < gameCards.length; i++) {
       obj.word = gameCards[i].word;
       obj.translation = gameCards[i].translation;
-      obj.category = gameCards[i].category;
+      obj.categoryId = gameCards[i].categoryId;
       result.push(obj);
     }
     return result;
   },
 
-  async getFirstCardOfEachCategory(): Promise<CardLocal[]> {
-    const result: CardLocal[] = [];
-    const cardsCategories = await Model.getCategories();
-    for (let i = 0; i < cardsCategories.length; i++) {
+  async getFirstCardOfEachCategory(): Promise<CardCategory[]> {
+    const result: CardCategory[] = [];
+    let firstCard: CardLocal;
+    const categories = await Model.getCategories();
+    for (let i = 0; i < categories.length; i++) {
       // eslint-disable-next-line no-await-in-loop
-      [result[i]] = await Model.getCardsOfCategory(cardsCategories[i].name);
+      [firstCard] = await Model.getCardsOfCategoryById(categories[i].id);
+      if (firstCard) result[i] = { ...categories[i], image: firstCard.image };
+      else result[i] = { ...categories[i], image: DEFAULT_CATEGORY_IMAGE };
     }
     return result;
   },

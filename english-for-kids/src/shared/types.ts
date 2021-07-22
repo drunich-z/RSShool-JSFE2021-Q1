@@ -1,19 +1,18 @@
-type PageView = 'main' | 'category' | 'statistics';
+type PageView = 'main' | 'category' | 'statistics' |'admin';
 
 type ApplicationMode = 'train' | 'game';
 
 type Card = {
   word: string,
   translation: string,
-  category: Category,
+  categoryId: number,
 };
 
-type JsonCard = {
-  word: string,
-  translation: string,
+type CardCategory = {
+  id: number,
+  name: string,
+  description: string,
   image: string,
-  audio: string
-  category: string,
 };
 
 type CardLocal = {
@@ -21,13 +20,13 @@ type CardLocal = {
   translation: string,
   image: string,
   audio: string
-  category: Category,
+  categoryId: number,
 };
 
 type CardLocalForStatistics = {
   word: string,
   translation: string,
-  category: Category,
+  categoryId: number,
   trainClicks: number,
   gameCorrectClicks: number,
   gameErrorClicks: number,

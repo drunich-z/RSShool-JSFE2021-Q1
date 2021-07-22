@@ -3,10 +3,10 @@ import './types';
 import Utils from './utils';
 
 const categories: Category[] = await Model.getCategories();
-const activeCategory: Category = { name: '', id: -1, description: '' };
+const activeCategory = { name: '', id: -1, description: '' } as Category;
 const cards: CardLocal[] = [];
 const cardsForGame: CardLocal[] = [];
-const cardsForMainPage: CardLocal[] = [];
+const cardsForMainPage: CardCategory[] = [];
 const page = 'main' as PageView;
 const applicationMode = 'train' as ApplicationMode;
 const statistics: CardLocalForStatistics[] = [];
@@ -15,6 +15,7 @@ const wordsCounter = 0;
 const correctWordsCounter = 0;
 const errorWordsCounter = 0;
 const activeGame = false as boolean;
+const authorized = false as boolean;
 
 export default {
   categories,
@@ -30,6 +31,7 @@ export default {
   correctWordsCounter,
   errorWordsCounter,
   activeGame,
+  authorized,
 
   // async statInit(): Promise<void> {
   //   // const res = Model.getStatistics();
@@ -40,10 +42,10 @@ export default {
   //   // console.log(this.statistics);
   // },
 
-  async tempInitStore(): Promise<void> {
+  async InitStore(): Promise<void> {
     this.categories = await Model.getCategories();
     [this.activeCategory] = this.categories;
-    this.cards = await Model.getCardsOfCategory(this.activeCategory.name);
+    this.cards = await Model.getCardsOfCategoryById(this.activeCategory.id);
     this.cardsForGame = this.cards.slice();
     this.cardsForMainPage = await Utils.getFirstCardOfEachCategory();
     this.page = 'main';
