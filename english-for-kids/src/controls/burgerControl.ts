@@ -62,8 +62,8 @@ export default {
       }
       if (target.dataset.type === 'category') {
         Store.page = 'category';
-        Store.activeCategory.name = target.dataset.link as string;
-        Store.cards = await Model.getCardsOfCategory(Store.activeCategory.name);
+        Store.activeCategory = await Model.getCategoryById(Number(target.dataset.id));
+        Store.cards = await Model.getCardsOfCategoryById(Number(target.dataset.id));
         window.location.hash = ' ';
         window.location.hash = 'category';
         this.handleBurger();

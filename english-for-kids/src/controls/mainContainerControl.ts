@@ -6,9 +6,8 @@ async function handleCategoryLinkClick(target: HTMLElement): Promise<void> {
   const prevActiveLink = document.querySelector('.burger-link_active') as HTMLElement;
   if (prevActiveLink) prevActiveLink.classList.remove('burger-link_active');
   (document.getElementById(`burger-link-${target.dataset.id}`) as HTMLElement).classList.add('burger-link_active');
-  Store.activeCategory = await Model.getCategoryByName(String(target.dataset.category));
-  // Store.activeCategory = { name: String(target.dataset.category), id: Number(target.dataset.id) };
-  Store.cards = await Model.getCardsOfCategory(String(target.dataset.category));
+  Store.activeCategory = await Model.getCategoryById(Number(target.dataset.id));
+  Store.cards = await Model.getCardsOfCategoryById(Number(target.dataset.id));
   Store.page = 'category';
   window.location.hash = 'category';
 }

@@ -1,5 +1,11 @@
 import './shared/types';
 
+// const BASE = 'https://efk-srv.herokuapp.com/api/';
+const BASE = 'http://localhost/api/';
+const CATEGORY = `${BASE}/category/`;
+const CARDS = `${BASE}/cards/`;
+// const winners = `${base}/winners`;
+
 // const BASE = './assets/resource/data.json';
 const BASE_CATEGORIES = './assets/resource/data-categories.json';
 const BASE_CARDS = './assets/resource/data-cards.json';
@@ -26,19 +32,18 @@ export default {
     return result;
   },
 
-  async getCardsOfCategory(categoryName: string): Promise<CardLocal[]> {
+  async getCardsOfCategoryById(categoryId: number): Promise<CardLocal[]> {
     const response = await fetch(BASE_CARDS);
     const cards = await response.json();
-    const cardCategory = await this.getCategoryByName(categoryName);
+    const result = cards.filter((item:CardLocal) => (item.categoryId === categoryId));
+    return result;
+  },
 
-    const result = cards.filter((item: JsonCard) => (item.category === categoryName))
-      .map((item: JsonCard) => ({
-        word: item.word,
-        translation: item.translation,
-        image: item.image,
-        audio: item.audio,
-        category: cardCategory,
-      }));
+  async getCardsOfCategoryByName(categoryName: string): Promise<CardLocal[]> {
+    const response = await fetch(BASE_CARDS);
+    const cards = await response.json();
+    const categoryId = (await this.getCategoryByName(categoryName)).id;
+    const result = cards.filter((item: CardLocal) => (item.categoryId === categoryId));
     return result;
   },
 

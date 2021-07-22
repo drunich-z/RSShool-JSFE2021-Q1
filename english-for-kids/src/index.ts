@@ -6,7 +6,7 @@ import Controller from './contoller';
 import Store from './shared/store';
 
 // alert('Постараюсь доделать таск до конца кроссчека.');
-await Store.tempInitStore();
+await Store.InitStore();
 await View.renderBaseTemplate();
 Router.init();
 Controller.initControlls();

@@ -112,16 +112,16 @@ export default {
     return result;
   },
 
-  renderCardsForMainPage(cards: CardLocal[], mode: ApplicationMode = 'train'): string {
+  renderCardsForMainPage(cards: CardCategory[], mode: ApplicationMode = 'train'): string {
     const green = mode === 'train' ? 'green' : '';
     let result = '';
     for (let i = 0; i < cards.length; i++) {
       result += `
       <a href="#category" class="main-card ${green}" 
-                          data-category="${cards[i].category.name}" 
-                          data-id="${cards[i].category.id}">
+                          data-category="${cards[i].name}" 
+                          data-id="${cards[i].id}">
         <img src="${cards[i].image}" alt="category-picture" class="pict">
-        ${cards[i].category.name}
+        ${cards[i].name}
       </a>
       `;
     }
