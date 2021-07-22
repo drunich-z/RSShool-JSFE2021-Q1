@@ -149,7 +149,7 @@ export default {
         removeForm();
         return;
       }
-      const popup = new Popup('login and password are not correct', false);
+      const popup = new Popup('login and password are not correct', false, false);
       popup.show();
     });
 

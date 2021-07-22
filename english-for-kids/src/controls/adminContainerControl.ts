@@ -4,7 +4,6 @@ import Utils from '../shared/utils';
 import BurgerControl from './burgerControl';
 
 const handleDeleteCategory = async (target: HTMLElement) => {
-  console.log(`deleteCategory-${target.dataset.id}`);
   await Model.deleteCategory(Number(target.dataset.id));
   BurgerControl.initBurgerLinks();
   window.location.hash = ' ';
@@ -16,11 +15,25 @@ const handleAddWordCategory = (target: HTMLElement) => {
 };
 
 const handleUpdateCategory = (target: HTMLElement) => {
-  console.log(`update category-${target.dataset.id}`);
+  const input = document.getElementById(`input-category-${target.dataset.id}`) as HTMLInputElement;
+  input.classList.add('input-active');
+  target.classList.toggle('hidden');
+  (document.getElementById(`btnCatSave-${target.dataset.id}`) as HTMLButtonElement).classList.toggle('hidden');
 };
 
-const handleSaveUpdateCategory = (target: HTMLElement) => {
-  console.log(`save update category-${target.dataset.id}`);
+const handleSaveUpdateCategory = async (target: HTMLElement) => {
+  const input = document.getElementById(`input-category-${target.dataset.id}`) as HTMLInputElement;
+  if (!input.value) return;
+  input.classList.remove('input-active');
+  target.classList.toggle('hidden');
+  (document.getElementById(`btnCatUpd-${target.dataset.id}`) as HTMLButtonElement).classList.toggle('hidden');
+  const categoryToUpdate: Category = {
+    id: Number(target.dataset.id),
+    name: input.value,
+    description: '',
+  };
+  await Model.UpdateCategory(categoryToUpdate.id, categoryToUpdate);
+  BurgerControl.initBurgerLinks();
 };
 
 const handleCategoryWords = (target: HTMLElement) => {

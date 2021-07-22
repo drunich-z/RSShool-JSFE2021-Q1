@@ -82,16 +82,6 @@ export default {
     return result;
   },
 
-  // renderBurgerCategoryLinks(categories: Category[]): string {
-  //   let result = '';
-  //   for (let i = 0; i < categories.length; i++) {
-  //     result += `<a id="burger-link-${categories[i].id}" href="#category"`
-  //     + `class="burger-link" data-type="category" data-id="${categories[i].id}"`
-  //     + `data-link="${categories[i].name}">${categories[i].name}</a>`;
-  //   }
-  //   return result;
-  // },
-
   renderCardsForGameCardsPage(cards: CardLocal[], mode: ApplicationMode = 'train'): string {
     const none = mode === 'train' ? '' : 'none';
     const cardCover = mode === 'train' ? '' : 'card-cover';
@@ -153,7 +143,7 @@ export default {
       <div id="admin-category-card-${cards[i].id}" class="admin-category-card" data-id="${cards[i].id}">
         <div class="input-category-container">
           <label id="label-word" for="input-category"></label>
-          <input id="category-${cards[i].id}" 
+          <input id="input-category-${cards[i].id}" 
                  name="category-${cards[i].id}" 
                  type="text" 
                  class="input-category" 
@@ -161,8 +151,12 @@ export default {
         </div>
         <a href="#" class="category-words" data-id="${cards[i].id}">words: ${cards[i].words}</a>
         <div class="category-btn-container">
-          <button class="btn-update-category   
+          <button id="btnCatUpd-${cards[i].id}"
+                  class="btn-update-category   
                   category-btn" data-id="${cards[i].id}">Update</button>
+          <button id="btnCatSave-${cards[i].id}"
+                  class="btn-save-category   
+                  category-btn hidden" data-id="${cards[i].id}">Save</button>
           <button class="btn-add-word-category 
                   category-btn" data-id="${cards[i].id}">Add word</button>
           <button class="btn-delete-category 
