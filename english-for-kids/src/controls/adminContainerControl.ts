@@ -68,6 +68,9 @@ const handleCreateCategory = async (): Promise<void> => {
       };
       await Model.CreateCategory(newCategory);
       removeForm();
+      BurgerControl.initBurgerLinks();
+      window.location.hash = ' ';
+      window.location.hash = 'admin';
     }
   });
 
