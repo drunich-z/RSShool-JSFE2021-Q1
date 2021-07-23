@@ -174,36 +174,40 @@ export default {
     return result;
   },
 
-  // renderCardsForAdminPage(): string {
-  //   const html = `
-  //     <form id="form-card" action="submit" class="form-card">
-  //       <div class="form-row">
-  //         <label id="label-word" for="input-word">word:</label>
-  //         <input name="word" id="input-word" type="text" class="input-word">
-  //       </div>
-  //       <div class="form-row">
-  //         <label id="label-translation" for="input-translation">translation:</label>
-  //         <input name="translation" id="input-translation" type="text" class="input-transation">
-  //       </div>
-  //       <div class="form-row">
-  //         <label id="label-sound" for="input-sound">sound:</label>
-  //         <input name="sound" id="input-sound" type="file" class="input-sound" accept=".mp3" >
-  //       </div>
-  //       <div class="form-row">
-  //         <label id="label-picture" for="input-picture">picture:</label>
-  //         <input name="picture" id="input-picture" type="file" class="input-picture" accept="image/*">
-  //       </div>
+  renderNewCardForm(): string {
+    const html = `
+      <form id="form-new-card" action="submit" class="modal-form">
+        <div class="login-header">CREATE CARD</div>
+          <div class="form-row">
+            <label id="label-word" for="input-word">word:</label>
+            <input name="word" id="input-word" type="text" class="input-word">
+          </div>
+          <div class="form-row">
+            <label id="label-translation" for="input-translation">translation:</label>
+            <input name="translation" id="input-translation" type="text" class="input-transation">
+          </div>
+          <div class="form-row">
+            <label id="label-sound" for="input-sound">sound:</label>
+            <input name="sound" id="input-sound" type="file" class="input-sound" accept=".mp3" >
+          </div>
+          <div class="form-row">
+            <label id="label-picture" for="input-picture">picture:</label>
+            <input name="picture" id="input-picture" type="file" class="input-picture" accept="image/*">
+          </div>
 
-  //       <span id="output" class="output">
-  //         <img id="preview" class="preview" src="" alt="preview">
-  //       </span>
+          <span id="output" class="output">
+            <img id="preview" class="preview" src="" alt="preview">
+          </span>
 
-  //       <input id="form-card-submit" type="submit">
+          <div class="login-footer">
+            <button id="btnCancel" class="btn-cancel">Cancel</button>
+            <button id="btnOk" class="btn-ok">Ok</button>
+          </div>
 
-  //     </form>
-  //   `;
-  //   return html;
-  // },
+      </form>
+    `;
+    return html;
+  },
 
   renderLoginForm(): string {
     const html = `

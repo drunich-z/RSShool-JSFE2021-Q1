@@ -60,6 +60,13 @@ export default {
     });
   },
 
+  async CreateCard(inputBody: FormData): Promise<void> {
+    await fetch(`${BASE}${CARDS}/`, {
+      method: 'POST',
+      body: inputBody,
+    });
+  },
+
   // ********************************************************************************
 
   updateStatistics(card: CardLocalForStatistics): void {
