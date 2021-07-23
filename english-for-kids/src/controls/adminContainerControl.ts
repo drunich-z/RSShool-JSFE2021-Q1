@@ -71,8 +71,13 @@ const handleSaveUpdateCategory = async (target: HTMLElement) => {
   BurgerControl.initBurgerLinks();
 };
 
-const handleCategoryWords = (target: HTMLElement) => {
+const handleCategoryWords = async (target: HTMLElement) => {
   console.log(`shows words of category-${target.dataset.id}`);
+  Store.activeCategory = await Model.getCategoryById(Number(target.dataset.id));
+  Store.cards = await Model.getCardsOfCategoryById(Number(target.dataset.id));
+  const adminContainer = document.getElementById('main-container') as HTMLElement;
+  window.location.hash = 'admin-cards';
+  adminContainer.innerHTML = View.renderCardsForAdminCardsCategoryPage(Store.cards);
 };
 
 const handleCreateCategory = async (): Promise<void> => {

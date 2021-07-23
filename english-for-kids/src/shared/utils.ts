@@ -44,7 +44,7 @@ export default {
     audio.play();
   },
 
-  shuffle(arr: any[]): any[] {
+  shuffle(arr: CardLocal[]): CardLocal[] {
     let j;
     for (let i = arr.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1));

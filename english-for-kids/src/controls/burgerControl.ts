@@ -4,6 +4,11 @@ import View from '../view';
 import MainContainerControl from './mainContainerControl';
 import { Popup } from '../components/popup/popup';
 
+const STATISTICS = 'statistics';
+const MAIN = 'main';
+const CATEGORY = 'category';
+const ADMIN = 'admin';
+
 export default {
   burgerBtn: document.getElementById('burger-menu_button') as HTMLElement,
   burgerMenu: document.getElementById('burger-menu') as HTMLElement,
@@ -64,22 +69,22 @@ export default {
       if (!target.classList.contains('burger-link-login')
         && !target.classList.contains('burger-link-logout')
         && !target.classList.contains('burger-link-reset')) target.classList.add('burger-link_active');
-      if (target.dataset.type === 'main') {
-        Store.page = 'main';
-        window.location.hash = 'main';
+      if (target.dataset.type === MAIN) {
+        Store.page = MAIN;
+        window.location.hash = MAIN;
         this.handleBurger();
       }
-      if (target.dataset.type === 'category') {
-        Store.page = 'category';
+      if (target.dataset.type === CATEGORY) {
+        Store.page = CATEGORY;
         Store.activeCategory = await Model.getCategoryById(Number(target.dataset.id));
         Store.cards = await Model.getCardsOfCategoryById(Number(target.dataset.id));
         window.location.hash = ' ';
-        window.location.hash = 'category';
+        window.location.hash = CATEGORY;
         this.handleBurger();
       }
-      if (target.dataset.type === 'statistics') {
-        Store.page = 'statistics';
-        window.location.hash = 'statistics';
+      if (target.dataset.type === STATISTICS) {
+        Store.page = STATISTICS;
+        window.location.hash = STATISTICS;
         this.handleBurger();
       }
       if (target.dataset.type === 'login') {
@@ -92,12 +97,12 @@ export default {
         Model.resetBDToInitialState();
         this.initBurgerLinks();
         window.location.hash = ' ';
-        window.location.hash = 'main';
+        window.location.hash = MAIN;
         this.handleBurger();
       }
-      if (target.dataset.type === 'admin') {
-        Store.page = 'admin';
-        window.location.hash = 'admin';
+      if (target.dataset.type === ADMIN) {
+        Store.page = ADMIN;
+        window.location.hash = ADMIN;
         this.handleBurger();
       }
     }
@@ -110,9 +115,9 @@ export default {
     this.login.classList.toggle('hidden');
     this.reset.classList.toggle('hidden');
     this.handleBurger();
-    Store.page = 'main';
+    Store.page = MAIN;
     window.location.hash = ' ';
-    window.location.hash = 'main';
+    window.location.hash = MAIN;
   },
 
   handleLogin():void {
@@ -135,7 +140,7 @@ export default {
 
     // потом(наверное) на стороне сервера сделаю
     const authorize = (): boolean => {
-      if (loginInput.value === 'admin' && passwordInput.value === 'admin') return true;
+      if (loginInput.value === ADMIN && passwordInput.value === ADMIN) return true;
       return false;
     };
 
