@@ -1,7 +1,7 @@
 import './shared/types';
 
-// const BASE = 'http://localhost:3000/api';
-const BASE = 'https://efk-srv.herokuapp.com/api';
+const BASE = 'http://localhost:3000/api';
+// const BASE = 'https://efk-srv.herokuapp.com/api';
 const CATEGORY = '/categories';
 const CARDS = '/cards';
 const RESET = '/reset';

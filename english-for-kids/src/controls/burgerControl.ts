@@ -111,6 +111,7 @@ export default {
     this.reset.classList.toggle('hidden');
     this.handleBurger();
     Store.page = 'main';
+    window.location.hash = ' ';
     window.location.hash = 'main';
   },
 
