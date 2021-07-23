@@ -56,11 +56,12 @@ export default {
   },
 
   renderBurger(categories: Category[], authorized = false): string {
+    const categoriesCount = categories.length;
     let result = '';
     result = `<a id="burger-link-main" href="#main" class="burger-link 
       ${authorized ? '' : 'burger-link_active'}" data-type="main">MAIN</a>
     `;
-    for (let i = 0; i < categories.length; i++) {
+    for (let i = 0; i < categoriesCount; i++) {
       result += `<a id="burger-link-${categories[i].id}" href="#category"`
       + `class="burger-link" data-type="category" data-id="${categories[i].id}"`
       + `data-link="${categories[i].name}">${categories[i].name}</a>`;
@@ -169,6 +170,76 @@ export default {
       <div class="admin-category-card">
         <h3>Create new category</h3>
         <img class="new-category" src="./assets/resource/control-img/plus.png" alt="new category">
+      </div>
+    `;
+    return result;
+  },
+
+  renderCardsForAdminCardsCategoryPage(cards: CardLocal[]): string {
+    let result = '';
+    for (let i = 0; i < cards.length; i++) {
+      result += `
+      <div id="admin-word-card-${cards[i].word}" class="admin-card" data-word="${cards[i].word}">
+        <div class="card-row">
+          <label id="label-word" for="input-word">word:</label>
+          <input name="word" 
+                 id="input-word-${cards[i].word}"
+                 data-word="${cards[i].word}"
+                 value="${cards[i].word}" 
+                 type="text" class="input-word" disabled>
+        </div>
+        <div class="card-row">
+          <label id="label-translation" for="input-translation">translation:</label>
+          <input name="translation" 
+                 id="input-translation${cards[i].word}"
+                 data-word="${cards[i].word}"
+                 value="${cards[i].translation}" 
+                 type="text" class="input-transation" disabled>
+        </div>
+        <div class="card-row">
+          <label id="label-sound" for="input-sound">sound:</label>
+          <input name="sound" 
+                 id="input-sound-${cards[i].word}"
+                 value="${cards[i].audio}" 
+                 type="file" 
+                 class="input-sound" accept=".mp3" disabled>
+        </div>
+        <div class="card-row">
+          <label id="label-picture" for="input-picture">picture:</label>
+          <input name="picture" 
+                 id="input-picture-${cards[i].word}" 
+                 type="file" 
+                 class="input-picture" accept="image/*" disabled>
+        </div>
+
+        <div id="picture-preview-${cards[i].word}" class="picture-preview">
+          <img id="preview" class="preview" src="${cards[i].image}" alt="preview">
+        
+        </div>
+        
+        <div id="sound-preview-${cards[i].word}" class="picture-preview">
+          <img id="preview" class="preview" 
+               src="./assets/resource/control-img/play-sound.jpg" 
+               data-audio="${cards[i].audio}" alt="audio">
+        </div>
+
+        <div class="card-btn-container">
+          <button id="btnCardUpd-${cards[i].word}"
+                  class="btn-update-card   
+                  card-btn" data-id="${cards[i].word}">Update</button>
+          <button id="btnCardSave-${cards[i].word}"
+                  class="btn-save-card   
+                  card-btn hidden" data-id="${cards[i].word}">Save</button>
+          <button class="btn-delete-card 
+                  card-btn" data-id="${cards[i].word}">Delete</button>
+        </div>
+      </div>
+      `;
+    }
+    result += `
+      <div class="admin-add-new-card admin-card">
+        <h3>Create new card</h3>
+        <img class="new-card" src="./assets/resource/control-img/plus.png" alt="new card">
       </div>
     `;
     return result;
