@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@400;500&family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <title>Online-zoo</title>
+</head>
+<body class="body" id="body">
+  <div class="common-wrapper">
+    <header class="header">
+      <div class="header-wrapper">
+        <div class="header-left">
+          <a href="./" class="header-logo">
+            <img src="../../assets/images/logo.svg" alt="Logo" />  
+          </a>
+          <h1 class="header-h1">Online Zoo</h1>
+          <nav class="header-nav">
+            <ul>
+              <li>
+                <a href="#" class="header-nav-link active">about</a>
+              </li>
+              <li>
+                <a href="../map/index_map.html" class="header-nav-link">map</a>
+              </li>
+              <li>
+                <a href="../zoos/index.html" class="header-nav-link">zoos</a>
+              </li>
+              <li>
+                <a href="#" class="header-nav-link">contact us</a>
+              </li>
+              <li>
+                <a href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo" class="header-nav-link">design</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="header-search">
+            <input class="header-search-input" type="text">
+            <a href="#">
+              <img src="../../assets/icons/search_icon.svg" alt="search">
+            </a>
+          </div>
+          <a href="#" class="header-logIn" id="header-logIn" >log in</a>
+          <a href="#" class="header-signIn" id="header-signIn">sign up</a>
+          <a href="#" class="header-user hidden" 
+                      id="header-user"
+                      title=""
+                      data-authorized=false>
+            <img src="../../assets/icons/user_icon.svg" alt="user">
+            <div class="user-logout hidden" id="user-logout" >
+              Log out
+            </div>
+            
+          </a>
+          
+        </div>
+      </div>
+    </header>
+  
+    <section class="watch">
+      <div class="watch-wrapper">
+        <div class="watch-text-block">
+          <h2>
+            <span class="watch-text-main">Watch your favorite </span>
+            <span class="watch-text-main-dop"> animals online </span>
+          </h2>
+
+          <p class="watch-text-details">
+            Observe different animals from around the world online in live time. Help vulunteers to take a good care of animals, donate to your favorite ones.
+          </p>
+          <a class="watch-btn" href="../zoos/index.html">watch now</a>
+      </div>
+        
+        <div class="watch-picture-block">
+          <!--
+          <img class="hero-img" src="../../assets/images/panda.jpg" alt="hero-pict">
+          <svg class="svg-pict" viewBox="0 0 804 666" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+            <clipPath id="svg-hero-mask">
+              <path id="svg-path-hero-mask" d="M723.969 172.95C791.87 262.733 819.491 359.131 795.323 445.606C771.155 532.081 695.198 608.632 599.676 643.6C504.154 678.096 388.492 670.535 270.528 636.04C152.564 601.544 32.2988 539.641 5.82885 456.474C-20.6411 373.78 46.6846 269.348 134.15 176.258C222.192 82.6946 330.948 0 439.705 0C547.887 0.472541 656.643 83.1672 723.969 172.95Z" fill="#B9D5D9" fill-opacity="0.5"/>
+            </clipPath>
+          </defs>
+          </svg>
+          -->
+          <svg class="svg-pict" viewBox="0 0 804 666" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="svg-hero-mask" clipPathUnits = "objectBoundingBox">
+                <path id="svg-path-hero-mask" d="M0.901,0.26 C0.985,0.394,1,0.539,0.989,0.669 C0.959,0.799,0.865,0.914,0.746,0.966 C0.627,1,0.483,1,0.337,0.955 C0.19,0.903,0.04,0.81,0.007,0.685 C-0.026,0.561,0.058,0.404,0.167,0.265 C0.276,0.124,0.412,0,0.547,0 C0.682,0.001,0.817,0.125,0.901,0.26Z" fill="#B9D5D9" fill-opacity="0.2"/>
+              </clipPath>
+          </defs>
+          </svg>
+          <a href="../zoos/index.html" class="href-hero-img"></a>
+          <div class="watch-btn-play">
+            <a href="../zoos/index.html" class="watch-btn-play-href"></a>
+          </div>
+          
+        </div>
+    </section>
+
+    <section class="how-it-works"> <!-- how-it-works = hiw -->
+      <div class="hiw-wrapper">
+        <h2 class="hiw-title">how it works</h2>
+        <div class="hiw-container">
+          <div class="hiw-container-item">
+            <div class="hiw-container-item-img">
+              <img src="../../assets/icons/hiw_binoculars.svg" alt="binoculars">
+            </div>
+            <p class="hiw-container-item-text">Keep an eye on your favourite animals online</p>
+          </div>
+          <div class="hiw-container-item">
+            <div class="hiw-container-item-img">
+              <img src="../../assets/icons/hiw-heart.svg" alt="heart">
+            </div>
+            <p class="hiw-container-item-text">Become a part of the communtity</p>
+          </div>
+          <div class="hiw-container-item">
+            <div class="hiw-container-item-img">
+              <img src="../../assets/icons/hiw-hand_heart.svg" alt="help">
+            </div>
+            <p class="hiw-container-item-text">Support animals with the donations</p>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+    </section>
+
+    <section class="under-hiw">
+      <div class="under-hiw-bamboo">
+        <img src="../../assets/icons/bamboo.svg" alt="bamboo">
+      </div>
+      <div class="under-hiw-tree">
+        <img src="../../assets/icons/tree.svg" alt="tree">
+      </div>
+      <div class="under-hiw-small-tree">
+        <img src="../../assets/icons/tree.svg" alt="tree">
+      </div>
+      <div class="under-hiw-panda">
+        <img src="../../assets/icons/panda.svg" alt="panda">
+      </div>
+      <div class="under-hiw-big-bamboo">
+        <img src="../../assets/icons/bamboo.svg" alt="bamboo">
+      </div>
+      <div class="under-hiw-big-tree">
+        <img src="../../assets/icons/tree.svg" alt="tree">
+      </div>
+    </section>
+
+    <section class="pets-in-zoo">
+      <div class="pets-in-zoo-wrapper">
+        <div class="pets-header">
+          <h2 class="pets-title">Pets in zoo</h2>
+          <a href="../map/index_map.html" class="pets-favorite">
+            <img src="../../assets/icons/favorite.svg" alt="heart" class="heart-favorite">
+            </span >Choose your favorite</span>
+          </a>
+        </div>  
+        <div class="pets-wrapper">
+          <a href="../zoos/pandas.html" class="pets-item">
+            <div class="pets-item-img">
+              <img src="../../assets/images/panda2.jpg" alt="panda" class="pets-img"/>
+            </div>
+            <div class="pets-item-wrapper">
+              <div class="pets-item-text">
+                <div class="pets-item-title">Pandas</div>
+                <div class="pets-item-subtitle">
+                  Shenshuping Gengda Panda Center
+                </div>
+              </div>
+              <div class="pets-item-frame"></div>
+            </div>
+          </a>
+          <a href="../zoos/eagles.html" class="pets-item">
+            <div class="pets-item-img">
+              <img
+                src="../../assets/images/eagle.jpg" alt="eagle" class="pets-img"/>
+            </div>
+            <div class="pets-item-wrapper">
+              <div class="pets-item-text">
+                <div class="pets-item-title">Eagles</div>
+                <div class="pets-item-subtitle">Catalina Island</div>
+              </div>
+              <div class="pets-item-frame"></div>
+            </div>
+          </a>
+          <a href="../zoos/gorillas.html" class="pets-item">
+            <div class="pets-item-img">
+              <img src="../../assets/images/gorilla.jpg" alt="gorilla" class="pets-img"/>
+            </div>
+            <div class="pets-item-wrapper">
+              <div class="pets-item-text">
+                <div class="pets-item-title">Gorillas</div>
+                <div class="pets-item-subtitle">GRACE gorillas</div>
+              </div>
+              <div class="pets-item-frame"></div>
+            </div>
+          </a>
+          <a href="../zoos/alligators.html" class="pets-item">
+            <div class="pets-item-img">
+              <img src="../../assets/images/alligator.jpg" alt="alligator" class="pets-img"/>
+            </div>
+            <div class="pets-item-wrapper">
+              <div class="pets-item-text">
+                <div class="pets-item-title">Aligators</div>
+                <div class="pets-item-subtitle">
+                  St. Augustine's Alligator Farm Zoological Park
+                </div>
+              </div>
+              <div class="pets-item-frame"></div>
+            </div>
+          </a>
+          <a href="../zoos/elephants.html" class="pets-item">
+            <div class="pets-item-img">
+              <img src="../../assets/images/elephant.jpg" alt="elephant" class="pets-img"/>
+            </div>
+            <div class="pets-item-wrapper">
+              <div class="pets-item-text">
+                <div class="pets-item-title">Elephants</div>
+                <div class="pets-item-subtitle">Tembe Elephant Park</div>
+              </div>
+              <div class="pets-item-frame"></div>
+            </div>
+          </a>
+          <a href="#" class="pets-item">
+            <div class="pets-item-img">
+              <img src="../../assets/images/lemur.jpg" alt="lemurs" class="pets-img"/>
+            </div>
+            <div class="pets-item-wrapper">
+              <div class="pets-item-text">
+                <div class="pets-item-title">Lemurs</div>
+                <div class="pets-item-subtitle">Madagascar</div>
+              </div>
+              <div class="pets-item-frame"></div>
+            </div>
+          </a>
+        </div>
+        <div class="penguin"></div>
+      </div>
+    </section>
+
+    <section class="pay-and-feed">
+      <div class="pay-wrapper">
+        <div class="pay-header">
+          <h2>Pay and feed</h2>
+          <a href="#">
+            Donate to volunteers
+          </a>
+        </div>
+        <div class="pay-container">
+          <div class="pay-container-item">
+            <div class="pay-container-item-img">
+              <img src="../../assets/icons/donate.svg" alt="donate">
+            </div>
+            <p class="pay-container-text">You donate to your favourite animals </p>
+          </div>
+          <div class="pay-container-item pay-container-item-arrows">
+            <div class="pay-container-item-img">
+              <img src="../../assets/icons/food.svg" alt="food">
+            </div>
+            <p class="pay-container-text">Zoo Keepers feed animals with their favourite food</p>
+          </div>
+          <div class="pay-container-item">
+            <div class="pay-container-item-img">
+              <img src="../../assets/icons/monkey.svg" alt="monkey">
+            </div>
+            <p class="pay-container-text">Animals are healthy and happy</p>
+          </div>
+          <div class="pay-container-tree">
+            <img src="../../assets/icons/tree.svg" alt="tree">
+          </div>
+        </div>      
+      </div>
+    </section>
+
+    <section class="testimonial">
+      <div class="testimonial-wrapper">
+        <div class="testimonial-header">
+          <h2 class="testimonial-title">testimonials</h2>
+          <a href="#">
+            <div class="leave-feedback">
+              <img src="../../assets/icons/feedback.svg" alt="feedback">
+              <p class="testimonial-text">Leave feedback</p>
+            </div>
+          </a>
+        </div>
+        
+        <div class="auto-carousel">
+          <div class="auto-carusel-wrapper">
+            <div class="carousel">
+              <div class="testimonials">
+                <div class="testimonials-item">
+                    <div class="testimonial-box">
+                        <p class="testimonial-box-date">
+                          20 December 2020
+                        </p>
+                        <p class="testimonial-box-text">
+                            Awesome place to observe my favourite alligators at Florida, the quality of the video is
+                            great.
+                        </p>
+                    </div>
+                    <div class="testimonial-person">
+                        <img 
+                            class="testimonial-person-img" 
+                            src="../../assets/images/testimonial-Adam.jpg"
+                            alt="person photo">
+                        <p class="testimonial-person-name">
+                          Adam, Spain
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonials-item">
+                    <div class="testimonial-box">
+                        <p class="testimonial-box-date">
+                          20 December 2020
+                        </p>
+                        <p class="testimonial-box-text">
+                            Awesome place to observe my favourite alligators at Florida, the quality of the video is
+                            great.
+                        </p>
+                    </div>
+                    <div class="testimonial-person">
+                        <img 
+                            class="testimonial-person-img" 
+                            src="../../assets/images/testimonial-Chris.jpg"
+                            alt="person photo">
+                        <p class="testimonial-person-name">
+                          Chris, Australia
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonials-item">
+                    <div class="testimonial-box">
+                        <p class="testimonial-box-date">
+                          20 December 2020
+                        </p>
+                        <p class="testimonial-box-text">
+                            Awesome place to observe my favourite alligators at Florida, the quality of the video is
+                            great.
+                        </p>
+                    </div>
+                    <div class="testimonial-person">
+                        <img 
+                            class="testimonial-person-img" 
+                            src="../../assets/images/testimonial-Amely.jpg"
+                            alt="person photo">
+                        <p class="testimonial-person-name">
+                          Amely, USA
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="testimonials-item">
+                  <div class="testimonial-box">
+                      <p class="testimonial-box-date">
+                        20 December 2020
+                      </p>
+                      <p class="testimonial-box-text">
+                          Awesome place to observe my favourite alligators at Florida, the quality of the video is
+                          great.
+                      </p>
+                  </div>
+                  <div class="testimonial-person">
+                      <img 
+                          class="testimonial-person-img" 
+                          src="../../assets/images/testimonial-Adam.jpg"
+                          alt="person photo">
+                      <p class="testimonial-person-name">
+                        Adam, Spain
+                      </p>
+                  </div>
+                </div>
+                <div class="testimonials-item">
+                  <div class="testimonial-box">
+                      <p class="testimonial-box-date">
+                        20 December 2020
+                      </p>
+                      <p class="testimonial-box-text">
+                          Awesome place to observe my favourite alligators at Florida, the quality of the video is
+                          great.
+                      </p>
+                  </div>
+                  <div class="testimonial-person">
+                      <img 
+                          class="testimonial-person-img" 
+                          src="../../assets/images/testimonial-Chris.jpg"
+                          alt="person photo">
+                      <p class="testimonial-person-name">
+                        Chris, Australia
+                      </p>
+                  </div>
+                </div>
+                <div class="testimonials-item">
+                <div class="testimonial-box">
+                    <p class="testimonial-box-date">
+                      20 December 2020
+                    </p>
+                    <p class="testimonial-box-text">
+                        Awesome place to observe my favourite alligators at Florida, the quality of the video is
+                        great.
+                    </p>
+                </div>
+                <div class="testimonial-person">
+                    <img 
+                        class="testimonial-person-img" 
+                        src="../../assets/images/testimonial-Amely.jpg"
+                        alt="person photo">
+                    <p class="testimonial-person-name">
+                      Amely, USA
+                    </p>
+                </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        
+        
+        </div>
+        <!--
+        <button class="button-test" id = "button-test">test</button>
+        -->
+      </div>
+    </section>
+
+    <section class="favorites">
+      <div class="favorites-wrapper">
+        <div class="favorites-header">
+          <h2 class="favorites-title">look at this beautiful animals</h2>
+        </div>
+        <div class="favorites-animals-wrapper">
+          <div class="animals-list">
+            <div class="animals-list-item">
+              <a href="../zoos/pandas.html" class="animal-img-wrapper">
+                <img src="../../assets/images/animals_panda.jpg" alt="panda" class="animal-img">
+              </a>
+              <h4 class="animal-name">pandas</h4>
+            </div>
+            <div class="animals-list-item">
+              <a href="../zoos/gorillas.html" class="animal-img-wrapper">
+                <img src="../../assets/images/animals_gorilla.jpg" alt="gorilla" class="animal-img">
+              </a>
+              <h4 class="animal-name">gorillas</h4>
+            </div>
+            <div class="animals-list-item">
+              <a href="../zoos/eagles.html" class="animal-img-wrapper">
+                <img src="../../assets/images/animals_eagle.jpg" alt="eagle" class="animal-img">
+              </a>
+              <p class="animal-name">eagles</p>
+            </div>
+            <div class="animals-list-item">
+              <a href="../zoos/alligators.html" class="animal-img-wrapper">
+                <img src="../../assets/images/animals_alligator.jpg" alt="alligator" class="animal-img">
+              </a>
+              <h4 class="animal-name">alligators</h4>
+            </div>
+            <div class="animals-list-item">
+              <a href="../zoos/elephants.html" class="animal-img-wrapper">
+                <img src="../../assets/images/animals_elephant.jpg" alt="elephant" class="animal-img">
+              </a>
+              <h4 class="animal-name">elephants</h4>
+            </div>
+            <div class="animals-list-item">
+              <a href="#" class="animal-img-wrapper">
+                <img src="../../assets/images/animals_lemur.jpg" alt="lemur" class="animal-img">
+              </a>
+              <h4 class="animal-name">lemurs</h4>
+            </div>
+            <div class="animals-list-item">
+              <a href="../zoos/pandas.html" class="animal-img-wrapper">
+                <img src="../../assets/images/animals_panda.jpg" alt="panda" class="animal-img">
+              </a>
+              <h4 class="animal-name">pandas</h4>
+            </div>
+
+          </div>
+          <div class="animals-arrows">
+            <div class="animals-arrow-next"></div>
+            <div class="animals-arrow-previous"></div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-left">
+          <a href="./" class="header-logo">
+            <img src="../../assets/images/logo.svg" alt="Logo" />  
+          </a>
+          <nav class="footer-nav">
+            <ul>
+              <li>
+                <a href="#" class="header-nav-link">about</a>
+              </li>
+              <li>
+                <a href="../map/index_map.html" class="header-nav-link">map</a>
+              </li>
+              <li>
+                <a href="../zoos/index.html" class="header-nav-link">zoos</a>
+              </li>
+              <li>
+                <a href="#" class="header-nav-link">contact us</a>
+              </li>
+              <li>
+                <a href="https://www.figma.com/file/vzrwoqf0kSG1uOify8BRBR/online-zoo" class="header-nav-link">design</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-rigth">
+          <div class="footer-design">
+            Design by Lemeshko Kateryna
+          </div>
+          <div class="footer-design">
+            ©RSSchool and ©Yem Digital 2021
+          </div>
+          
+          
+        </div>
+      </div>
+    </footer>
+
+    <div class="form-signIn hidden" id="form-signIn" data-currentform='signIn'>
+      <div class="signIn-header">
+        <img src="../../assets/icons/popup-logo.svg" alt="logo">
+      </div>
+      <div class="signIn-wrapper">
+        <div class="signIn-logIn-block">
+          <button class="btn-signIn popup-btn-active" 
+                  id="btn-signIn"
+                  data-activateform='signIn'>
+                  create account
+          </button>
+          <button class="btn-logIn" 
+                  id="btn-logIn"
+                  data-activateform='logIn'>
+                  log in
+          </button>
+        </div>
+        <div class="social-btns-block">
+          <button class="btn-google-signIn" id="btn-google-signIn">
+            <img src="../../assets/icons/popup-google-icon.svg" alt="Google">
+            Google Sign In
+          </button>
+          <button class="btn-facebook-signIn" id="btn-facebook-signIn">
+            <img src="../../assets/icons/popup-facebook-icon.svg" alt="Facebook">
+            Facebook Sign In
+          </button>
+        </div>
+        <form class="signIn-send-form" action="">
+          <div class="signIn-name-wrapper" id = "signIn-name-wrapper" >
+            <label class="signIn-bigLabel" for="signIn-name"> name </label>
+            <input class="signIn-name" type="text" id="signIn-name" required >
+          </div>
+          <div class="signIn-email-wrapper">
+            <label class="signIn-bigLabel" for="signIn-email"> email </label>
+            <input class="signIn-email" type="email" id="signIn-email" required>
+          </div>
+          <div class="signIn-password-wrapper">
+            <label class="signIn-bigLabel" for="signIn-password">password </label>
+            <input class="signIn-password" type="password" minlength=8 id="signIn-password" required></input>  
+          </div>
+          <div class="signIn-checkbox-wrapper" id="signIn-checkbox-wrapper">
+            <input class="signIn-checkbox" type="checkbox" id="signIn-checkbox" required></input>
+            <label class="signIn-checkbox-label" for="signIn-checkbox hidden">
+              Agree with the 
+              <a href="#">User Agreement</a> and 
+              <a href="#">Privacy Policy</a>
+            </label>
+          </div>
+          <button class="btn-signIn-send btn-signIn-invalid" id="btn-signIn-send" type="submit">SEND</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="cover hidden" id="cover">
+
+    </div>
+
+  </div>  
+  <script src="popup.js"></script>
+  <script src="slider.js"></script>
+ <!-- <script src="popup.js"></script>-->
+</body>
+</html>
